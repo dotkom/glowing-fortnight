@@ -8,7 +8,7 @@ build: install
 	@echo Building project...
 	@npm run build
 
-watch:
+watch: install
 	@echo Starting file watcher...
 	@npm run watch
 
