@@ -1,23 +1,22 @@
 import React from 'react';
 import D from 'react-dom';
 
-import About from './components/about/';
+import About from './components/about';
+import Fadder from './components/fadder';
+import Join from './components/join';
 
 const App = () => {
 
   return (
     <div>
-      <h1>Hei</h1>
-      <About text="12345678"/>
+      <About />
+      <Fadder />
+      <Join />
     </div>
   );
 };
-
 
 D.render(
   <App />,
   document.getElementById('app')
 );
-
-
-console.log('tjohei')
