@@ -1,5 +1,7 @@
 import Day from './day';
 
+const MS_IN_DAY = 1000*60*60*24;
+
 const Calendar = ({ events }) => {
 
   let id = 0;
@@ -7,25 +9,18 @@ const Calendar = ({ events }) => {
   let daysEvents = [];
   let allDays = [];
 
-  const MS_IN_DAY = 1000*60*60*24;
-
   for (let event of events) {
 
     event.start_time = new Date(event.start_time);
     let epochDays = Math.floor(event.start_time.getTime() / MS_IN_DAY);
-
-    if (lastEpochDays == 0) {
-      daysEvents.push(event);
-      lastEpochDays = epochDays;
-    }
-    else if (epochDays > lastEpochDays) {
+    
+    if (epochDays > lastEpochDays) {
       allDays.push(<Day events={daysEvents} key={id}/>);
-      daysEvents = [ event ];
-      lastEpochDays = epochDays;
+      daysEvents = [];
     }
-    else if (epochDays == lastEpochDays) {
-      daysEvents.push(event);
-    }
+
+    lastEpochDays = epochDays;
+    daysEvents.push(event);
     id++;
   }
   allDays.push(<Day events={daysEvents} key={id}/>);
