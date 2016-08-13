@@ -3,12 +3,32 @@
 @import 'components/components';
 
 body {
-  font: 12px/20px HelveticaNeue-thin, sans-serif;
+  font-size: 16px;
+  font-family: HelveticaNeue-Thin, sans-serif;
+  line-height: 1.625;
+  
   background-color: #001932;
   color: #fff;
 }
 
-#app {
-
+h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
 }
+
+a {
+  color: #72afec;
+  text-decoration: none;
+}
+
+#app {
+}
+
+.component {
+  width: 960px;
+  margin: 0 auto;
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
 
