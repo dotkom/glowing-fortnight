@@ -9,25 +9,21 @@ const Calendar = ({ events }) => {
   let daysEvents = [];
   let allDays = [];
 
-  
-
   for (let event of events) {
 
     event.start_time = new Date(event.start_time);
     let epochDays = Math.floor(event.start_time.getTime() / MS_IN_DAY);
 
     if (lastEpochDays == 0) {
-      daysEvents.push(event);
       lastEpochDays = epochDays;
     }
     else if (epochDays > lastEpochDays) {
       allDays.push(<Day events={daysEvents} key={id}/>);
-      daysEvents = [ event ];
+      daysEvents = [];
       lastEpochDays = epochDays;
     }
-    else if (epochDays == lastEpochDays) {
-      daysEvents.push(event);
-    }
+
+    daysEvents.push(event);
     id++;
   }
   allDays.push(<Day events={daysEvents} key={id}/>);
