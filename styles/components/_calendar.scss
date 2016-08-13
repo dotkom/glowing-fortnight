@@ -4,5 +4,51 @@
 
 .cal-day {
   position: relative;
+}
 
+.cal-dayString {
+  color: $orange;
+  position: absolute;
+  top: 0;
+}
+
+.cal-title {
+  font-size: 22px;
+}
+
+.cal-event {
+  margin-left: 160px;
+  position: relative;
+}
+
+.cal-event-header {
+  display: flex;
+}
+
+.cal-event-dateString {
+  width: 130px;
+}
+
+.cal-event-indicator {
+  background-color: #fff;
+  border-radius: 50%;
+  width: 13px;
+  height: 13px;
+  position: absolute;
+  top: 10px;
+  left: 79px;
+}
+
+.cal-event-content {
+  margin-left: 130px;
+  word-wrap: break-word;
+}
+
+.cal-timeline {
+  position: absolute;
+  top: 100px;
+  bottom: 65px;
+  left: 290px;
+  background-color: #fff;
+  width: 1px;
 }
