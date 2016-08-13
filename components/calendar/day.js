@@ -15,7 +15,7 @@ const Day = ({ events }) => {
 
   return (
     <div>
-      <h2>{dayNames[ events[ 0 ].start_time.getDay() ] + ' ' + events[ 0 ].start_time.getDate() + '. ' + monthNames[ events[ 0 ].start_time.getMonth() ];}</h2>
+      <h2>{dayNames[ events[ 0 ].start_time.getDay() ] + ' ' + events[ 0 ].start_time.getDate() + '. ' + monthNames[ events[ 0 ].start_time.getMonth() ]}</h2>
       {eventList}
       <br />
     </div>
