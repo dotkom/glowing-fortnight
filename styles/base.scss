@@ -25,10 +25,9 @@ a {
 }
 
 .component {
-  width: 960px;
+  max-width: 960px;
   margin: 0 auto;
-  padding-top: 35px;
-  padding-bottom: 35px;
+  padding: 35px 25px;
 }
 
 
