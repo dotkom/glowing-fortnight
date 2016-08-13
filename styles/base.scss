@@ -2,9 +2,11 @@
 @import 'variables';
 @import 'components/components';
 
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900,900italic);
+
 body {
   font-size: 16px;
-  font-family: HelveticaNeue-Thin, sans-serif;
+  font-family: HelveticaNeue-Thin, 'Source Sans Pro', sans-serif;
   line-height: 1.625;
   
   background-color: #001932;
@@ -15,6 +17,7 @@ h1 {
   font-size: 32px;
   font-family: HelveticaNeue-UltraLight, sans-serif;
   margin-bottom: 10px;
+  font-weight: 200;
 }
 
 a {
