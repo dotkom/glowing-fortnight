@@ -13,3 +13,20 @@
   font-size: 20px;
 }
 
+.about-mainPageButton {
+  border: none;
+  padding: 15px 15px;
+  background: none;
+  border: 1px solid #fff;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-top: 15px;
+  outline : none;
+
+  &:hover {
+    color: rgba(250, 160, 0, 1.0);
+    border-color: rgba(250, 160, 0, 1.0);
+    cursor: pointer;
+  }
+}
