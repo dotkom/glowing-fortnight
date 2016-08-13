@@ -1,11 +1,25 @@
 import Event from './event';
 
-const Day = ({events}) => {
+const Day = ({ events }) => {
+
+  let id = 0;
+  let eventList = [];
+
+  for (let e of events) {
+    eventList.push(<Event info={e} key={id}/>);
+    id++;
+  }
+
+  let dayNames = [ 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag', 'Søndag' ];
+  let monthNames = [ 'januar', 'februar', 'mars', 'april', 'mai', 'juni', 'juli', 'august', 'september', 'oktober', 'november', 'desember' ];
+
+  let dayString = dayNames[ events[ 0 ].start_time.getDay() ] + ' ' + events[ 0 ].start_time.getDate() + '. ' + monthNames[ events[ 0 ].start_time.getMonth() ];
+
   return (
     <div>
-      <h2>{/*events[0].start_time*/}Tirsdag 16. august</h2>
-      <Event info={events[0]} />
-      <Event info={events[1]} />
+      <h2>{dayString}</h2>
+      {eventList}
+      <br />
     </div>
   );
 };
