@@ -11,8 +11,8 @@ const Day = ({ events, clickHandler }) => {
   const MONTH_NAME = MONTH_NAMES[ DAY.getMonth() ];
 
   return (
-    <div>
-      <h2>{`${DAY_NAME} ${DATE}. ${MONTH_NAME}`}</h2>
+    <div className="cal-day">
+      <h2 className="cal-dayString">{`${DAY_NAME} ${DATE}. ${MONTH_NAME}`}</h2>
       { events.map((e, id) => {
         return <Event clickHandler={clickHandler} title={e.title} start_time={e.start_time} content={e.content} key={id}/>
       })}
