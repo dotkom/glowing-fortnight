@@ -20,6 +20,10 @@ h1 {
 a {
   color: #72afec;
   text-decoration: none;
+
+  &:hover {
+    color: #2f6397;
+  }
 }
 
 p {
