@@ -1,5 +1,4 @@
-const Event = ({ title, start_time, content}) => {
-
+const Event = ({ title, start_time, content, clickHandler }) => {
   return (
     <div>
       <h3>{title}</h3>
