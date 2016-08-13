@@ -1,13 +1,13 @@
-const Event = ({ info }) => {
+const Event = ({ title, start_time, content}) => {
 
-  const start = info.start_time;
+  const start = start_time;
   const startTime = start.toTimeString().substr(0, 5);
 
   return (
     <div>
-      <h3>{info.title}</h3>
+      <h3>{title}</h3>
       <p>{startTime}</p>
-      <p>{info.content}</p><br />
+      <p>{content}</p><br />
     </div>
   );
 };

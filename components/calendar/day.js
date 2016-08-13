@@ -6,7 +6,7 @@ const Day = ({ events }) => {
   let eventList = [];
 
   for (let e of events) {
-    eventList.push(<Event info={e} key={id}/>);
+    eventList.push(<Event title={e.title} start_time={e.start_time} content={e.content} key={id}/>);
     id++;
   }
 
