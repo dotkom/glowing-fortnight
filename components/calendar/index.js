@@ -1,5 +1,7 @@
 import Day from './day';
 
+const MS_IN_DAY = 1000*60*60*24;
+
 const Calendar = ({ events }) => {
 
   let id = 0;
@@ -7,7 +9,7 @@ const Calendar = ({ events }) => {
   let daysEvents = [];
   let allDays = [];
 
-  const MS_IN_DAY = 1000*60*60*24;
+  
 
   for (let event of events) {
 
