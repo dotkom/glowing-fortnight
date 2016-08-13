@@ -3,8 +3,7 @@ import Event from './event';
 const DAY_NAMES = [ 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag', 'Søndag' ];
 const MONTH_NAMES = [ 'januar', 'februar', 'mars', 'april', 'mai', 'juni', 'juli', 'august', 'september', 'oktober', 'november', 'desember' ];
 
-const Day = ({ events }) => {
-  
+const Day = ({ events, clickHandler }) => {
   const DAY = events[ 0 ].start_time;
 
   const DAY_NAME = DAY_NAMES[ DAY.getDay() ];
@@ -15,7 +14,7 @@ const Day = ({ events }) => {
     <div>
       <h2>{`${DAY_NAME} ${DATE}. ${MONTH_NAME}`}</h2>
       { events.map((e, id) => {
-        return <Event title={e.title} start_time={e.start_time} content={e.content} key={id}/>
+        return <Event clickHandler={clickHandler} title={e.title} start_time={e.start_time} content={e.content} key={id}/>
       })}
       <br />
     </div>
