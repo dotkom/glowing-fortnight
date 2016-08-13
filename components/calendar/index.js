@@ -26,7 +26,7 @@ const Calendar = ({ events }) => {
   allDays.push(<Day events={daysEvents} key={id}/>);
 
   return (
-    <div>
+    <div id="calendar" className="component">
       <h1>Calendar</h1>
       {allDays}
     </div>
