@@ -13,16 +13,13 @@ const Calendar = ({ events }) => {
 
     event.start_time = new Date(event.start_time);
     let epochDays = Math.floor(event.start_time.getTime() / MS_IN_DAY);
-
-    if (lastEpochDays == 0) {
-      lastEpochDays = epochDays;
-    }
-    else if (epochDays > lastEpochDays) {
+    
+    if (epochDays > lastEpochDays) {
       allDays.push(<Day events={daysEvents} key={id}/>);
       daysEvents = [];
-      lastEpochDays = epochDays;
     }
 
+    lastEpochDays = epochDays;
     daysEvents.push(event);
     id++;
   }
