@@ -1,10 +1,12 @@
 const Event = ({info}) => {
-  console.log(info.start_time)
+
+  // Getting a hh:mm timestamp out of the data
   const start = new Date(info.start_time);
-  console.log(start)
-  const startTime = start.getUTCHours() + ':' + start.getUTCMinutes();
+  const startTime = start.toTimeString().substr(0,5);
+
   return (
     <div>
+      <br />
       <h3>{info.title}</h3>
       <p>{startTime}</p>
       <p>{info.content}</p>

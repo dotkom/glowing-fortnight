@@ -27,25 +27,25 @@ const sample = {
   "previous": null,
   "results": [
     {
-      "title": "kek1",
+      "title": "Title of first ever event",
       "content": "kek some keks",
       "start_time": "2016-08-10T23:00:00Z",
       "end_time": "2016-08-10T23:00:00Z"
     },
     {
-      "title": "kek2uppermostboogaloo",
+      "title": "Title of day 2 first event",
       "content": "day 2, kek more keks",
       "start_time": "2016-09-11T03:00:00Z",
       "end_time": "2016-09-11T04:00:00Z"
     },
     {
-      "title": "continualkek",
+      "title": "Title of day 2 SECOND event",
       "content": "pretty warmed up on keking now",
       "start_time": "2016-09-11T05:00:00Z",
       "end_time": "2016-09-11T06:00:00Z"
     },
     {
-      "title": "kekdown",
+      "title": "Title of day 3 only event",
       "content": "third day, cool it on the keks m8",
       "start_time": "2016-10-11T10:00:00Z",
       "end_time": "2016-10-11T12:00:00Z"

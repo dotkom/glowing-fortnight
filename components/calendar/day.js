@@ -1,11 +1,11 @@
 import Event from './event';
 
 const Day = ({events}) => {
-  console.log(events[0])
   return (
     <div>
-      <h2>{events[0].start_time}</h2>
+      <h2>{/*events[0].start_time*/}Tirsdag 16. august</h2>
       <Event info={events[0]} />
+      <Event info={events[1]} />
     </div>
   );
 };
