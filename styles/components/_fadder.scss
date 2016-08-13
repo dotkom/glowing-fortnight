@@ -1,0 +1,14 @@
+#fadder {
+  background-color: #fff;
+  color: #222;
+
+  transform: skew(0deg, -2deg);
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  margin-bottom: 85px;
+
+  .component {
+    transform: skew(0deg, 2deg);
+  }
+}
