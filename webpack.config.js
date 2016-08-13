@@ -1,9 +1,16 @@
 var path = require('path');
+var webpack = require('webpack');
+
 
 module.exports = {
-  entry: './index.js',
+  entry: [
+    'webpack-dev-server/client?http://localhost:3000/',
+    'webpack/hot/dev-server',
+    './index.js'
+  ],
   output: {
     path: path.join(__dirname, 'dist'),
+    publicPath: '/dist/',
     filename: 'bundle.js'
   },
   module: {
@@ -21,5 +28,8 @@ module.exports = {
   },
   sassLoader: {
     includePath: [path.resolve(__dirname, './styles')]
-  }
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ]
 };
