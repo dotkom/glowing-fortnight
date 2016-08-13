@@ -1,0 +1,18 @@
+FROM glowing-fortnight-build
+MAINTAINER sklirg
+
+ENV APP_DIR /srv/app
+ENV DIST_DIR /dist
+
+RUN mkdir -p $APP_DIR
+RUN mkdir -p $DIST_DIR
+
+WORKDIR $APP_DIR
+COPY . $APP_DIR
+
+RUN npm run build
+
+# Exposing the volume containing bundle.js
+VOLUME ["/dist"]
+
+CMD ["cp", "/srv/app/dist/bundle.js", "/dist/bundle.js"]
