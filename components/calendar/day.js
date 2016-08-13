@@ -10,12 +10,17 @@ const Day = ({ events }) => {
     id++;
   }
 
-  const dayNames = [ 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag', 'Søndag' ];
-  const monthNames = [ 'januar', 'februar', 'mars', 'april', 'mai', 'juni', 'juli', 'august', 'september', 'oktober', 'november', 'desember' ];
+  const DAY_NAMES = [ 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag', 'Søndag' ];
+  const MONTH_NAMES = [ 'januar', 'februar', 'mars', 'april', 'mai', 'juni', 'juli', 'august', 'september', 'oktober', 'november', 'desember' ];
+
+  const DAY = events[ 0 ].start_time;
+  const DAY_NAME = DAY_NAMES[ DAY.getDay() ];
+  const DATE = DAY.getDate();
+  const MONTH_NAME = MONTH_NAMES[ DAY.getMonth() ];
 
   return (
     <div>
-      <h2>{dayNames[ events[ 0 ].start_time.getDay() ] + ' ' + events[ 0 ].start_time.getDate() + '. ' + monthNames[ events[ 0 ].start_time.getMonth() ]}</h2>
+      <h2>{`${DAY_NAME} ${DATE}. ${MONTH_NAME}`}</h2>
       {eventList}
       <br />
     </div>
