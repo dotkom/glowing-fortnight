@@ -7,10 +7,12 @@ const Calendar = ({ events }) => {
   let daysEvents = [];
   let allDays = [];
 
+  const MS_IN_DAY = 1000*60*60*24;
+
   for (let event of events) {
 
     event.start_time = new Date(event.start_time);
-    let epochDays = Math.floor(event.start_time.getTime() / 8.64e7);
+    let epochDays = Math.floor(event.start_time.getTime() / MS_IN_DAY);
 
     if (lastEpochDays == 0) {
       daysEvents.push(event);
