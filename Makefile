@@ -14,6 +14,6 @@ watch: install
 
 dev: install
 	@echo Starting dev server
-	@npm start
+	@npm run dev
 
 .PHONY: default install build watch dev

@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack -w",
-    "start": "node server.js --inline"
+    "dev": "node server.js --inline",
+    "start": "npm run dev"
   },
   "repository": {
     "type": "git",
