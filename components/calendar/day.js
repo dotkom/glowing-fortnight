@@ -6,6 +6,7 @@ const MONTH_NAMES = [ 'januar', 'februar', 'mars', 'april', 'mai', 'juni', 'juli
 const Day = ({ events }) => {
   
   const DAY = events[ 0 ].start_time;
+
   const DAY_NAME = DAY_NAMES[ DAY.getDay() ];
   const DATE = DAY.getDate();
   const MONTH_NAME = MONTH_NAMES[ DAY.getMonth() ];
