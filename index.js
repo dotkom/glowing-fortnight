@@ -7,6 +7,7 @@ import About from './components/about';
 import Fadder from './components/fadder';
 import Partners from './components/partners';
 import Join from './components/join';
+import Contact from './components/contact';
 import Social from './components/social';
 
 const App = () => {
@@ -16,7 +17,9 @@ const App = () => {
       <Fadder />
 
       <Join />
+
       <Social />
+      <Contact />
       <Partners />
     </div>
   );
