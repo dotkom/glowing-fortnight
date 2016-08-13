@@ -4,5 +4,10 @@
 
 .social-icon {
   padding: 0 20px;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+  }
 }
 
