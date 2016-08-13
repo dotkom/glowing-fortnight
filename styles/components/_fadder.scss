@@ -12,3 +12,22 @@
     transform: skew(0deg, 2deg);
   }
 }
+
+.fadder-content {
+  display: flex;
+}
+
+.fadder-description {
+  width: 70%;
+}
+
+.fadder-imageColumn {
+  width: 30%;
+  display: relative;
+}
+
+.fadder-image {
+  height: 250px;
+  position: absolute;
+  top: 0px;
+}
