@@ -2,7 +2,7 @@ resources:
 - name: glowing-fortnight
   type: git
   source:
-    uri: https://github.com:dotkom/glowing-fortnight.git
+    uri: https://github.com/dotkom/glowing-fortnight.git
     branch: master
 - name: build-deps
   type: docker-image
