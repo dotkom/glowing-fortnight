@@ -126,7 +126,7 @@ const Calendar = React.createClass({
 
     return (
       <div id="calendar" className="component">
-        <h1>Program</h1>
+        <h1>Program <a href="https://online.ntnu.no/splash/events.ics">iCalendar</a></h1>
         <div className="cal-timeline"></div>
 
 	{ preDaysSection }
