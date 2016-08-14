@@ -18,7 +18,7 @@ const Slack = React.createClass({
     }
   },
 
-  requestInvitationEmail: function (event) {
+  requestInvitationEmail: function () {
     var self = this;
 
     if (self.state.email.length < 5 || self.state.email.indexOf('@') < 0) {
@@ -56,6 +56,10 @@ const Slack = React.createClass({
     this.setState(Object.assign({}, this.state, { email: event.target.value }));
   },
 
+  handleKeyPress: function (event) {
+    if (event.key === 'Enter') this.requestInvitationEmail();
+  },
+
   render: function () {
     var self = this;
 
@@ -72,7 +76,8 @@ const Slack = React.createClass({
                  id="slack-email-inputfield"
                  value={self.state.email}
                  placeholder="Skriv inn din E-postaddresse..."
-                 onChange={self.handleChange} />
+                 onChange={self.handleChange}
+                 onKeyPress={self.handleKeyPress}/>
           <button id="slack-submit-button"
                   onClick={self.requestInvitationEmail}
                   disabled={self.state.triggered}>
