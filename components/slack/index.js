@@ -41,31 +41,30 @@ const Slack = React.createClass({
       method: 'POST',
       mode: 'cors'
     })
-    .then((response) => {
-      if (!response.ok) {
-        var errorMsg = 'Det oppstod en uventet feil.';
-        try {
-          data = response.json();
-        } catch (error) {
-          throw new Error(errorMsg)
+      .then((response) => {
+        if (!response.ok) {
+          return response.json();
         }
 
-        if (data.detail !== undefined) errorMsg = data.detail;
-        else if (data.email !== undefined) errorMsg = data.email;
+        this.setState(Object.assign({}, this.state, {
+          triggered: true,
+          success: `En invitasjon ble sendt til ${self.state.email}!`,
+          error: null
+        }));
+      })
+      .then((response) => {
+        if (response === undefined) return;
+        var errorMsg = 'Det oppstod en uventet feil.';
+
+        if (response.detail !== undefined) errorMsg = response.detail;
+        else if (response.email !== undefined) errorMsg = response.email;
 
         throw new Error(errorMsg);
-      }
-
-      this.setState(Object.assign({}, this.state, {
-        triggered: true,
-        success: `En invitasjon ble sendt til ${self.state.email}!`,
-        error: null
-      }));
-    })
-    .catch((error) => {
-      console.error(error);
-      this.setState(Object.assign({}, this.state, { error: error.message, success: null }));
-    })
+      })
+      .catch((error) => {
+        console.error(error);
+        this.setState(Object.assign({}, this.state, { error: error.message, success: null }));
+      })
   },
 
   handleChange: function (event) {
