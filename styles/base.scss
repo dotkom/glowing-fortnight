@@ -10,7 +10,7 @@ body {
   font-weight: 300;
   line-height: 1.625;
   
-  background-color: #001932;
+  background-color: $dark-blue;
   color: #fff;
 }
 
@@ -24,6 +24,10 @@ h1 {
 a {
   color: #72afec;
   text-decoration: none;
+
+  &:hover {
+    color: #2f6397;
+  }
 }
 
 p {
@@ -37,6 +41,16 @@ p {
   max-width: 960px;
   margin: 0 auto;
   padding: 45px 45px;
+}
+
+@media screen and (max-width: 376px) {
+  h1 {
+    font-size: 18px;
+  }
+
+  body {
+    font-size: 14px;
+  }
 }
 
 

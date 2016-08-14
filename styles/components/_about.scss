@@ -30,3 +30,13 @@
     cursor: pointer;
   }
 }
+
+@media screen and (max-width: 376px) {
+  #header {
+    padding-top: 130px;
+  }
+
+  .about-description {
+    font-size: 14px;
+  }
+}

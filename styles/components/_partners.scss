@@ -13,6 +13,12 @@
   
   margin-right: 55px;
   margin-top: 35px;
+
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+  }
 }
 
 /* Specific rules

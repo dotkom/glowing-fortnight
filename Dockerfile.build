@@ -1,0 +1,14 @@
+FROM node:6-slim
+MAINTAINER sklirg
+
+ENV APP_DIR /srv/app
+
+RUN mkdir -p $APP_DIR
+
+WORKDIR $APP_DIR
+COPY package.json $APP_DIR
+
+RUN npm set progress=false
+RUN npm install
+
+CMD ["npm", "run", "build"]

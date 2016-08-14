@@ -31,3 +31,15 @@
   position: absolute;
   top: 0px;
 }
+
+
+@media screen and (max-width: 376px) {
+  .fadder-imageColumn {
+    display: none;
+  }
+
+  .fadder-description {
+    width: 100%;
+  }
+  
+}
