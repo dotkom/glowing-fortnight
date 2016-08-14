@@ -10,7 +10,7 @@
 .partner {
   max-height: 40px;
   display: inline-block;
-  
+
   margin-right: 55px;
   margin-top: 35px;
 
@@ -24,7 +24,6 @@
 /* Specific rules
 ------------------------------------------------------------------------------*/
 #sopraSteria {
-  display: block;
   margin: 0 auto;
 }
 
@@ -40,3 +39,10 @@
 
 }
 
+@media screen and (max-width: 425px) {
+  .partner {
+    display: block;
+    margin: 35px auto;
+    max-height: 30px;
+  }
+}

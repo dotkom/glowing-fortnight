@@ -35,8 +35,8 @@ const Calendar = React.createClass({
       });
   },
 
-  clickHandler: function (id) {
-    // this.setState(Object.assign({}, this.state, { active: id }));
+  eventClickHandler: function (id) {
+    this.setState(Object.assign({}, this.state, { active: id }));
   },
 
   render: function () {
@@ -56,17 +56,18 @@ const Calendar = React.createClass({
 
     const events = this.state.events;
 
-    for (let event of events) {
+    events.forEach(function (event, index) {
       event.start_time = new Date(event.start_time);
+      event.index = index;
 
       let epochDays = Math.floor(event.start_time.getTime() / MS_IN_DAY);
 
       if (epochDays > lastEpochDays && lastEpochDays != 0) {
         if (epochDays < TODAY) {
-          preDays.push(<Day events={daysEvents} key={id}/>);
+          preDays.push(<Day events={daysEvents} active={this.state.active} eventClickHandler={this.eventClickHandler} key={id}/>);
         }
         else {
-          postDays.push(<Day events={daysEvents} key={id}/>);
+          postDays.push(<Day events={daysEvents} active={this.state.active} eventClickHandler={this.eventClickHandler} key={id}/>);
         }
 
         daysEvents = [];
@@ -75,10 +76,10 @@ const Calendar = React.createClass({
       lastEpochDays = epochDays;
       daysEvents.push(event);
       id++;
-    }
+    }, this);
 
     if (daysEvents.length > 0) {
-      postDays.push(<Day events={daysEvents} clickHandler={this.clickHandler} key={id}/>);
+      postDays.push(<Day events={daysEvents} active={this.state.active} eventClickHandler={this.eventClickHandler} key={id}/>);
     }
 
     return (

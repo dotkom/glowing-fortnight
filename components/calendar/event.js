@@ -1,6 +1,8 @@
-const Event = ({ title, start_time, content, clickHandler }) => {
+const Event = ({ title, start_time, content, eventClickHandler, index, active }) => {
+  const classes = (index === active) ? 'cal-event-content-active' : '';
+  
   return (
-    <div onClick={ () => { clickHandler(); } } className="cal-event">
+    <div onClick={ () => { eventClickHandler(index); } } className="cal-event">
       <div className="cal-event-indicator"></div>
       
       <div className="cal-event-header">
@@ -8,7 +10,7 @@ const Event = ({ title, start_time, content, clickHandler }) => {
 	<h3 className="cal-title">{title}</h3>
       </div>
       
-      <p className="cal-event-content">{content}</p><br />
+      <p className={`cal-event-content ${ classes }`}>{content}</p><br />
     </div>
   );
 };
