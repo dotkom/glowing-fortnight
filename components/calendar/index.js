@@ -56,7 +56,7 @@ const Calendar = React.createClass({
 
     const events = this.state.events;
 
-    for (let event of events) {
+    events.forEach(function (event, index) {
       event.start_time = new Date(event.start_time);
 
       let epochDays = Math.floor(event.start_time.getTime() / MS_IN_DAY);
@@ -75,7 +75,7 @@ const Calendar = React.createClass({
       lastEpochDays = epochDays;
       daysEvents.push(event);
       id++;
-    }
+    }, this);
 
     if (daysEvents.length > 0) {
       postDays.push(<Day events={daysEvents} clickHandler={this.clickHandler} key={id}/>);
