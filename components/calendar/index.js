@@ -44,7 +44,6 @@ const Calendar = React.createClass({
     let id = 0;
     let lastEpochDays = 0;
     let daysEvents = [];
-    let allDays = [];
 
     let preDays = [];
     let postDays = [];
@@ -59,6 +58,7 @@ const Calendar = React.createClass({
 
     events.forEach(function (event, index) {
       event.start_time = new Date(event.start_time);
+      event.end_time = new Date(event.end_time);
       event.index = index;
 
       let epochDays = Math.floor(event.start_time.getTime() / MS_IN_DAY);
