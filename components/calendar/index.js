@@ -102,10 +102,12 @@ const Calendar = React.createClass({
 	  { preDays }
 	</div>
       );
-    } else {
+    } else if (preDays.length > 0 && !this.state.preDaysSectionActive) {
       preDaysSection = (
 	<button className="preDaysButton" onClick={this.preDaysClickHandler}>Vis tidligere arrangementer</button>
       );
+    } else {
+      preDaysSection = '';
     }
 
     return {
