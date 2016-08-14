@@ -42,15 +42,29 @@ const Slack = React.createClass({
       mode: 'cors'
     })
     .then((response) => {
-      if (!response.ok) throw new Error(response.statusText);
+      if (!response.ok) {
+        var errorMsg = 'Det oppstod en uventet feil.';
+        try {
+          data = response.json();
+        } catch (error) {
+          throw new Error(errorMsg)
+        }
+
+        if (data.detail !== undefined) errorMsg = data.detail;
+        else if (data.email !== undefined) errorMsg = data.email;
+
+        throw new Error(errorMsg);
+      }
+
       this.setState(Object.assign({}, this.state, {
         triggered: true,
-        success: `En invitasjon ble sendt til ${self.state.email}!`
+        success: `En invitasjon ble sendt til ${self.state.email}!`,
+        error: null
       }));
     })
     .catch((error) => {
       console.error(error);
-      this.setState(Object.assign({}, this.state, { error: 'E-postadressen ble ikke godkjent.' }));
+      this.setState(Object.assign({}, this.state, { error: error.message, success: null }));
     })
   },
 
