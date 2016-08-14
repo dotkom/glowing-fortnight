@@ -13,21 +13,30 @@
   font-size: 20px;
 }
 
-.about-mainPageButton {
-  border: none;
-  padding: 15px 15px;
-  background: none;
-  border: 1px solid #fff;
-  color: #fff;
-  border-radius: 5px;
+#about-mainPageButton {
+  width: 200px;
+  color: #efefef;
   font-size: 14px;
-  margin-top: 15px;
-  outline : none;
+  font-weight: normal;
+  line-height: 50px;
+  text-align: center;
+  background: lighten($dark-blue, 3%);
+
+  border-top: 2px ridge lighten($dark-blue, 15%);
+  border-bottom: 2px ridge lighten($dark-blue, 15%);
+  box-shadow: 2px 2px 10px darken($dark-blue, 5%);
+
+  position: absolute;
+  top: 25px;
+  right: auto;
+  left: -50px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
 
   &:hover {
-    color: rgba(250, 160, 0, 1.0);
-    border-color: rgba(250, 160, 0, 1.0);
-    cursor: pointer;
+    color: $orange;
+    border-top: 2px ridge lighten($dark-blue, 20%);
+    border-bottom: 2px ridge lighten($dark-blue, 20%);
   }
 }
 
