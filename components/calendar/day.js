@@ -12,7 +12,7 @@ const Day = ({ events, clickHandler }) => {
 
   return (
     <div className="cal-day">
-      <h2 className="cal-dayString">{`${DAY_NAME} ${DATE}. ${MONTH_NAME}`}</h2>
+      <h2 className="cal-dayString"><span>{DAY_NAME}</span> {`${DATE}. ${MONTH_NAME}`}</h2>
       { events.map((e, id) => {
         return <Event clickHandler={clickHandler} title={e.title} start_time={e.start_time} content={e.content} key={id}/>
       })}
