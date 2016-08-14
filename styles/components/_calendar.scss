@@ -14,6 +14,23 @@
   background-color: $dark-blue;
 }
 
+.preDaysSection-active .cal-event-header,
+.preDaysSection-active .cal-dayString {
+  opacity: .5;
+}
+
+.preDaysButton {
+  color: #fff;
+  padding: 12px;
+  border: 0;
+  background-color: $blue;
+  width: 100%;
+  font-size: 14px;
+  position: relative;
+  margin-bottom: 25px;
+  cursor: pointer;
+}
+
 .cal-title {
   cursor: pointer;
   font-weight: bold;
@@ -22,6 +39,12 @@
 .cal-event {
   margin-left: 160px;
   position: relative;
+  display: block;
+  color: #fff;
+
+  &:hover {
+    color: #fff;
+  }
 }
 
 .cal-event-header {
@@ -55,7 +78,7 @@
 
 .cal-timeline {
   position: absolute;
-  top: 100px;
+  top: 110px;
   bottom: 65px;
   left: 290px;
   background-color: #fff;
