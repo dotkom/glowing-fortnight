@@ -59,7 +59,7 @@ const Slack = React.createClass({
   },
 
   handleKeyPress: function (event) {
-    if (event.key === 'Enter') this.requestInvitationEmail();
+    if (event.key === 'Enter' && !this.state.triggered) this.requestInvitationEmail();
   },
 
   render: function () {
