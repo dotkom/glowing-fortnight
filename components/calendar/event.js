@@ -11,7 +11,7 @@ const Event = ({ title, start_time, end_time, content, eventClickHandler, index,
   const classes = (index === active) ? 'cal-event-content-active' : '';
 
   return (
-    <div onClick={ () => { eventClickHandler(index); } } className="cal-event">
+    <a href={`#event-${index}`} onClick={ () => { eventClickHandler(index); } } className="cal-event" id={`event-${index}`}>
       <div className="cal-event-indicator"></div>
 
       <div className="cal-event-header">
@@ -21,8 +21,8 @@ const Event = ({ title, start_time, end_time, content, eventClickHandler, index,
 
       <p className={`cal-event-content ${ classes }`} dangerouslySetInnerHTML={markdown(content)}/>
       <p className={`cal-event-content ${ classes }`}>Antatt sluttidspunkt: {end_time.toTimeString().substr(0, 5)}</p>
-      <br />
-    </div>
+    </a>
+
   );
 };
 
