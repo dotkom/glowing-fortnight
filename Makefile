@@ -12,7 +12,7 @@ watch:
 	@echo Starting file watcher...
 	@npm run watch
 
-dev: install
+dev:
 	@echo Starting dev server
 	@npm run dev
 
