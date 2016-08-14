@@ -9,6 +9,7 @@ import Partners from './components/partners';
 import Calendar from './components/calendar';
 import Join from './components/join';
 import Contact from './components/contact';
+import Slack from './components/slack';
 import Social from './components/social';
 
 const App = () => {
@@ -18,7 +19,7 @@ const App = () => {
       <Fadder />
       <Calendar events={sample.results}/>
       <Join />
-
+      <Slack />
       <Social />
       <Contact />
       <Partners />

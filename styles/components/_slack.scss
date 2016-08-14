@@ -1,0 +1,42 @@
+#slack-inputgroup {
+  border: 1px solid #eee;
+  border-radius: 5px;
+  margin: 15px 0;
+  clear: both;
+  display: inline-block;
+}
+#slack-email-inputfield {
+  border: none;
+  padding: 5px 10px;
+  color: #333;
+  font-size: 14px;
+  line-height: 26px;
+  outline: none;
+  background: #efefef;
+  width: 200px;
+}
+#slack-email-label {
+  font-weight: 600;
+  border-radius: 5px;
+  display: block;
+}
+#slack-submit-button {
+  border: none;
+  color: #fff;
+  background: darken($blue, 10%);
+  padding: 10px 15px;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+
+  &:active {
+    outline: none;
+  }
+
+  &:hover {
+    background: darken($blue, 5%)
+  }
+}
+#slack-error {
+  color: #d60f07;
+  font-weight: 500;
+}
