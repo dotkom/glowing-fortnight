@@ -84,7 +84,7 @@ const Calendar = React.createClass({
 
     return (
       <div id="calendar" className="component">
-        <h1>Calendar</h1>
+        <h1>Program</h1>
         <div className="cal-timeline"></div>
 
         { preDays }
