@@ -1,11 +1,12 @@
 import React from 'react';
 import Day from './day';
 
+import { API_EVENTS_URL } from '../../common/constants';
+
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
 const MS_IN_DAY = 1000 * 60 * 60 * 24;
-const API_URL = 'https://9u.no/online';
 const TODAY = Math.floor(new Date().getTime() / MS_IN_DAY);
 
 const Calendar = React.createClass({
@@ -20,7 +21,7 @@ const Calendar = React.createClass({
   fetchData: function () {
     var self = this;
 
-    fetch(API_URL, {
+    fetch(API_EVENTS_URL, {
       method: 'GET',
       mode: 'cors'
     })
