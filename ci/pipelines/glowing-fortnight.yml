@@ -1,0 +1,54 @@
+resources:
+- name: glowing-fortnight
+  type: git
+  source:
+    uri: https://github.com:dotkom/glowing-fortnight.git
+    branch: master
+- name: build-deps
+  type: docker-image
+  source:
+    username: {{docker-registry-username}}
+    password: {{docker-registry-password}}
+    repository: registry.online.ntnu.no/glowing-fortnight-build
+- name: build-dist
+  type: docker-image
+  source:
+    username: {{docker-registry-username}}
+    password: {{docker-registry-password}}
+    repository: registry.online.ntnu.no/glowing-fortnight
+
+jobs:
+- name: build-deps
+  public: true
+  plan:
+  - get: glowing-fortnight
+    trigger: true
+  - put: build-deps
+    params:
+      build: glowing-fortnight
+      cache: false
+      dockerfile: glowing-fortnight/Dockerfile.build
+      tag_as_latest: true
+- name: build-dist
+  public: true
+  plan:
+  - get: glowing-fortnight
+    passed: [build-deps]
+    trigger: true
+  - put: build-dist
+    params:
+      build: glowing-fortnight
+      cache: false
+      dockerfile: glowing-fortnight/Dockerfile.deploy
+      tag_as_latest: true
+- name: deploy
+  public: false
+  plan:
+  - get: glowing-fortnight
+    passed: [build-dist]
+    trigger: true
+  - task: deploy
+    file: glowing-fortnight/ci/tasks/deploy.yml
+    params:
+      SSH_KEY: {{concourse-private-key}}
+      SSH_KEY_PUB: {{concourse-public-key}}
