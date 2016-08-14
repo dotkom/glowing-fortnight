@@ -1,26 +1,39 @@
 import React from 'react';
 import Day from './day';
 
+import { API_EVENTS_URL } from '../../common/constants';
+
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
 const MS_IN_DAY = 1000 * 60 * 60 * 24;
-const API_URL = 'https://9u.no/online';
 const TODAY = Math.floor(new Date().getTime() / MS_IN_DAY);
+
+function getActiveEvent(postDays, daysEvents, active) {
+  if (active < 0 && postDays.length > 0) {
+    return postDays[0].index;
+  } else if (active < 0 && daysEvents[0]) {
+    return daysEvents[0].index;
+  }
+
+  return active;
+}
+
 
 const Calendar = React.createClass({
   getInitialState: function () {
     return {
-      active: 0,
+      active: -1,
       events: [],
-      error: null
+      error: null,
+      preDaysSectionActive: false
     }
   },
 
   fetchData: function () {
     var self = this;
 
-    fetch(API_URL, {
+    fetch(API_EVENTS_URL, {
       method: 'GET',
       mode: 'cors'
     })
@@ -39,25 +52,22 @@ const Calendar = React.createClass({
     this.setState(Object.assign({}, this.state, { active: id }));
   },
 
-  render: function () {
+  preDaysClickHandler: function () {
+    this.setState(Object.assign({}, this.state, { preDaysSectionActive: true }));
+  },
+
+  buildEvents: function (events) {
     let id = 0;
     let lastEpochDays = 0;
     let daysEvents = [];
-    let allDays = [];
 
     let preDays = [];
     let postDays = [];
-
-    if (this.state.events.length === 0 && this.state.error === null) {
-      this.fetchData();
-    } else if (this.state.error !== null) {
-      return (<p> { this.state.error }</p>);
-    }
-
-    const events = this.state.events;
+    let preDaysSection = '';
 
     events.forEach(function (event, index) {
       event.start_time = new Date(event.start_time);
+      event.end_time = new Date(event.end_time);
       event.index = index;
 
       let epochDays = Math.floor(event.start_time.getTime() / MS_IN_DAY);
@@ -67,7 +77,9 @@ const Calendar = React.createClass({
           preDays.push(<Day events={daysEvents} active={this.state.active} eventClickHandler={this.eventClickHandler} key={id}/>);
         }
         else {
-          postDays.push(<Day events={daysEvents} active={this.state.active} eventClickHandler={this.eventClickHandler} key={id}/>);
+	  let active = getActiveEvent(postDays, daysEvents, this.state.active);
+
+          postDays.push(<Day events={daysEvents} active={active} eventClickHandler={this.eventClickHandler} key={id}/>);
         }
 
         daysEvents = [];
@@ -79,16 +91,45 @@ const Calendar = React.createClass({
     }, this);
 
     if (daysEvents.length > 0) {
-      postDays.push(<Day events={daysEvents} active={this.state.active} eventClickHandler={this.eventClickHandler} key={id}/>);
+      let active = getActiveEvent(postDays, daysEvents, this.state.active);
+      
+      postDays.push(<Day events={daysEvents} active={active} eventClickHandler={this.eventClickHandler} key={id}/>);
     }
+
+    if (preDays.length > 0 && this.state.preDaysSectionActive) {
+      preDaysSection = (
+	<div className="preDaysSection-active">
+	  { preDays }
+	</div>
+      );
+    } else {
+      preDaysSection = (
+	<button className="preDaysButton" onClick={this.preDaysClickHandler}>Vis tidligere arrangementer</button>
+      );
+    }
+
+    return {
+      postDays: postDays,
+      preDaysSection: preDaysSection
+    };
+  },
+
+  render: function () {
+    if (this.state.events.length === 0 && this.state.error === null) {
+      this.fetchData();
+      return <h2 className="component">Laster inn kalender</h2>;
+    } else if (this.state.error !== null) {
+      return (<p> { this.state.error }</p>);
+    }
+
+    let { postDays, preDaysSection } = this.buildEvents(this.state.events);
 
     return (
       <div id="calendar" className="component">
-        <h1>Program</h1>
+        <h1>Program <a href="https://online.ntnu.no/splash/events.ics">iCalendar</a></h1>
         <div className="cal-timeline"></div>
 
-        { preDays }
-        <br/><hr/><br/><br/><br/><br/>
+	{ preDaysSection }
         { postDays }
       </div>
     );
