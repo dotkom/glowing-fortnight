@@ -1,6 +1,6 @@
 import Event from './event';
 
-const DAY_NAMES = [ 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag', 'Søndag' ];
+const DAY_NAMES = [  'Søndag', 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag' ];
 const MONTH_NAMES = [ 'januar', 'februar', 'mars', 'april', 'mai', 'juni', 'juli', 'august', 'september', 'oktober', 'november', 'desember' ];
 
 const Day = ({ events, eventClickHandler, active }) => {
