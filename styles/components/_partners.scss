@@ -40,3 +40,10 @@
 
 }
 
+@media screen and (max-width: 425px) {
+  .partner {
+    display: block;
+    margin: 35px auto;
+    max-height: 30px;
+  }
+}
