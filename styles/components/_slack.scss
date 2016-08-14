@@ -1,5 +1,4 @@
 #slack-inputgroup {
-  border: 1px solid #eee;
   border-radius: 5px;
   margin: 15px 0;
   clear: both;
@@ -7,6 +6,7 @@
 }
 #slack-email-inputfield {
   border: none;
+  border-radius: 5px 0 0 5px;
   padding: 5px 10px;
   color: #333;
   font-size: 14px;
