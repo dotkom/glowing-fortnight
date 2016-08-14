@@ -28,12 +28,20 @@
   border-radius: 0 5px 5px 0;
   cursor: pointer;
 
-  &:active {
+  &:focus {
     outline: none;
   }
 
   &:hover {
     background: darken($blue, 5%)
+  }
+
+  &:active {
+    background: $blue;
+  }
+
+  &:disabled {
+    background: #ddd;
   }
 }
 #slack-error {
