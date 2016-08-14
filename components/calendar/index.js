@@ -44,7 +44,7 @@ const Calendar = React.createClass({
         self.setState(Object.assign({}, self.state, { events: data.results }));
       })
       .catch(function (error) {
-        self.setState(Object.assign({}, self.state, { error: 'asdf' }));
+        self.setState(Object.assign({}, self.state, { error: `En feil har oppstått: ${error}` }));
       });
   },
 
@@ -119,7 +119,7 @@ const Calendar = React.createClass({
       this.fetchData();
       return <h2 className="component">Laster inn kalender</h2>;
     } else if (this.state.error !== null) {
-      return (<p> { this.state.error }</p>);
+      return (<p className="component"> { this.state.error }</p>);
     }
 
     let { postDays, preDaysSection } = this.buildEvents(this.state.events);
