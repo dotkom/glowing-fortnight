@@ -20,7 +20,7 @@ const Event = ({ title, start_time, end_time, content, eventClickHandler, index,
       </div>
 
       <p className={`cal-event-content ${ classes }`} dangerouslySetInnerHTML={markdown(content)}/>
-      <p className={`cal-event-content ${ classes }`}>Antatt sluttidspunkt: {end_time.toTimeString().substr(0, 5)}</p>
+      <p className={`cal-event-content ${ classes } cal-event-endtime`}>Antatt sluttidspunkt: {end_time.toTimeString().substr(0, 5)}</p>
     </a>
 
   );
