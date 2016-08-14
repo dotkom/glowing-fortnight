@@ -1,4 +1,4 @@
-FROM glowing-fortnight-build
+FROM registry.sklirg.io/glowing-fortnight-build
 MAINTAINER sklirg
 
 ENV APP_DIR /srv/app
