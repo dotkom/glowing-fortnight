@@ -15,7 +15,8 @@
 }
 
 .cal-title {
-  font-size: 22px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .cal-event {
@@ -44,7 +45,13 @@
 .cal-event-content {
   margin-left: 130px;
   word-wrap: break-word;
+  display: none;
 }
+
+.cal-event-content-active {
+  display: block;
+}
+
 
 .cal-timeline {
   position: absolute;
@@ -55,7 +62,11 @@
   width: 1px;
 }
 
-@media screen and (max-width: 721px) {
+@media screen and (max-width: 720px) {
+  .cal-day {
+    padding-top: 75px;
+  }
+  
   .cal-dayString span {
     display: block;
     text-align: center;
@@ -63,9 +74,8 @@
   }
 
   .cal-event-dateString {
-    width: 130px;
     position: absolute;
-    top: 69px;
+    top: 4px;
     left: -22px;
   }
 
@@ -76,7 +86,7 @@
   .cal-title {
     font-size: 18px;
     margin-left: 52px;
-    margin-top: 65px;
+
   }
 
   .cal-event-content {
@@ -85,8 +95,6 @@
   }
 
   .cal-dayString {
-    position: absolute;
-    top: 0;
     padding-bottom: 5px;
     background-color: #001932;
   }
@@ -94,7 +102,7 @@
   .cal-event-indicator {
     width: 11px;
     height: 11px;
-    top: 74px;
+    top: 10px;
     left: 20px;
   }
 
