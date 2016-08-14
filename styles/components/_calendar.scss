@@ -10,6 +10,8 @@
   color: $orange;
   position: absolute;
   top: 0;
+  padding-bottom: 5px;
+  background-color: $dark-blue;
 }
 
 .cal-title {
@@ -51,4 +53,63 @@
   left: 290px;
   background-color: #fff;
   width: 1px;
+}
+
+@media screen and (max-width: 721px) {
+  .cal-dayString span {
+    display: block;
+    text-align: center;
+    font-size: 20px;
+  }
+
+  .cal-event-dateString {
+    width: 130px;
+    position: absolute;
+    top: 69px;
+    left: -22px;
+  }
+
+  .cal-event-header {
+    position: relative;
+  }
+
+  .cal-event-dateString {
+    width: 130px;
+    position: absolute;
+    top: 69px;
+    left: -32px;
+  }
+
+  .cal-title {
+    font-size: 18px;
+    margin-left: 52px;
+    margin-top: 65px;
+  }
+
+  .cal-event-content {
+    margin-left: 52px;
+    margin-top: 15px;
+  }
+
+  .cal-dayString {
+    position: absolute;
+    top: 0;
+    padding-bottom: 5px;
+    background-color: #001932;
+  }
+
+  .cal-event-indicator {
+    width: 11px;
+    height: 11px;
+    top: 74px;
+    left: 20px;
+  }
+
+  .cal-event {
+    margin-left: 0;
+  }
+
+  .cal-timeline {
+    left: 70px;
+  }
 }

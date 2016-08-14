@@ -5,7 +5,7 @@ require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
 const MS_IN_DAY = 1000 * 60 * 60 * 24;
-const API_URL = 'https://9u.no/online'; // 'https://dotkom:kongoloaf@dev.online.ntnu.no/api/v1/splash-events/';
+const API_URL = 'https://9u.no/online';
 const TODAY = Math.floor(new Date().getTime() / MS_IN_DAY);
 
 const Calendar = React.createClass({
@@ -62,11 +62,10 @@ const Calendar = React.createClass({
       let epochDays = Math.floor(event.start_time.getTime() / MS_IN_DAY);
 
       if (epochDays > lastEpochDays && lastEpochDays != 0) {
-
-        if(epochDays < TODAY){
+        if (epochDays < TODAY) {
           preDays.push(<Day events={daysEvents} key={id}/>);
         }
-        else{
+        else {
           postDays.push(<Day events={daysEvents} key={id}/>);
         }
 

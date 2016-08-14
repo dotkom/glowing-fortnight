@@ -33,7 +33,18 @@
 }
 
 
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 970px) {
+  .fadder-imageColumn {
+    width: 40%;
+  }
+  
+  .fadder-description {
+    width: 50%;
+  }
+  
+}
+
+@media screen and (max-width: 720px) {
   .fadder-imageColumn {
     display: none;
   }
