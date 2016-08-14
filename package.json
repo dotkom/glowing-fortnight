@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build:prod": "webpack --optimize-minimize",
     "build": "webpack",
     "watch": "webpack -w",
     "dev": "node server.js --inline",
