@@ -22,13 +22,19 @@
 .preDaysButton {
   color: #fff;
   padding: 12px;
-  border: 0;
-  background-color: $blue;
+  border: 1px solid #fff;
+  background-color: $dark-blue;
   width: 100%;
   font-size: 14px;
   position: relative;
   margin-bottom: 25px;
   cursor: pointer;
+  border-radius: 5px;
+
+  &:hover {
+    border-color: $orange;
+    color: $orange;
+  }
 }
 
 .cal-title {
@@ -113,9 +119,9 @@
   }
 
   .cal-title {
-    font-size: 18px;
+    font-size: 14px;
     margin-left: 52px;
-
+    line-height: 30px;
   }
 
   .cal-event-content {
@@ -126,6 +132,10 @@
   .cal-dayString {
     padding-bottom: 5px;
     background-color: #001932;
+  }
+
+  .preDaysSection-active .cal-dayString {
+    opacity: 1.0;
   }
 
   .cal-event-indicator {
