@@ -43,14 +43,14 @@ p {
   padding: 45px 45px;
 }
 
-@media screen and (max-width: 376px) {
-  h1 {
-    font-size: 18px;
-  }
+  @media screen and (max-width: 425px) {
+    h1 {
+      font-size: 18px;
+    }
 
-  body {
-    font-size: 14px;
+    body {
+      font-size: 14px;
+    }
   }
-}
 
 
