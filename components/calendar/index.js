@@ -4,8 +4,9 @@ import Day from './day';
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
-const MS_IN_DAY = 1000*60*60*24;
+const MS_IN_DAY = 1000 * 60 * 60 * 24;
 const API_URL = 'https://9u.no/online'; // 'https://dotkom:kongoloaf@dev.online.ntnu.no/api/v1/splash-events/';
+const TODAY = Math.floor(new Date().getTime() / MS_IN_DAY);
 
 const Calendar = React.createClass({
   getInitialState: function () {
@@ -18,19 +19,19 @@ const Calendar = React.createClass({
 
   fetchData: function () {
     var self = this;
-    
+
     fetch(API_URL, {
       method: 'GET',
       mode: 'cors'
     })
-      .then(function(response) {
+      .then(function (response) {
         return response.json();
       })
-      .then(function(data) {
-	self.setState(Object.assign({}, self.state, { events: data.results }));
+      .then(function (data) {
+        self.setState(Object.assign({}, self.state, { events: data.results }));
       })
       .catch(function (error) {
-	self.setState(Object.assign({}, self.state, { error: 'asdf'}));
+        self.setState(Object.assign({}, self.state, { error: 'asdf' }));
       });
   },
 
@@ -44,6 +45,9 @@ const Calendar = React.createClass({
     let daysEvents = [];
     let allDays = [];
 
+    let preDays = [];
+    let postDays = [];
+
     if (this.state.events.length === 0 && this.state.error === null) {
       this.fetchData();
     } else if (this.state.error !== null) {
@@ -56,27 +60,36 @@ const Calendar = React.createClass({
       event.start_time = new Date(event.start_time);
 
       let epochDays = Math.floor(event.start_time.getTime() / MS_IN_DAY);
-      
+
       if (epochDays > lastEpochDays && lastEpochDays != 0) {
-	allDays.push(<Day events={daysEvents} key={id}/>);
-	daysEvents = [];
+
+        if(epochDays < TODAY){
+          preDays.push(<Day events={daysEvents} key={id}/>);
+        }
+        else{
+          postDays.push(<Day events={daysEvents} key={id}/>);
+        }
+
+        daysEvents = [];
       }
 
       lastEpochDays = epochDays;
       daysEvents.push(event);
       id++;
     }
-    
+
     if (daysEvents.length > 0) {
-      allDays.push(<Day events={daysEvents} clickHandler={this.clickHandler} key={id}/>);
+      postDays.push(<Day events={daysEvents} clickHandler={this.clickHandler} key={id}/>);
     }
 
     return (
       <div id="calendar" className="component">
-	<h1>Calendar</h1>
-	<div className="cal-timeline"></div>
+        <h1>Calendar</h1>
+        <div className="cal-timeline"></div>
 
-	{ allDays }
+        { preDays }
+        <br/><hr/><br/><br/><br/><br/>
+        { postDays }
       </div>
     );
   }
