@@ -14,6 +14,7 @@ const Slack = React.createClass({
     return {
       triggered: false,
       error: null,
+      success: null,
       email: ''
     }
   },
@@ -32,23 +33,24 @@ const Slack = React.createClass({
     }
 
     fetch(API_SLACK_URL, {
-      body: { email: self.state.email },
-      headers: {
-        Accept: 'application/json'
-      },
+      body: JSON.stringify({ email: self.state.email }),
+      headers: new Headers({
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }),
       method: 'POST',
       mode: 'cors'
     })
     .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data);
-      this.setState(Object.assign({}, this.state, { triggered: true }))
+      if (!response.ok) throw new Error(response.statusText);
+      this.setState(Object.assign({}, this.state, {
+        triggered: true,
+        success: `En invitasjon ble sendt til ${self.state.email}!`
+      }));
     })
     .catch((error) => {
       console.error(error);
-      this.setState(Object.assign({}, this.state, { error: error }))
+      this.setState(Object.assign({}, this.state, { error: 'E-postadressen ble ikke godkjent.' }));
     })
   },
 
@@ -68,14 +70,14 @@ const Slack = React.createClass({
         <h1>Chat med oss på Slack!</h1>
         <p>Linjeforeningens uformelle chatteplattform er <a href="https://slack.com" target="_blank">Slack</a>.
           Dersom du ikke har fått stud.ntnu.no-eposten din
-        enda kan du be om en invitasjon til din private e-postaddresse.
+        enda kan du be om en invitasjon til din private e-postadresse.
           Du vil da motta en link for å koble til slack-teamet vårt.</p>
         <label id="slack-email-label">E-post</label>
         <div id="slack-inputgroup">
           <input type="text"
                  id="slack-email-inputfield"
                  value={self.state.email}
-                 placeholder="Skriv inn din E-postaddresse..."
+                 placeholder="Skriv inn din e-postadresse..."
                  onChange={self.handleChange}
                  onKeyPress={self.handleKeyPress}/>
           <button id="slack-submit-button"
@@ -84,6 +86,7 @@ const Slack = React.createClass({
             Send
           </button>
         </div>
+        <p id="slack-success">{self.state.success}</p>
         <p id="slack-error">{self.state.error}</p>
         <p>Har du allerede en stud.ntnu.no-epost kan du registrere deg direkte på
           <a href="https://onlinentnu.slack.com" target="_blank"> onlinentnu.slack.com</a>

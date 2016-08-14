@@ -7,10 +7,10 @@
 #slack-email-inputfield {
   border: none;
   border-radius: 5px 0 0 5px;
-  padding: 5px 10px;
+  padding: 0 10px;
   color: #333;
   font-size: 14px;
-  line-height: 26px;
+  line-height: 32px;
   outline: none;
   background: #efefef;
   width: 200px;
@@ -21,10 +21,11 @@
   display: block;
 }
 #slack-submit-button {
+  line-height: 32px;
   border: none;
   color: #fff;
   background: darken($blue, 10%);
-  padding: 10px 15px;
+  padding: 0 15px;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
 
@@ -42,9 +43,14 @@
 
   &:disabled {
     background: #ddd;
+    cursor: not-allowed;
   }
 }
 #slack-error {
   color: #d60f07;
+  font-weight: 500;
+}
+#slack-success {
+  color: green;
   font-weight: 500;
 }
