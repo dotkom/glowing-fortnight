@@ -35,8 +35,8 @@ const Calendar = React.createClass({
       });
   },
 
-  clickHandler: function (id) {
-    // this.setState(Object.assign({}, this.state, { active: id }));
+  eventClickHandler: function (id) {
+    this.setState(Object.assign({}, this.state, { active: id }));
   },
 
   render: function () {
