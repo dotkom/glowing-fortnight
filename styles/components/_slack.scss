@@ -13,7 +13,7 @@
   line-height: 32px;
   outline: none;
   background: #efefef;
-  width: 200px;
+  width: 180px;
 }
 #slack-email-label {
   font-weight: 600;
@@ -23,6 +23,7 @@
 #slack-submit-button {
   line-height: 32px;
   border: none;
+  font-size: 14px;
   color: #fff;
   background: darken($blue, 10%);
   padding: 0 15px;
