@@ -19,7 +19,6 @@ function getActiveEvent(postDays, daysEvents, active) {
   return active;
 }
 
-
 const Calendar = React.createClass({
   getInitialState: function () {
     return {
@@ -44,7 +43,7 @@ const Calendar = React.createClass({
         self.setState(Object.assign({}, self.state, { events: data.results }));
       })
       .catch(function (error) {
-        self.setState(Object.assign({}, self.state, { error: `En feil har oppstått: ${error}` }));
+        self.setState(Object.assign({}, self.state, { error: error }));
       });
   },
 
@@ -117,23 +116,32 @@ const Calendar = React.createClass({
   },
 
   render: function () {
+    let calendarContent = '';
+
     if (this.state.events.length === 0 && this.state.error === null) {
       this.fetchData();
-      return <h2 className="component">Laster inn kalender</h2>;
+      calendarContent = (<h2 className="component">Laster inn kalender</h2>);
     } else if (this.state.error !== null) {
-      return (<p className="component"> { this.state.error }</p>);
+      calendarContent = (<p className="component">En uventet feil har oppstått ved henting av program. Vennligst prøv igjen senere.</p>);
+    } else {
+      let { postDays, preDaysSection } = this.buildEvents(this.state.events);
+
+      calendarContent = (
+        <div>
+          <div className="cal-timeline"></div>
+
+          { preDaysSection }
+          { postDays }
+        </div>
+      );
     }
-
-    let { postDays, preDaysSection } = this.buildEvents(this.state.events);
-
+    
     return (
-      <div id="calendar" className="component">
+      <section id="calendar" className="component">
         <h1>Program <a href="https://online.ntnu.no/splash/events.ics">iCalendar</a></h1>
-        <div className="cal-timeline"></div>
 
-	{ preDaysSection }
-        { postDays }
-      </div>
+        { calendarContent }
+      </section>
     );
   }
 });
