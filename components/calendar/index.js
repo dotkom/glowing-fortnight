@@ -77,7 +77,6 @@ const Calendar = React.createClass({
         }
         else {
 	  let active = getActiveEvent(postDays, daysEvents, this.state.active);
-
           postDays.push(<Day events={daysEvents} active={active} eventClickHandler={this.eventClickHandler} key={id}/>);
         }
 
@@ -91,7 +90,6 @@ const Calendar = React.createClass({
 
     if (daysEvents.length > 0) {
       let active = getActiveEvent(postDays, daysEvents, this.state.active);
-      
       postDays.push(<Day events={daysEvents} active={active} eventClickHandler={this.eventClickHandler} key={id}/>);
     }
 
@@ -101,11 +99,13 @@ const Calendar = React.createClass({
 	  { preDays }
 	</div>
       );
-    } else if (preDays.length > 0 && !this.state.preDaysSectionActive) {
+    }
+    else if (preDays.length > 0 && !this.state.preDaysSectionActive) {
       preDaysSection = (
 	<button className="cal-button--preDays" onClick={this.preDaysClickHandler}>Vis tidligere arrangementer</button>
       );
-    } else {
+    }
+    else {
       preDaysSection = '';
     }
 
@@ -121,9 +121,11 @@ const Calendar = React.createClass({
     if (this.state.events.length === 0 && this.state.error === null) {
       this.fetchData();
       calendarContent = (<h2 className="component">Laster inn kalender</h2>);
-    } else if (this.state.error !== null) {
+    }
+    else if (this.state.error !== null) {
       calendarContent = (<p className="component">En uventet feil har oppstått ved henting av program. Vennligst prøv igjen senere.</p>);
-    } else {
+    }
+    else {
       let { postDays, preDaysSection } = this.buildEvents(this.state.events);
 
       calendarContent = (
