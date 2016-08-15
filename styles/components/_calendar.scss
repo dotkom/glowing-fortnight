@@ -60,17 +60,17 @@
   }
 }
 
+.cal-event-date {
+  width: 40px;
+}
+
 .cal-event-header {
   display: flex;
 }
 
-.cal-event-date {
-  width: 130px;
-}
-
 .cal-event-indicator {
   position: absolute;
-  top: 10px;
+  top: 8px;
   left: 79px;
   background-color: #fff;
   border-radius: 50%;
@@ -99,6 +99,7 @@
 .cal-event-title {
   cursor: pointer;
   font-weight: bold;
+  margin-left: 90px;
 }
 
 .cal-timeline {
@@ -135,7 +136,6 @@
     position: absolute;
     top: 4px;
     left: -22px;
-    width: 40px;
   }
 
   .cal-event-header {
