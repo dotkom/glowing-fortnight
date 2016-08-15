@@ -1,6 +1,6 @@
 const About = () => {
   return (
-    <header id="header" className="component">
+    <header id="about" className="component">
       <a href="/" id="about-mainPageButton">Gå til hovedsiden</a>
       <img className="header-logo" src="assets/images/online_logo.svg" alt="" />
       <h1>Velkommen til Online, linjeforeningen for informatikkstudenter ved <a href="http://ntnu.no/">NTNU</a>.</h1>
