@@ -55,6 +55,10 @@
 
   &:hover {
     color: #fff;
+    
+    .cal-event-indicator {
+      background-color: $orange;
+    }
   }
 }
 
