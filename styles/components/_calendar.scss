@@ -11,40 +11,38 @@
   position: relative;
 }
 
-.cal-dayString {
-  color: $orange;
+.cal-day--string {
   position: absolute;
   top: 0;
-  padding-bottom: 5px;
+
   background-color: $dark-blue;
+  color: $orange;
+  padding-bottom: 5px;
 }
 
-.preDaysSection-active .cal-event-header,
-.preDaysSection-active .cal-dayString {
+.cal-section--preDays .cal-event-header {
   opacity: .5;
 }
 
-.preDaysButton {
+.cal-button--preDays {
   color: #fff;
-  padding: 12px;
-  border: 1px solid #fff;
   background-color: $dark-blue;
-  width: 100%;
+
+  border: 1px solid #fff;
+  border-radius: 5px;
+
+  cursor: pointer;
   font-size: 14px;
   position: relative;
+  width: 100%;
+
+  padding: 12px;
   margin-bottom: 25px;
-  cursor: pointer;
-  border-radius: 5px;
 
   &:hover {
     border-color: $orange;
     color: $orange;
   }
-}
-
-.cal-title {
-  cursor: pointer;
-  font-weight: bold;
 }
 
 .cal-event {
@@ -71,37 +69,44 @@
 }
 
 .cal-event-indicator {
-  background-color: #fff;
-  border-radius: 50%;
-  width: 13px;
-  height: 13px;
   position: absolute;
   top: 10px;
   left: 79px;
+  background-color: #fff;
+  border-radius: 50%;
+
+  width: 13px;
+  height: 13px;
 }
 
 .cal-event-content {
-  margin-left: 130px;
-  word-wrap: break-word;
   display: none;
+  margin-left: 130px;
+  margin-bottom: 20px;
+  word-wrap: break-word;
 }
 
 .cal-event-endtime {
-  font-weight: bold;
   font-size: 14px;
-  margin-bottom: 35px;
+  text-decoration: underline;
+  margin-bottom: 55px;
 }
 
 .cal-event-content-active {
   display: block;
 }
 
+.cal-title {
+  cursor: pointer;
+  font-weight: bold;
+}
 
 .cal-timeline {
   position: absolute;
   top: 110px;
   bottom: 65px;
   left: 290px;
+  
   background-color: #fff;
   width: 1px;
 }
@@ -143,9 +148,7 @@
     background-color: #001932;
   }
 
-  .preDaysSection-active .cal-dayString {
-    opacity: 1.0;
-  }
+  
 
   .cal-event-indicator {
     width: 11px;
