@@ -49,6 +49,9 @@ const Calendar = React.createClass({
 
   eventClickHandler: function (id) {
     this.setState(Object.assign({}, this.state, { active: id }));
+    setTimeout(function () {
+      window.location = `#event-${id}`;
+    }, 0);
   },
 
   preDaysClickHandler: function () {
