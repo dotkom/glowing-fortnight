@@ -1,7 +1,3 @@
-/**
- * Created by myth on 2016-08-14.
- */
-
 const API_EVENTS_URL = '/api/v1/splash-events/?start_time__gte=2016-08-01';
 const API_SLACK_URL = '/api/v1/slack/';
 
