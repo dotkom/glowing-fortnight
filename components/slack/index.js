@@ -1,9 +1,4 @@
-/**
- * Created by myth on 2016-08-14.
- */
-
 import React from 'react';
-
 import { API_SLACK_URL } from '../../common/constants';
 
 require('es6-promise').polyfill();
@@ -81,10 +76,14 @@ const Slack = React.createClass({
     return (
       <div id="slack" className="component">
         <h1>Chat med oss på Slack!</h1>
-        <p>Linjeforeningens uformelle chatteplattform er <a href="https://slack.com" target="_blank">Slack</a>.
+
+        <p>
+          Linjeforeningens uformelle chatteplattform er <a href="https://slack.com" target="_blank">Slack</a>.
           Dersom du ikke har fått stud.ntnu.no-eposten din
-        enda kan du be om en invitasjon til din private e-postadresse.
-          Du vil da motta en link for å koble til slack-teamet vårt.</p>
+          enda kan du be om en invitasjon til din private e-postadresse.
+          Du vil da motta en link for å koble til slack-teamet vårt.
+        </p>
+
         <label id="slack-email-label">E-post</label>
         <div id="slack-inputgroup">
           <input type="text"
@@ -92,16 +91,19 @@ const Slack = React.createClass({
                  value={self.state.email}
                  placeholder="Skriv inn din e-postadresse..."
                  onChange={self.handleChange}
-                 onKeyPress={self.handleKeyPress}/>
+                 onKeyPress={self.handleKeyPress} />
           <button id="slack-submit-button"
                   onClick={self.requestInvitationEmail}
                   disabled={self.state.triggered}>
             Send
           </button>
         </div>
+
         <p id="slack-success">{self.state.success}</p>
         <p id="slack-error">{self.state.error}</p>
-        <p>Har du allerede en stud.ntnu.no-epost kan du registrere deg direkte på
+
+        <p>
+          Har du allerede en stud.ntnu.no-epost kan du registrere deg direkte på
           <a href="https://onlinentnu.slack.com" target="_blank"> onlinentnu.slack.com</a>
         </p>
       </div>
