@@ -12,10 +12,10 @@ const Event = ({ title, start_time, end_time, content, eventClickHandler, index,
   const classes = (index === active) ? 'cal-event-content-active' : '';
 
   return (
-    <div onClick={ () => { eventClickHandler(index); } } className="cal-event" id={`event-${index}`}>
+    <div className="cal-event" id={`event-${index}`}>
       <div className="cal-event-indicator"></div>
 
-      <div className="cal-event-header">
+      <div onClick={ () => { eventClickHandler(index); } } className="cal-event-header">
         <p className="cal-event-date">{start_time.toTimeString().substr(0, 5)}</p>
         <h3 className="cal-event-title">{title}</h3>
       </div>
