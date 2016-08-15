@@ -115,6 +115,10 @@
 }
 
 @media screen and (max-width: 720px) {
+  #calendar h1 a {
+    font-size: 12px;
+  }
+  
   .cal-day {
     padding-top: 75px;
   }
