@@ -61,11 +61,23 @@
 }
 
 @media screen and (max-width: 425px) {
+  #about {
+    padding-top: 135px;
+    padding-bottom: 170px;
+  }
+  
   #header {
     padding-top: 130px;
   }
 
   .about-description {
     font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  #about {
+    padding-top: 100px;
+    padding-bottom: 140px;
   }
 }
