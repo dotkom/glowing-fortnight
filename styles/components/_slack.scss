@@ -1,34 +1,47 @@
 #slack-inputgroup {
-  border-radius: 5px;
-  margin: 15px 0;
-  clear: both;
-  display: inline-block;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
-#slack-email-inputfield {
-  border: none;
-  border-radius: 5px 0 0 5px;
-  padding: 0 10px;
-  color: #333;
-  font-size: 14px;
-  line-height: 32px;
-  outline: none;
-  background: #efefef;
-  width: 180px;
-}
+
 #slack-email-label {
   font-weight: 600;
-  border-radius: 5px;
   display: block;
 }
+
+#slack-email-inputfield,
 #slack-submit-button {
-  line-height: 32px;
   border: none;
   font-size: 14px;
+  
+  padding-left: 15px;
+  padding-right: 15px;
+
+  vertical-align: middle;
+}
+
+#slack-email-inputfield {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+
+  line-height: 32px;
+  height: 32px;
+
+  color: #333;
+  background: #efefef;
+  outline: none;
+  width: 220px;
+}
+
+#slack-submit-button {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+  line-height: 34px;
+  height: 34px;
+
   color: #fff;
-  background: darken($blue, 10%);
-  padding: 0 15px;
-  border-radius: 0 5px 5px 0;
   cursor: pointer;
+  background: darken($blue, 10%);
 
   &:focus {
     outline: none;
@@ -47,11 +60,26 @@
     cursor: not-allowed;
   }
 }
+
 #slack-error {
   color: #d60f07;
   font-weight: 500;
 }
+
 #slack-success {
   color: green;
   font-weight: 500;
+}
+
+@media screen and (max-width: 425px) {
+  #slack-email-inputfield,
+  #slack-submit-button {
+    font-size: 12px;
+  }
+
+  #slack-email-inputfield {
+    width: 150px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
