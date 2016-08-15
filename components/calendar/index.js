@@ -95,7 +95,7 @@ const Calendar = React.createClass({
 
     if (preDays.length > 0 && this.state.preDaysSectionActive) {
       preDaysSection = (
-	<div className="cal-seciton--preDays">
+	<div className="cal-section--preDays">
 	  { preDays }
 	</div>
       );
