@@ -98,13 +98,13 @@ const Calendar = React.createClass({
 
     if (preDays.length > 0 && this.state.preDaysSectionActive) {
       preDaysSection = (
-	<div className="preDaysSection-active">
+	<div className="cal-seciton--preDays">
 	  { preDays }
 	</div>
       );
     } else if (preDays.length > 0 && !this.state.preDaysSectionActive) {
       preDaysSection = (
-	<button className="preDaysButton" onClick={this.preDaysClickHandler}>Vis tidligere arrangementer</button>
+	<button className="cal-button--preDays" onClick={this.preDaysClickHandler}>Vis tidligere arrangementer</button>
       );
     } else {
       preDaysSection = '';
