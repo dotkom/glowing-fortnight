@@ -42,6 +42,7 @@
   color: #fff;
   cursor: pointer;
   background: darken($blue, 10%);
+  margin-left: -1px;
 
   &:focus {
     outline: none;
