@@ -75,7 +75,7 @@ const Calendar = React.createClass({
       let epochDays = Math.floor(event.start_time.getTime() / MS_IN_DAY);
 
       if (epochDays > lastEpochDays && lastEpochDays != 0) {
-        if (epochDays < TODAY) {
+        if (lastEpochDays < TODAY) {
           preDays.push(<Day events={daysEvents} active={this.state.active} eventClickHandler={this.eventClickHandler} key={id}/>);
         }
         else {
