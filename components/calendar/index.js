@@ -63,7 +63,6 @@ const Calendar = React.createClass({
   },
 
   buildEvents: function (events) {
-    console.log(OFFSET);
     let id = 0;
     let lastEpochDays = 0;
     let daysEvents = [];
