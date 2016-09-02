@@ -7,7 +7,11 @@ require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
 const MS_IN_DAY = 1000 * 60 * 60 * 24;
-const TODAY = Math.floor(new Date().getTime() / MS_IN_DAY);
+const MS_IN_MIN = 60 * 1000;
+
+const CURRENT_DATE = new Date();
+const OFFSET = CURRENT_DATE.getTimezoneOffset() * MS_IN_MIN;
+const TODAY = Math.floor((CURRENT_DATE.getTime() + OFFSET) / MS_IN_DAY);
 
 function getActiveEvent(postDays, daysEvents, active) {
   if (active < 0 && postDays.length > 0) {
@@ -59,6 +63,7 @@ const Calendar = React.createClass({
   },
 
   buildEvents: function (events) {
+    console.log(OFFSET);
     let id = 0;
     let lastEpochDays = 0;
     let daysEvents = [];
