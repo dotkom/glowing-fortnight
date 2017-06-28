@@ -21,6 +21,10 @@
   font-weight: 400;
 }
 
+.cal-day--string::first-letter {
+  text-transform: uppercase;
+}
+
 .cal-section--preDays .cal-event-header {
   opacity: .5;
 }
