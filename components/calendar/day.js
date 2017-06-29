@@ -5,7 +5,7 @@ moment.locale('nb')
 
 
 const Day = ({ events, eventClickHandler, active }) => {
-  const DAY = moment().format('dddd DD. MMMM');
+  const DAY = moment(events[0].start_time).format('dddd DD. MMMM');
 
   return (
     <div className="cal-day">
