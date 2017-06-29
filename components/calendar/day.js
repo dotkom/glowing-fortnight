@@ -1,8 +1,6 @@
 import Event from './event';
 import moment from 'moment';
 
-moment.locale('nb')
-
 
 const Day = ({ events, eventClickHandler, active }) => {
   const DAY = moment(events[0].start_time).format('dddd DD. MMMM');

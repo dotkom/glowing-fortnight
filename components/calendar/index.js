@@ -7,7 +7,9 @@ import { API_EVENTS_URL } from '../../common/constants';
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
-const TODAY = moment()
+moment.locale('nb');
+
+const TODAY = moment();
 
 function getActiveEvent(postDays, active) {
   if (active < 0 && postDays.length > 0) {
@@ -24,7 +26,7 @@ const Calendar = React.createClass({
       events: [],
       error: null,
       preDaysSectionActive: false
-    }
+    };
   },
 
   fetchData: function () {
@@ -67,7 +69,7 @@ const Calendar = React.createClass({
 
     events.forEach(function (event, index) {
       event.index = index;
-      let currentEventDate = moment(event.start_time)
+      const currentEventDate = moment(event.start_time);
 
       if (currentEventDate.isAfter(previousEventDate, 'day')) {
         if (previousEventDate.isBefore(TODAY, 'day')) {
@@ -76,7 +78,7 @@ const Calendar = React.createClass({
           );
         }
         else {
-          let active = getActiveEvent(postDays, this.state.active);
+          const active = getActiveEvent(postDays, this.state.active);
           postDays.push(
             <Day events={daysEvents} active={active} eventClickHandler={this.eventClickHandler} key={id}/>
           );
@@ -85,13 +87,13 @@ const Calendar = React.createClass({
         daysEvents = [];
       }
 
-      previousEventDate = currentEventDate
+      previousEventDate = currentEventDate;
       daysEvents.push(event);
       id++;
     }, this);
 
     if (daysEvents.length > 0) {
-      let active = getActiveEvent(postDays, this.state.active);
+      const active = getActiveEvent(postDays, this.state.active);
       if (previousEventDate.isBefore(TODAY, 'day')) {
         preDays.push(
           <Day events={daysEvents} active={active} eventClickHandler={this.eventClickHandler} key={id}/>
@@ -113,7 +115,7 @@ const Calendar = React.createClass({
     }
     else if (preDays.length > 0 && !this.state.preDaysSectionActive) {
       preDaysSection = (
-	      <button className="cal-button--preDays" onClick={this.preDaysClickHandler}>Vis tidligere arrangementer</button>
+        <button className="cal-button--preDays" onClick={this.preDaysClickHandler}>Vis tidligere arrangementer</button>
       );
     }
     else {
