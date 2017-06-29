@@ -9,11 +9,9 @@ require('isomorphic-fetch');
 
 const TODAY = moment()
 
-function getActiveEvent(postDays, daysEvents, active) {
+function getActiveEvent(postDays, active) {
   if (active < 0 && postDays.length > 0) {
     return postDays[0].index;
-  } else if (active < 0 && daysEvents[0]) {
-    return daysEvents[0].index;
   }
 
   return active;
@@ -78,7 +76,7 @@ const Calendar = React.createClass({
           );
         }
         else {
-          let active = getActiveEvent(postDays, daysEvents, this.state.active);
+          let active = getActiveEvent(postDays, this.state.active);
           postDays.push(
             <Day events={daysEvents} active={active} eventClickHandler={this.eventClickHandler} key={id}/>
           );
@@ -93,8 +91,17 @@ const Calendar = React.createClass({
     }, this);
 
     if (daysEvents.length > 0) {
-      let active = getActiveEvent(postDays, daysEvents, this.state.active);
-      postDays.push(<Day events={daysEvents} active={active} eventClickHandler={this.eventClickHandler} key={id}/>);
+      let active = getActiveEvent(postDays, this.state.active);
+      if (previousEventDate.isBefore(TODAY, 'day')) {
+        preDays.push(
+          <Day events={daysEvents} active={active} eventClickHandler={this.eventClickHandler} key={id}/>
+        );
+      }
+      else {
+        postDays.push(
+          <Day events={daysEvents} active={active} eventClickHandler={this.eventClickHandler} key={id}/>
+        );
+      }
     }
 
     if (preDays.length > 0 && this.state.preDaysSectionActive) {
