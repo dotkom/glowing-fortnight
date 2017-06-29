@@ -1,4 +1,5 @@
 import Remarkable from 'remarkable';
+import moment from 'moment';
 
 const markdown = (text) => {
   var md = new Remarkable();
@@ -16,12 +17,12 @@ const Event = ({ title, start_time, end_time, content, eventClickHandler, index,
       <div className="cal-event-indicator"></div>
 
       <div onClick={ () => { eventClickHandler(index); } } className="cal-event-header">
-        <p className="cal-event-date">{start_time.toTimeString().substr(0, 5)}</p>
+        <p className="cal-event-date">{moment(start_time).format('HH:mm')}</p>
         <h3 className="cal-event-title">{title}</h3>
       </div>
 
       <p className={`cal-event-content ${ classes }`} dangerouslySetInnerHTML={markdown(content)}/>
-      <p className={`cal-event-content ${ classes } cal-event-endtime`}>Antatt sluttidspunkt: {end_time.toTimeString().substr(0, 5)}</p>
+      <p className={`cal-event-content ${ classes } cal-event-endtime`}>Antatt sluttidspunkt: {moment(end_time).format('HH:mm')}</p>
     </div>
   );
 };

@@ -1,5 +1,8 @@
 import React from 'react';
 import D from 'react-dom';
+import moment from 'moment';
+
+moment.locale('nb');
 
 require('./styles/base.scss');
 
