@@ -19,10 +19,10 @@
   color: $orange;
   padding-bottom: 5px;
   font-weight: 400;
-}
 
-.cal-day--string::first-letter {
-  text-transform: uppercase;
+  &::first-letter {
+    text-transform: uppercase;
+  }
 }
 
 .cal-section--preDays .cal-event-header {
@@ -42,11 +42,14 @@
   width: 100%;
 
   padding: 12px;
-  margin-bottom: 25px;
 
   &:hover {
     border-color: $orange;
     color: $orange;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 25px;
   }
 }
 
