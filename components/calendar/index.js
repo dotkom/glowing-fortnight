@@ -106,14 +106,14 @@ const Calendar = React.createClass({
 
     if (preDays.length > 0 && this.state.preDaysSectionActive) {
       preDaysSection = (
-	<div className="cal-section--preDays">
-	  { preDays }
-	</div>
+        <div className="cal-section--preDays">
+          { preDays }
+        </div>
       );
     }
     else if (preDays.length > 0 && !this.state.preDaysSectionActive) {
       preDaysSection = (
-	<button className="cal-button--preDays" onClick={this.preDaysClickHandler}>Vis tidligere arrangementer</button>
+	      <button className="cal-button--preDays" onClick={this.preDaysClickHandler}>Vis tidligere arrangementer</button>
       );
     }
     else {
@@ -121,7 +121,7 @@ const Calendar = React.createClass({
     }
 
     return {
-      postDays: postDays,
+      postDaysSection: postDays,
       preDaysSection: preDaysSection
     };
   },
@@ -137,18 +137,18 @@ const Calendar = React.createClass({
       calendarContent = (<p className="component">En uventet feil har oppstått ved henting av program. Vennligst prøv igjen senere.</p>);
     }
     else {
-      let { postDays, preDaysSection } = this.buildEvents(this.state.events);
+      let { postDaysSection, preDaysSection } = this.buildEvents(this.state.events);
 
       calendarContent = (
         <div>
           <div className="cal-timeline"></div>
 
           { preDaysSection }
-          { postDays }
+          { postDaysSection }
         </div>
       );
     }
-    
+
     return (
       <section id="calendar" className="component">
         <h1>Program. <a href="https://online.ntnu.no/splash/events.ics">iCalendar</a></h1>
