@@ -7,8 +7,6 @@ import { API_EVENTS_URL } from '../../common/constants';
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
-moment.locale('nb');
-
 const TODAY = moment();
 
 function getActiveEvent(postDays, active) {
@@ -136,14 +134,16 @@ const Calendar = React.createClass({
       calendarContent = (<h2 className="component">Laster inn kalender</h2>);
     }
     else if (this.state.error !== null) {
-      calendarContent = (<p className="component">En uventet feil har oppstått ved henting av program. Vennligst prøv igjen senere.</p>);
+      calendarContent = (
+        <p className="component">En uventet feil har oppstått ved henting av program. Vennligst prøv igjen senere.</p>
+      );
     }
     else {
       let { postDaysSection, preDaysSection } = this.buildEvents(this.state.events);
 
       calendarContent = (
         <div>
-          <div className="cal-timeline"></div>
+          <div className="cal-timeline" />
 
           { preDaysSection }
           { postDaysSection }
