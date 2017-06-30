@@ -7,13 +7,13 @@ import { API_EVENTS_URL } from '../../common/constants';
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
-const TODAY = moment();
+const NOW = moment();
 
-function getActiveEvent (postDays, postEs, active) {
+function getActiveEvent (postDays, futureEvents, active) {
   if (active < 0 && postDays.length > 0) {
     return postDays[0].props.events[0].index;
-  } else if (active < 0 && postEs[0]) {
-    return postEs[0].index;
+  } else if (active < 0 && futureEvents[0]) {
+    return futureEvents[0].index;
   }
 
   return active;
@@ -58,14 +58,14 @@ const Calendar = React.createClass({
     this.setState(Object.assign({}, this.state, { preDaysSectionActive: !this.state.preDaysSectionActive }));
   },
 
-  partitionEvents: function (preEs, postEs, active) {
+  partitionEvents: function (pastEvents, futureEvents, active) {
     let preDay, postDay;
 
-    if (preEs.length) {
-      preDay = <Day events={preEs} active={active} eventClickHandler={this.eventClickHandler}/>;
+    if (pastEvents.length) {
+      preDay = <Day events={pastEvents} active={active} eventClickHandler={this.eventClickHandler}/>;
     }
-    if (postEs.length) {
-      postDay = <Day events={postEs} active={active} eventClickHandler={this.eventClickHandler}/>;
+    if (futureEvents.length) {
+      postDay = <Day events={futureEvents} active={active} eventClickHandler={this.eventClickHandler}/>;
     }
 
     return {
@@ -78,8 +78,8 @@ const Calendar = React.createClass({
     let id = 0;
     let previousEventDate;
 
-    let preEs = [];
-    let postEs = [];
+    let pastEvents = [];
+    let futureEvents = [];
 
     let preDays = [];
     let postDays = [];
@@ -91,8 +91,8 @@ const Calendar = React.createClass({
       const currentEventDate = moment(event.end_time);
 
       if (currentEventDate.isAfter(previousEventDate, 'day')) {
-        const active = getActiveEvent(postDays, postEs, this.state.active);
-        const { preDay, postDay } = this.partitionEvents(preEs, postEs, active);
+        const active = getActiveEvent(postDays, futureEvents, this.state.active);
+        const { preDay, postDay } = this.partitionEvents(pastEvents, futureEvents, active);
 
         if (preDay) {
           preDays.push(preDay);
@@ -101,22 +101,22 @@ const Calendar = React.createClass({
           postDays.push(postDay);
         }
 
-        preEs = [];
-        postEs = [];
+        pastEvents = [];
+        futureEvents = [];
       }
-      if (currentEventDate.isBefore(TODAY)) {
-        preEs.push(event);
+      if (currentEventDate.isAfter(NOW)) {
+        futureEvents.push(event);
       }
       else {
-        postEs.push(event);
+        pastEvents.push(event);
       }
 
       previousEventDate = currentEventDate;
       id++;
     }, this);
 
-    const active = getActiveEvent(postDays, postEs, this.state.active);
-    const { preDay, postDay } = this.partitionEvents(preEs, postEs, active);
+    const active = getActiveEvent(postDays, futureEvents, this.state.active);
+    const { preDay, postDay } = this.partitionEvents(pastEvents, futureEvents, active);
     if (preDay) {
       preDays.push(preDay);
     }
