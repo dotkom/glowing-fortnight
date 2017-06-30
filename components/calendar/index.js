@@ -9,9 +9,11 @@ require('isomorphic-fetch');
 
 const TODAY = moment();
 
-function getActiveEvent (postDays, active) {
+function getActiveEvent (postDays, postEs, active) {
   if (active < 0 && postDays.length > 0) {
-    return postDays[0].index;
+    return postDays[0].props.events[0].index;
+  } else if (active < 0 && postEs[0]) {
+    return postEs[0].index;
   }
 
   return active;
@@ -56,14 +58,14 @@ const Calendar = React.createClass({
     this.setState(Object.assign({}, this.state, { preDaysSectionActive: !this.state.preDaysSectionActive }));
   },
 
-  partitionEvents: function (preEs, postEs) {
+  partitionEvents: function (preEs, postEs, active) {
     let preDay, postDay;
 
     if (preEs.length) {
-      preDay = <Day events={preEs} active={this.state.active} eventClickHandler={this.eventClickHandler}/>;
+      preDay = <Day events={preEs} active={active} eventClickHandler={this.eventClickHandler}/>;
     }
     if (postEs.length) {
-      postDay = <Day events={postEs} active={this.state.active} eventClickHandler={this.eventClickHandler}/>;
+      postDay = <Day events={postEs} active={active} eventClickHandler={this.eventClickHandler}/>;
     }
 
     return {
@@ -86,18 +88,22 @@ const Calendar = React.createClass({
 
     events.forEach(function (event, index) {
       event.index = index;
-
       const currentEventDate = moment(event.end_time);
 
       if (currentEventDate.isAfter(previousEventDate, 'day')) {
-        const { preDay, postDay } = this.partitionEvents(preEs, postEs);
-        preDays.push(preDay);
-        postDays.push(postDay);
+        const active = getActiveEvent(postDays, postEs, this.state.active);
+        const { preDay, postDay } = this.partitionEvents(preEs, postEs, active);
+
+        if (preDay) {
+          preDays.push(preDay);
+        }
+        if (postDay) {
+          postDays.push(postDay);
+        }
 
         preEs = [];
         postEs = [];
       }
-
       if (currentEventDate.isBefore(TODAY)) {
         preEs.push(event);
       }
@@ -109,9 +115,14 @@ const Calendar = React.createClass({
       id++;
     }, this);
 
-    const { preDay, postDay } = this.partitionEvents(preEs, postEs);
-    preDays.push(preDay);
-    postDays.push(postDay);
+    const active = getActiveEvent(postDays, postEs, this.state.active);
+    const { preDay, postDay } = this.partitionEvents(preEs, postEs, active);
+    if (preDay) {
+      preDays.push(preDay);
+    }
+    if (postDay) {
+      postDays.push(postDay);
+    }
 
     if (preDays.length > 0 && this.state.preDaysSectionActive) {
       preDaysSection = (
