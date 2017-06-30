@@ -61,6 +61,9 @@ const Calendar = React.createClass({
     let daysEvents = [];
     let previousEventDate;
 
+    let preEs = [];
+    let postEs = [];
+
     let preDays = [];
     let postDays = [];
     let preDaysSection = '';
@@ -68,23 +71,10 @@ const Calendar = React.createClass({
 
     events.forEach(function (event, index) {
       event.index = index;
+
       const currentEventDate = moment(event.end_time);
 
       if (currentEventDate.isAfter(previousEventDate, 'day')) {
-
-        let preEs = [];
-        let postEs = [];
-
-        daysEvents.forEach(function (e) {
-          if (moment(e.end_time).isBefore(TODAY)) {
-            preEs.push(e);
-          }
-          else {
-            postEs.push(e);
-          }
-
-        }, this);
-
         if (preEs.length) {
           preDays.push(
             <Day events={preEs} active={this.state.active} eventClickHandler={this.eventClickHandler} key={id}/>
@@ -96,11 +86,18 @@ const Calendar = React.createClass({
           );
         }
 
-        daysEvents = [];
+        preEs = [];
+        postEs = [];
+      }
+
+      if (currentEventDate.isBefore(TODAY)) {
+        preEs.push(event);
+      }
+      else {
+        postEs.push(event);
       }
 
       previousEventDate = currentEventDate;
-      daysEvents.push(event);
       id++;
     }, this);
 
