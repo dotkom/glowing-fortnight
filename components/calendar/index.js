@@ -9,7 +9,7 @@ require('isomorphic-fetch');
 
 const TODAY = moment();
 
-function getActiveEvent(postDays, active) {
+function getActiveEvent (postDays, active) {
   if (active < 0 && postDays.length > 0) {
     return postDays[0].index;
   }
@@ -53,7 +53,7 @@ const Calendar = React.createClass({
   },
 
   preDaysClickHandler: function () {
-    this.setState(Object.assign({}, this.state, { preDaysSectionActive: true }));
+    this.setState(Object.assign({}, this.state, { preDaysSectionActive: !this.state.preDaysSectionActive }));
   },
 
   buildEvents: function (events) {
@@ -64,6 +64,7 @@ const Calendar = React.createClass({
     let preDays = [];
     let postDays = [];
     let preDaysSection = '';
+    let toggleCalendarSection = '';
 
     events.forEach(function (event, index) {
       event.index = index;
@@ -110,9 +111,14 @@ const Calendar = React.createClass({
           { preDays }
         </div>
       );
+      toggleCalendarSection = (
+        <button className="cal-button--preDays" onClick={this.preDaysClickHandler}>
+          Skjul tidligere arrangementer
+        </button>
+      );
     }
     else if (preDays.length > 0 && !this.state.preDaysSectionActive) {
-      preDaysSection = (
+      toggleCalendarSection = (
         <button className="cal-button--preDays" onClick={this.preDaysClickHandler}>Vis tidligere arrangementer</button>
       );
     }
@@ -122,6 +128,7 @@ const Calendar = React.createClass({
 
     return {
       postDaysSection: postDays,
+      toggleCalendarSection: toggleCalendarSection,
       preDaysSection: preDaysSection
     };
   },
@@ -139,13 +146,14 @@ const Calendar = React.createClass({
       );
     }
     else {
-      let { postDaysSection, preDaysSection } = this.buildEvents(this.state.events);
+      let { postDaysSection, toggleCalendarSection, preDaysSection } = this.buildEvents(this.state.events);
 
       calendarContent = (
         <div>
-          <div className="cal-timeline" />
+          <div className="cal-timeline"/>
 
           { preDaysSection }
+          { toggleCalendarSection }
           { postDaysSection }
         </div>
       );
