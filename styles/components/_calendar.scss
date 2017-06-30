@@ -48,6 +48,10 @@
     color: $orange;
   }
 
+  &:focus {
+    outline: none;
+  }
+
   &:not(:last-child) {
     margin-bottom: 25px;
   }
