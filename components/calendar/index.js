@@ -68,18 +68,31 @@ const Calendar = React.createClass({
 
     events.forEach(function (event, index) {
       event.index = index;
-      const currentEventDate = moment(event.start_time);
+      const currentEventDate = moment(event.end_time);
 
       if (currentEventDate.isAfter(previousEventDate, 'day')) {
-        if (previousEventDate.isBefore(TODAY, 'day')) {
+
+        let preEs = [];
+        let postEs = [];
+
+        daysEvents.forEach(function (e) {
+          if (moment(e.end_time).isBefore(TODAY)) {
+            preEs.push(e);
+          }
+          else {
+            postEs.push(e);
+          }
+
+        }, this);
+
+        if (preEs.length) {
           preDays.push(
-            <Day events={daysEvents} active={this.state.active} eventClickHandler={this.eventClickHandler} key={id}/>
+            <Day events={preEs} active={this.state.active} eventClickHandler={this.eventClickHandler} key={id}/>
           );
         }
-        else {
-          const active = getActiveEvent(postDays, this.state.active);
+        if (postEs.length) {
           postDays.push(
-            <Day events={daysEvents} active={active} eventClickHandler={this.eventClickHandler} key={id}/>
+            <Day events={postEs} active={this.state.active} eventClickHandler={this.eventClickHandler} key={id}/>
           );
         }
 
