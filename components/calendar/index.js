@@ -56,9 +56,24 @@ const Calendar = React.createClass({
     this.setState(Object.assign({}, this.state, { preDaysSectionActive: !this.state.preDaysSectionActive }));
   },
 
+  partitionEvents: function (preEs, postEs) {
+    let preDay, postDay;
+
+    if (preEs.length) {
+      preDay = <Day events={preEs} active={this.state.active} eventClickHandler={this.eventClickHandler}/>;
+    }
+    if (postEs.length) {
+      postDay = <Day events={postEs} active={this.state.active} eventClickHandler={this.eventClickHandler}/>;
+    }
+
+    return {
+      preDay: preDay,
+      postDay: postDay
+    };
+  },
+
   buildEvents: function (events) {
     let id = 0;
-    let daysEvents = [];
     let previousEventDate;
 
     let preEs = [];
@@ -75,16 +90,9 @@ const Calendar = React.createClass({
       const currentEventDate = moment(event.end_time);
 
       if (currentEventDate.isAfter(previousEventDate, 'day')) {
-        if (preEs.length) {
-          preDays.push(
-            <Day events={preEs} active={this.state.active} eventClickHandler={this.eventClickHandler} key={id}/>
-          );
-        }
-        if (postEs.length) {
-          postDays.push(
-            <Day events={postEs} active={this.state.active} eventClickHandler={this.eventClickHandler} key={id}/>
-          );
-        }
+        const { preDay, postDay } = this.partitionEvents(preEs, postEs);
+        preDays.push(preDay);
+        postDays.push(postDay);
 
         preEs = [];
         postEs = [];
@@ -101,19 +109,9 @@ const Calendar = React.createClass({
       id++;
     }, this);
 
-    if (daysEvents.length > 0) {
-      const active = getActiveEvent(postDays, this.state.active);
-      if (previousEventDate.isBefore(TODAY, 'day')) {
-        preDays.push(
-          <Day events={daysEvents} active={active} eventClickHandler={this.eventClickHandler} key={id}/>
-        );
-      }
-      else {
-        postDays.push(
-          <Day events={daysEvents} active={active} eventClickHandler={this.eventClickHandler} key={id}/>
-        );
-      }
-    }
+    const { preDay, postDay } = this.partitionEvents(preEs, postEs);
+    preDays.push(preDay);
+    postDays.push(postDay);
 
     if (preDays.length > 0 && this.state.preDaysSectionActive) {
       preDaysSection = (
