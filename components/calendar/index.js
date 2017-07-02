@@ -68,10 +68,7 @@ const Calendar = React.createClass({
       postDay = <Day events={futureEvents} active={active} eventClickHandler={this.eventClickHandler}/>;
     }
 
-    return {
-      preDay: preDay,
-      postDay: postDay
-    };
+    return { preDay, postDay };
   },
 
   buildEvents: function (events) {
@@ -84,7 +81,6 @@ const Calendar = React.createClass({
     let preDays = [];
     let postDays = [];
     let preDaysSection = '';
-    let toggleCalendarSection = '';
 
     events.forEach(function (event, index) {
       event.index = index;
@@ -124,22 +120,21 @@ const Calendar = React.createClass({
       postDays.push(postDay);
     }
 
+    let toggleCalendarSection = (
+      <button className="cal-button--preDays" onClick={this.preDaysClickHandler}>
+        {( this.state.preDaysSectionActive ? 'Skjul' : 'Vis' ) + ' tidligere arrangementer' }
+      </button>
+    );
+
     if (preDays.length > 0 && this.state.preDaysSectionActive) {
       preDaysSection = (
         <div className="cal-section--preDays">
           { preDays }
         </div>
       );
-      toggleCalendarSection = (
-        <button className="cal-button--preDays" onClick={this.preDaysClickHandler}>
-          Skjul tidligere arrangementer
-        </button>
-      );
     }
-    else if (preDays.length > 0 && !this.state.preDaysSectionActive) {
-      toggleCalendarSection = (
-        <button className="cal-button--preDays" onClick={this.preDaysClickHandler}>Vis tidligere arrangementer</button>
-      );
+    else if (preDays.length <= 0) {
+      toggleCalendarSection = '';
     }
     else {
       preDaysSection = '';
@@ -147,8 +142,8 @@ const Calendar = React.createClass({
 
     return {
       postDaysSection: postDays,
-      toggleCalendarSection: toggleCalendarSection,
-      preDaysSection: preDaysSection
+      toggleCalendarSection,
+      preDaysSection
     };
   },
 
