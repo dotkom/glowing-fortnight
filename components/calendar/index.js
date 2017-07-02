@@ -7,11 +7,13 @@ import { API_EVENTS_URL } from '../../common/constants';
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
-const TODAY = moment();
+const NOW = moment();
 
-function getActiveEvent(postDays, active) {
+function getActiveEvent (postDays, futureEvents, active) {
   if (active < 0 && postDays.length > 0) {
-    return postDays[0].index;
+    return postDays[0].props.events[0].index;
+  } else if (active < 0 && futureEvents[0]) {
+    return futureEvents[0].index;
   }
 
   return active;
@@ -53,13 +55,28 @@ const Calendar = React.createClass({
   },
 
   preDaysClickHandler: function () {
-    this.setState(Object.assign({}, this.state, { preDaysSectionActive: true }));
+    this.setState(Object.assign({}, this.state, { preDaysSectionActive: !this.state.preDaysSectionActive }));
+  },
+
+  partitionEvents: function (pastEvents, futureEvents, active) {
+    let preDay, postDay;
+
+    if (pastEvents.length) {
+      preDay = <Day events={pastEvents} active={active} eventClickHandler={this.eventClickHandler}/>;
+    }
+    if (futureEvents.length) {
+      postDay = <Day events={futureEvents} active={active} eventClickHandler={this.eventClickHandler}/>;
+    }
+
+    return { preDay, postDay };
   },
 
   buildEvents: function (events) {
     let id = 0;
-    let daysEvents = [];
     let previousEventDate;
+
+    let pastEvents = [];
+    let futureEvents = [];
 
     let preDays = [];
     let postDays = [];
@@ -67,42 +84,47 @@ const Calendar = React.createClass({
 
     events.forEach(function (event, index) {
       event.index = index;
-      const currentEventDate = moment(event.start_time);
+      const currentEventDate = moment(event.end_time);
 
       if (currentEventDate.isAfter(previousEventDate, 'day')) {
-        if (previousEventDate.isBefore(TODAY, 'day')) {
-          preDays.push(
-            <Day events={daysEvents} active={this.state.active} eventClickHandler={this.eventClickHandler} key={id}/>
-          );
+        const active = getActiveEvent(postDays, futureEvents, this.state.active);
+        const { preDay, postDay } = this.partitionEvents(pastEvents, futureEvents, active);
+
+        if (preDay) {
+          preDays.push(preDay);
         }
-        else {
-          const active = getActiveEvent(postDays, this.state.active);
-          postDays.push(
-            <Day events={daysEvents} active={active} eventClickHandler={this.eventClickHandler} key={id}/>
-          );
+        if (postDay) {
+          postDays.push(postDay);
         }
 
-        daysEvents = [];
+        pastEvents = [];
+        futureEvents = [];
+      }
+      if (currentEventDate.isAfter(NOW)) {
+        futureEvents.push(event);
+      }
+      else {
+        pastEvents.push(event);
       }
 
       previousEventDate = currentEventDate;
-      daysEvents.push(event);
       id++;
     }, this);
 
-    if (daysEvents.length > 0) {
-      const active = getActiveEvent(postDays, this.state.active);
-      if (previousEventDate.isBefore(TODAY, 'day')) {
-        preDays.push(
-          <Day events={daysEvents} active={active} eventClickHandler={this.eventClickHandler} key={id}/>
-        );
-      }
-      else {
-        postDays.push(
-          <Day events={daysEvents} active={active} eventClickHandler={this.eventClickHandler} key={id}/>
-        );
-      }
+    const active = getActiveEvent(postDays, futureEvents, this.state.active);
+    const { preDay, postDay } = this.partitionEvents(pastEvents, futureEvents, active);
+    if (preDay) {
+      preDays.push(preDay);
     }
+    if (postDay) {
+      postDays.push(postDay);
+    }
+
+    let toggleCalendarSection = (
+      <button className="cal-button--preDays" onClick={this.preDaysClickHandler}>
+        {( this.state.preDaysSectionActive ? 'Skjul' : 'Vis' ) + ' tidligere arrangementer' }
+      </button>
+    );
 
     if (preDays.length > 0 && this.state.preDaysSectionActive) {
       preDaysSection = (
@@ -111,10 +133,8 @@ const Calendar = React.createClass({
         </div>
       );
     }
-    else if (preDays.length > 0 && !this.state.preDaysSectionActive) {
-      preDaysSection = (
-        <button className="cal-button--preDays" onClick={this.preDaysClickHandler}>Vis tidligere arrangementer</button>
-      );
+    else if (preDays.length <= 0) {
+      toggleCalendarSection = '';
     }
     else {
       preDaysSection = '';
@@ -122,7 +142,8 @@ const Calendar = React.createClass({
 
     return {
       postDaysSection: postDays,
-      preDaysSection: preDaysSection
+      toggleCalendarSection,
+      preDaysSection
     };
   },
 
@@ -139,13 +160,14 @@ const Calendar = React.createClass({
       );
     }
     else {
-      let { postDaysSection, preDaysSection } = this.buildEvents(this.state.events);
+      let { postDaysSection, toggleCalendarSection, preDaysSection } = this.buildEvents(this.state.events);
 
       calendarContent = (
         <div>
-          <div className="cal-timeline" />
+          <div className="cal-timeline"/>
 
           { preDaysSection }
+          { toggleCalendarSection }
           { postDaysSection }
         </div>
       );
