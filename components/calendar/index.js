@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Day from './day';
 import moment from 'moment';
 
@@ -19,46 +19,44 @@ function getActiveEvent (postDays, futureEvents, active) {
   return active;
 }
 
-const Calendar = React.createClass({
-  getInitialState: function () {
-    return {
+class Calendar extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
       active: -1,
       events: [],
       error: null,
       preDaysSectionActive: false
     };
-  },
+  }
 
-  fetchData: function () {
-    var self = this;
-
+  fetchData() {
     fetch(API_EVENTS_URL, {
       method: 'GET',
       mode: 'cors'
     })
-      .then(function (response) {
-        return response.json();
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState(Object.assign({}, this.state, { events: data.results }));
       })
-      .then(function (data) {
-        self.setState(Object.assign({}, self.state, { events: data.results }));
-      })
-      .catch(function (error) {
-        self.setState(Object.assign({}, self.state, { error: error }));
+      .catch((error) => {
+        this.setState(Object.assign({}, this.state, { error: error }));
       });
-  },
+  }
 
-  eventClickHandler: function (id) {
+  eventClickHandler(id) {
     this.setState(Object.assign({}, this.state, { active: id }));
-    setTimeout(function () {
+    setTimeout(() => {
       window.location = `#event-${id}`;
     }, 0);
-  },
+  }
 
-  preDaysClickHandler: function () {
+  preDaysClickHandler() {
     this.setState(Object.assign({}, this.state, { preDaysSectionActive: !this.state.preDaysSectionActive }));
-  },
+  }
 
-  partitionEvents: function (pastEvents, futureEvents, active) {
+  partitionEvents(pastEvents, futureEvents, active) {
     let preDay, postDay;
 
     if (pastEvents.length) {
@@ -69,9 +67,9 @@ const Calendar = React.createClass({
     }
 
     return { preDay, postDay };
-  },
+  }
 
-  buildEvents: function (events) {
+  buildEvents(events) {
     let id = 0;
     let previousEventDate;
 
@@ -145,9 +143,9 @@ const Calendar = React.createClass({
       toggleCalendarSection,
       preDaysSection
     };
-  },
+  }
 
-  render: function () {
+  render() {
     let calendarContent = '';
 
     if (this.state.events.length === 0 && this.state.error === null) {
@@ -181,6 +179,6 @@ const Calendar = React.createClass({
       </section>
     );
   }
-});
+}
 
 export default Calendar;
