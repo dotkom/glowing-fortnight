@@ -39,7 +39,7 @@ class Calendar extends Component {
     let preDay, postDay;
 
     if (pastEvents.length) {
-      preDay = <Day events={pastEvents} active={active} eventClickHandler={this.eventClickHandler}/>;
+      preDay = { events: pastEvents, active };
     }
     if (futureEvents.length) {
       postDay = { events: futureEvents, active };
@@ -127,7 +127,11 @@ class Calendar extends Component {
         {
           preDays.length > 0 && this.state.preDaysSectionActive ?
             <div className="cal-section--preDays">
-              { preDays }
+              {
+                preDays.map(preDay => (
+                  <Day events={preDay.events} active={preDay.active} eventClickHandler={this.eventClickHandler}/>
+                ))
+              }
             </div>
           : ''
         }
