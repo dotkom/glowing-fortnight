@@ -128,31 +128,30 @@ class Calendar extends Component {
 
   render() {
     const { events, error } = this.props;
-    let calendarContent = '';
 
     if (events.length === 0 && error === null) {
-      calendarContent = (<h2 className="component">Laster inn kalender</h2>);
+      return <h2 className="component">Laster inn kalender</h2>;
     }
-    else if (error !== null) {
-      calendarContent = (
-        <p className="component">En uventet feil har oppstått ved henting av program. Vennligst prøv igjen senere.</p>
-      );
-    }
-    else {
-      let { postDaysSection, toggleCalendarSection, preDaysSection } = this.buildEvents(events);
 
-      calendarContent = (
-        <div>
-          <div className="cal-timeline"/>
-
-          { preDaysSection }
-          { toggleCalendarSection }
-          { postDaysSection }
-        </div>
+    if (error !== null) {
+      return (
+        <p className="component">
+          En uventet feil har oppstått ved henting av program. Vennligst prøv igjen senere.
+        </p>
       );
     }
 
-    return calendarContent;
+    let { postDaysSection, toggleCalendarSection, preDaysSection } = this.buildEvents(events);
+
+    return (
+      <div>
+        <div className="cal-timeline"/>
+
+        { preDaysSection }
+        { toggleCalendarSection }
+        { postDaysSection }
+      </div>
+    );
   }
 }
 
