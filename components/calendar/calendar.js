@@ -6,7 +6,7 @@ import { API_EVENTS_URL } from '../../common/constants';
 
 function getActiveEvent (postDays, futureEvents, active) {
   if (active < 0 && postDays.length > 0) {
-    return postDays[0].props.events[0].index;
+    return postDays[0].events[0].index;
   } else if (active < 0 && futureEvents[0]) {
     return futureEvents[0].index;
   }
@@ -42,7 +42,7 @@ class Calendar extends Component {
       preDay = <Day events={pastEvents} active={active} eventClickHandler={this.eventClickHandler}/>;
     }
     if (futureEvents.length) {
-      postDay = <Day events={futureEvents} active={active} eventClickHandler={this.eventClickHandler}/>;
+      postDay = { events: futureEvents, active };
     }
 
     return { preDay, postDay };
@@ -138,7 +138,11 @@ class Calendar extends Component {
             </button>
           : ''
         }
-        { postDays }
+        {
+          postDays.map(postDay => (
+            <Day events={postDay.events} active={postDay.active} eventClickHandler={this.eventClickHandler}/>
+          ))
+        }
       </div>
     );
   }
