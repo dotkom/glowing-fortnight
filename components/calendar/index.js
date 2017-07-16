@@ -37,7 +37,12 @@ class CalendarContainer extends Component {
 
   render() {
     const { events, error } = this.state;
-    return <Calendar events={events} error={error} />;
+    return (
+      <section id="calendar" className="component">
+        <h1>Program. <a href="https://online.ntnu.no/splash/events.ics">iCalendar</a></h1>
+        <Calendar events={events} error={error} />
+      </section>
+    );
   }
 }
 

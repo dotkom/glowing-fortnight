@@ -152,13 +152,7 @@ class Calendar extends Component {
       );
     }
 
-    return (
-      <section id="calendar" className="component">
-        <h1>Program. <a href="https://online.ntnu.no/splash/events.ics">iCalendar</a></h1>
-
-        { calendarContent }
-      </section>
-    );
+    return calendarContent;
   }
 }
 
