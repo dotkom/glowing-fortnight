@@ -57,7 +57,6 @@ class Calendar extends Component {
 
     let preDays = [];
     let postDays = [];
-    let preDaysSection = '';
 
     const NOW = moment();
 
@@ -99,20 +98,8 @@ class Calendar extends Component {
       postDays.push(postDay);
     }
 
-    if (preDays.length > 0 && this.state.preDaysSectionActive) {
-      preDaysSection = (
-        <div className="cal-section--preDays">
-          { preDays }
-        </div>
-      );
-    }
-    else {
-      preDaysSection = '';
-    }
-
     return {
-      postDaysSection: postDays,
-      preDaysSection,
+      postDays,
       preDays,
     };
   }
@@ -132,22 +119,26 @@ class Calendar extends Component {
       );
     }
 
-    let { postDaysSection, preDaysSection, preDays } = this.buildEvents(events);
+    let { postDays, preDays } = this.buildEvents(events);
 
     return (
       <div>
         <div className="cal-timeline"/>
-
-        { preDaysSection }
+        {
+          preDays.length > 0 && this.state.preDaysSectionActive ?
+            <div className="cal-section--preDays">
+              { preDays }
+            </div>
+          : ''
+        }
         {
           preDays.length > 0 ?
             <button className="cal-button--preDays" onClick={this.preDaysClickHandler}>
               {( this.state.preDaysSectionActive ? 'Skjul' : 'Vis' ) + ' tidligere arrangementer' }
             </button>
-          :
-            ''
+          : ''
         }
-        { postDaysSection }
+        { postDays }
       </div>
     );
   }
