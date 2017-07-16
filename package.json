@@ -7,9 +7,10 @@
     "build:prod": "webpack -p",
     "build": "webpack",
     "watch": "webpack -w",
-    "dev": "node server.js --inline",
+    "dev": "webpack-dev-server --hot --inline",
     "start": "npm run dev",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "repository": {
     "type": "git",

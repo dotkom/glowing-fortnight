@@ -4,8 +4,6 @@ import moment from 'moment';
 
 import { API_EVENTS_URL } from '../../common/constants';
 
-const NOW = moment();
-
 function getActiveEvent (postDays, futureEvents, active) {
   if (active < 0 && postDays.length > 0) {
     return postDays[0].props.events[0].index;
@@ -60,6 +58,8 @@ class Calendar extends Component {
     let preDays = [];
     let postDays = [];
     let preDaysSection = '';
+
+    const NOW = moment();
 
     events.forEach(function (event, index) {
       event.index = index;
