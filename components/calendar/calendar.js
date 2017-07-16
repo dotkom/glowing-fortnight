@@ -61,7 +61,7 @@ class Calendar extends Component {
 
     const NOW = moment();
 
-    events.forEach(function (event, index) {
+    events.forEach((event, index) => {
       event.index = index;
       const currentEventDate = moment(event.end_time);
 
@@ -88,7 +88,7 @@ class Calendar extends Component {
 
       previousEventDate = currentEventDate;
       id++;
-    }, this);
+    });
 
     const active = getActiveEvent(postDays, futureEvents, this.state.active);
     const { preDay, postDay } = this.partitionEvents(pastEvents, futureEvents, active);
@@ -99,12 +99,6 @@ class Calendar extends Component {
       postDays.push(postDay);
     }
 
-    let toggleCalendarSection = (
-      <button className="cal-button--preDays" onClick={this.preDaysClickHandler}>
-        {( this.state.preDaysSectionActive ? 'Skjul' : 'Vis' ) + ' tidligere arrangementer' }
-      </button>
-    );
-
     if (preDays.length > 0 && this.state.preDaysSectionActive) {
       preDaysSection = (
         <div className="cal-section--preDays">
@@ -112,17 +106,14 @@ class Calendar extends Component {
         </div>
       );
     }
-    else if (preDays.length <= 0) {
-      toggleCalendarSection = '';
-    }
     else {
       preDaysSection = '';
     }
 
     return {
       postDaysSection: postDays,
-      toggleCalendarSection,
-      preDaysSection
+      preDaysSection,
+      preDays,
     };
   }
 
@@ -141,14 +132,21 @@ class Calendar extends Component {
       );
     }
 
-    let { postDaysSection, toggleCalendarSection, preDaysSection } = this.buildEvents(events);
+    let { postDaysSection, preDaysSection, preDays } = this.buildEvents(events);
 
     return (
       <div>
         <div className="cal-timeline"/>
 
         { preDaysSection }
-        { toggleCalendarSection }
+        {
+          preDays.length > 0 ?
+            <button className="cal-button--preDays" onClick={this.preDaysClickHandler}>
+              {( this.state.preDaysSectionActive ? 'Skjul' : 'Vis' ) + ' tidligere arrangementer' }
+            </button>
+          :
+            ''
+        }
         { postDaysSection }
       </div>
     );
