@@ -625,3 +625,19 @@ exports[`renders correctly during fadderuker 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders error 1`] = `
+<p
+  className="component"
+>
+  En uventet feil har oppstått ved henting av program. Vennligst prøv igjen senere.
+</p>
+`;
+
+exports[`renders loading message 1`] = `
+<h2
+  className="component"
+>
+  Laster inn kalender
+</h2>
+`;

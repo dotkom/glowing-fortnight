@@ -31,3 +31,18 @@ it('renders correctly after fadderuker', () => {
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+it('renders error', () => {
+  const tree = renderer.create(
+    <Calendar events={[]} error="Error message" />
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+
+it('renders loading message', () => {
+  const tree = renderer.create(
+    <Calendar events={[]} error={null} />
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
+});
