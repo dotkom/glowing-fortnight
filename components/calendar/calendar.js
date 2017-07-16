@@ -4,6 +4,8 @@ import moment from 'moment';
 
 import { API_EVENTS_URL } from '../../common/constants';
 
+let dayId = 0;
+
 function getActiveEvent (postDays, futureEvents, active) {
   if (active < 0 && postDays.length > 0) {
     return postDays[0].events[0].index;
@@ -39,17 +41,16 @@ class Calendar extends Component {
     let preDay, postDay;
 
     if (pastEvents.length) {
-      preDay = { events: pastEvents, active };
+      preDay = { events: pastEvents, active, id: dayId++ };
     }
     if (futureEvents.length) {
-      postDay = { events: futureEvents, active };
+      postDay = { events: futureEvents, active, id: dayId++ };
     }
 
     return { preDay, postDay };
   }
 
   buildEvents(events) {
-    let id = 0;
     let previousEventDate;
 
     let pastEvents = [];
@@ -86,7 +87,6 @@ class Calendar extends Component {
       }
 
       previousEventDate = currentEventDate;
-      id++;
     });
 
     const active = getActiveEvent(postDays, futureEvents, this.state.active);
@@ -129,7 +129,12 @@ class Calendar extends Component {
             <div className="cal-section--preDays">
               {
                 preDays.map(preDay => (
-                  <Day events={preDay.events} active={preDay.active} eventClickHandler={this.eventClickHandler}/>
+                  <Day
+                    key={preDay.id}
+                    events={preDay.events}
+                    active={preDay.active}
+                    eventClickHandler={this.eventClickHandler}
+                  />
                 ))
               }
             </div>
@@ -144,7 +149,12 @@ class Calendar extends Component {
         }
         {
           postDays.map(postDay => (
-            <Day events={postDay.events} active={postDay.active} eventClickHandler={this.eventClickHandler}/>
+            <Day
+              key={postDay.id}
+              events={postDay.events}
+              active={postDay.active}
+              eventClickHandler={this.eventClickHandler}
+            />
           ))
         }
       </div>
