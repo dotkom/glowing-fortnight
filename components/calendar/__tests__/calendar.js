@@ -2,7 +2,7 @@ import React from 'react';
 import Calendar from '../calendar';
 import calendarData from './calendarData.json';
 import renderer from 'react-test-renderer';
-import {shallow} from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import moment from 'moment';
 
 const beforeDate = new Date('2017-08-01T00:00:00Z').valueOf();
@@ -56,4 +56,22 @@ it('renders loading message', () => {
     <Calendar events={[]} error={null} />
   );
   expect(wrapper.getNodes()).toMatchSnapshot();
+});
+
+it('sets event to active after click', () => {
+  Date.now = jest.fn(() => duringDate);
+  const wrapper = mount(
+    <Calendar events={calendarData} error={null} />
+  );
+  wrapper.find('.cal-button--preDays').simulate('click');
+  let expectedIndex = 2;
+  // TODO: This is likely not the best way to test this
+  let eventHeader = wrapper.find('Event').findWhere(n => n.props().index == expectedIndex).find('.cal-event-header');
+  eventHeader.simulate('click');
+  expect(wrapper.state('active')).toEqual(expectedIndex);
+
+  expectedIndex = 0;
+  eventHeader = wrapper.find('Event').findWhere(n => n.props().index == expectedIndex).find('.cal-event-header');
+  eventHeader.simulate('click');
+  expect(wrapper.state('active')).toEqual(expectedIndex);
 });

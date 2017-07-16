@@ -133,7 +133,7 @@ class Calendar extends Component {
                     key={preDay.id}
                     events={preDay.events}
                     active={preDay.active}
-                    eventClickHandler={this.eventClickHandler}
+                    eventClickHandler={(id) => this.eventClickHandler(id)}
                   />
                 ))
               }
@@ -153,7 +153,7 @@ class Calendar extends Component {
               key={postDay.id}
               events={postDay.events}
               active={postDay.active}
-              eventClickHandler={this.eventClickHandler}
+              eventClickHandler={(id) => this.eventClickHandler(id)}
             />
           ))
         }
