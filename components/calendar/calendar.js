@@ -133,7 +133,7 @@ class Calendar extends Component {
         }
         {
           preDays.length > 0 ?
-            <button className="cal-button--preDays" onClick={this.preDaysClickHandler}>
+            <button className="cal-button--preDays" onClick={() => this.preDaysClickHandler()}>
               {( this.state.preDaysSectionActive ? 'Skjul' : 'Vis' ) + ' tidligere arrangementer' }
             </button>
           : ''

@@ -1,643 +1,367 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly after fadderuker 1`] = `
-<div>
-  <div
-    className="cal-timeline"
-  />
-  
-  <button
-    className="cal-button--preDays"
-    onClick={[Function]}
-  >
-    Vis tidligere arrangementer
-  </button>
-</div>
+Array [
+  <div>
+    <div
+        className="cal-timeline"
+    />
+    
+    <button
+        className="cal-button--preDays"
+        onClick={[Function]}
+    >
+        Vis tidligere arrangementer
+    </button>
+</div>,
+]
 `;
 
 exports[`renders correctly before fadderuker 1`] = `
-<div>
-  <div
-    className="cal-timeline"
-  />
-  
-  
-  <div
-    className="cal-day"
-  >
-    <h2
-      className="cal-day--string"
-    >
-      Monday 14. August
-    </h2>
+Array [
+  <div>
     <div
-      className="cal-event"
-      id="event-0"
-    >
-      <div
-        className="cal-event-indicator"
-      />
-      <div
-        className="cal-event-header"
-        onClick={[Function]}
-      >
-        <p
-          className="cal-event-date"
-        >
-          15:00
-        </p>
-        <h3
-          className="cal-event-title"
-        >
-          Ny-på-informatikk
-        </h3>
-      </div>
-      <p
-        className="cal-event-content cal-event-content-active"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "<p>Velkommen til Trondheim, informatikk og Online</p>
-          <p>Lurer du på hvordan du skal komme deg rundt på Gløshaugen? Hvor de viktigste stedene i Trondheim er? Er det første gang du flytter hjemme fra og du lurer på hvordan i all verden du skal klare deg på bare lånet? Hva er det med de mattefagene alle snakker om? Og trenger man egentlig kjøpe pensum-bøker, det er jo så dyrt! Da er ny-på-informatikk-kurset noe for deg! En kjapp gjennomgang av det viktigste du trenger å vite som ny student på informatikk, hvordan du gjør deg klar til studiestart, fadderukene og alle mulighetene Trondheim har å by på.</p>
-          <p>Sted: Kommer</p>
-          ",
-          }
+        className="cal-timeline"
+    />
+    
+    
+    <Day
+        active={0}
+        eventClickHandler={[Function]}
+        events={
+            Array [
+                Object {
+                  "content": "Velkommen til Trondheim, informatikk og Online
+            
+            Lurer du på hvordan du skal komme deg rundt på Gløshaugen? Hvor de viktigste stedene i Trondheim er? Er det første gang du flytter hjemme fra og du lurer på hvordan i all verden du skal klare deg på bare lånet? Hva er det med de mattefagene alle snakker om? Og trenger man egentlig kjøpe pensum-bøker, det er jo så dyrt! Da er ny-på-informatikk-kurset noe for deg! En kjapp gjennomgang av det viktigste du trenger å vite som ny student på informatikk, hvordan du gjør deg klar til studiestart, fadderukene og alle mulighetene Trondheim har å by på.
+            
+            Sted: Kommer",
+                  "end_time": "2017-08-14T14:00:00Z",
+                  "id": 77,
+                  "index": 0,
+                  "start_time": "2017-08-14T13:00:00Z",
+                  "title": "Ny-på-informatikk",
+                },
+              ]
         }
-      />
-      <p
-        className="cal-event-content cal-event-content-active cal-event-endtime"
-      >
-        Antatt sluttidspunkt: 
-        16:00
-      </p>
-    </div>
-    <br />
-  </div>
-  <div
-    className="cal-day"
-  >
-    <h2
-      className="cal-day--string"
-    >
-      Sunday 20. August
-    </h2>
-    <div
-      className="cal-event"
-      id="event-1"
-    >
-      <div
-        className="cal-event-indicator"
-      />
-      <div
-        className="cal-event-header"
-        onClick={[Function]}
-      >
-        <p
-          className="cal-event-date"
-        >
-          14:00
-        </p>
-        <h3
-          className="cal-event-title"
-        >
-          Skattejakt
-        </h3>
-      </div>
-      <p
-        className="cal-event-content "
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "<p>Nå er det på tide å finne frem sin indre skatteplyndrer, for i dag er det skattejakt! Møt opp til anvist tid utenfor P15.</p>
-          ",
-          }
+    />
+    <Day
+        active={0}
+        eventClickHandler={[Function]}
+        events={
+            Array [
+                Object {
+                  "content": "Nå er det på tide å finne frem sin indre skatteplyndrer, for i dag er det skattejakt! Møt opp til anvist tid utenfor P15.",
+                  "end_time": "2017-08-20T15:00:00Z",
+                  "id": 76,
+                  "index": 1,
+                  "start_time": "2017-08-20T12:00:00Z",
+                  "title": "Skattejakt",
+                },
+              ]
         }
-      />
-      <p
-        className="cal-event-content  cal-event-endtime"
-      >
-        Antatt sluttidspunkt: 
-        17:00
-      </p>
-    </div>
-    <br />
-  </div>
-  <div
-    className="cal-day"
-  >
-    <h2
-      className="cal-day--string"
-    >
-      Monday 21. August
-    </h2>
-    <div
-      className="cal-event"
-      id="event-2"
-    >
-      <div
-        className="cal-event-indicator"
-      />
-      <div
-        className="cal-event-header"
-        onClick={[Function]}
-      >
-        <p
-          className="cal-event-date"
-        >
-          17:00
-        </p>
-        <h3
-          className="cal-event-title"
-        >
-          Hybel til Hybel
-        </h3>
-      </div>
-      <p
-        className="cal-event-content "
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "<p>Blåmandag er et kjent fenomen for de fleste. Denne mandagen blir alt annet enn blå, for i dag er det duket for Hybel-Hybel!</p>
-          ",
-          }
+    />
+    <Day
+        active={0}
+        eventClickHandler={[Function]}
+        events={
+            Array [
+                Object {
+                  "content": "Blåmandag er et kjent fenomen for de fleste. Denne mandagen blir alt annet enn blå, for i dag er det duket for Hybel-Hybel!",
+                  "end_time": "2017-08-21T21:00:00Z",
+                  "id": 74,
+                  "index": 2,
+                  "start_time": "2017-08-21T15:00:00Z",
+                  "title": "Hybel til Hybel",
+                },
+                Object {
+                  "content": "Etter konkurranserunden, er det etterfest på Cafè 3b.",
+                  "end_time": "2017-08-21T21:59:00Z",
+                  "id": 75,
+                  "index": 3,
+                  "start_time": "2017-08-21T21:00:00Z",
+                  "title": "Etterfest",
+                },
+              ]
         }
-      />
-      <p
-        className="cal-event-content  cal-event-endtime"
-      >
-        Antatt sluttidspunkt: 
-        23:00
-      </p>
-    </div>
-    <div
-      className="cal-event"
-      id="event-3"
-    >
-      <div
-        className="cal-event-indicator"
-      />
-      <div
-        className="cal-event-header"
-        onClick={[Function]}
-      >
-        <p
-          className="cal-event-date"
-        >
-          23:00
-        </p>
-        <h3
-          className="cal-event-title"
-        >
-          Etterfest
-        </h3>
-      </div>
-      <p
-        className="cal-event-content "
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "<p>Etter konkurranserunden, er det etterfest på Cafè 3b.</p>
-          ",
-          }
+    />
+    <Day
+        active={0}
+        eventClickHandler={[Function]}
+        events={
+            Array [
+                Object {
+                  "content": "I dag er det duket for den legendariske Facebook-Festen! Faddergruppene står for faddervors før alle møtes på Nattergalen.",
+                  "end_time": "2017-08-22T21:59:00Z",
+                  "id": 72,
+                  "index": 4,
+                  "start_time": "2017-08-22T15:00:00Z",
+                  "title": "Facebook-Fest",
+                },
+                Object {
+                  "content": "Alternativet til kveldens fest er en tur på kino, etterfulgt av felles middag. Perfekt mulighet for å bli kjent med medstudentene dine.",
+                  "end_time": "2017-08-22T21:30:00Z",
+                  "id": 73,
+                  "index": 5,
+                  "start_time": "2017-08-22T16:00:00Z",
+                  "title": "Kino og Middag",
+                },
+              ]
         }
-      />
-      <p
-        className="cal-event-content  cal-event-endtime"
-      >
-        Antatt sluttidspunkt: 
-        23:59
-      </p>
-    </div>
-    <br />
-  </div>
-  <div
-    className="cal-day"
-  >
-    <h2
-      className="cal-day--string"
-    >
-      Tuesday 22. August
-    </h2>
-    <div
-      className="cal-event"
-      id="event-4"
-    >
-      <div
-        className="cal-event-indicator"
-      />
-      <div
-        className="cal-event-header"
-        onClick={[Function]}
-      >
-        <p
-          className="cal-event-date"
-        >
-          17:00
-        </p>
-        <h3
-          className="cal-event-title"
-        >
-          Facebook-Fest
-        </h3>
-      </div>
-      <p
-        className="cal-event-content "
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "<p>I dag er det duket for den legendariske Facebook-Festen! Faddergruppene står for faddervors før alle møtes på Nattergalen.</p>
-          ",
-          }
+    />
+    <Day
+        active={0}
+        eventClickHandler={[Function]}
+        events={
+            Array [
+                Object {
+                  "content": "I dag tar vi det rolig, og griller i høyskoleparken. Gratis mat = Studentens beste venn.",
+                  "end_time": "2017-08-23T15:00:00Z",
+                  "id": 69,
+                  "index": 6,
+                  "start_time": "2017-08-23T12:00:00Z",
+                  "title": "Grilling",
+                },
+              ]
         }
-      />
-      <p
-        className="cal-event-content  cal-event-endtime"
-      >
-        Antatt sluttidspunkt: 
-        23:59
-      </p>
-    </div>
-    <div
-      className="cal-event"
-      id="event-5"
-    >
-      <div
-        className="cal-event-indicator"
-      />
-      <div
-        className="cal-event-header"
-        onClick={[Function]}
-      >
-        <p
-          className="cal-event-date"
-        >
-          18:00
-        </p>
-        <h3
-          className="cal-event-title"
-        >
-          Kino og Middag
-        </h3>
-      </div>
-      <p
-        className="cal-event-content "
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "<p>Alternativet til kveldens fest er en tur på kino, etterfulgt av felles middag. Perfekt mulighet for å bli kjent med medstudentene dine.</p>
-          ",
-          }
-        }
-      />
-      <p
-        className="cal-event-content  cal-event-endtime"
-      >
-        Antatt sluttidspunkt: 
-        23:30
-      </p>
-    </div>
-    <br />
-  </div>
-  <div
-    className="cal-day"
-  >
-    <h2
-      className="cal-day--string"
-    >
-      Wednesday 23. August
-    </h2>
-    <div
-      className="cal-event"
-      id="event-6"
-    >
-      <div
-        className="cal-event-indicator"
-      />
-      <div
-        className="cal-event-header"
-        onClick={[Function]}
-      >
-        <p
-          className="cal-event-date"
-        >
-          14:00
-        </p>
-        <h3
-          className="cal-event-title"
-        >
-          Grilling
-        </h3>
-      </div>
-      <p
-        className="cal-event-content "
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "<p>I dag tar vi det rolig, og griller i høyskoleparken. Gratis mat = Studentens beste venn.</p>
-          ",
-          }
-        }
-      />
-      <p
-        className="cal-event-content  cal-event-endtime"
-      >
-        Antatt sluttidspunkt: 
-        17:00
-      </p>
-    </div>
-    <br />
-  </div>
-</div>
+    />
+</div>,
+]
 `;
 
 exports[`renders correctly during fadderuker 1`] = `
-<div>
-  <div
-    className="cal-timeline"
-  />
-  
-  <button
-    className="cal-button--preDays"
-    onClick={[Function]}
-  >
-    Vis tidligere arrangementer
-  </button>
-  <div
-    className="cal-day"
-  >
-    <h2
-      className="cal-day--string"
-    >
-      Sunday 20. August
-    </h2>
+Array [
+  <div>
     <div
-      className="cal-event"
-      id="event-1"
-    >
-      <div
-        className="cal-event-indicator"
-      />
-      <div
-        className="cal-event-header"
+        className="cal-timeline"
+    />
+    
+    <button
+        className="cal-button--preDays"
         onClick={[Function]}
-      >
-        <p
-          className="cal-event-date"
-        >
-          14:00
-        </p>
-        <h3
-          className="cal-event-title"
-        >
-          Skattejakt
-        </h3>
-      </div>
-      <p
-        className="cal-event-content cal-event-content-active"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "<p>Nå er det på tide å finne frem sin indre skatteplyndrer, for i dag er det skattejakt! Møt opp til anvist tid utenfor P15.</p>
-          ",
-          }
+    >
+        Vis tidligere arrangementer
+    </button>
+    <Day
+        active={1}
+        eventClickHandler={[Function]}
+        events={
+            Array [
+                Object {
+                  "content": "Nå er det på tide å finne frem sin indre skatteplyndrer, for i dag er det skattejakt! Møt opp til anvist tid utenfor P15.",
+                  "end_time": "2017-08-20T15:00:00Z",
+                  "id": 76,
+                  "index": 1,
+                  "start_time": "2017-08-20T12:00:00Z",
+                  "title": "Skattejakt",
+                },
+              ]
         }
-      />
-      <p
-        className="cal-event-content cal-event-content-active cal-event-endtime"
-      >
-        Antatt sluttidspunkt: 
-        17:00
-      </p>
-    </div>
-    <br />
-  </div>
-  <div
-    className="cal-day"
-  >
-    <h2
-      className="cal-day--string"
-    >
-      Monday 21. August
-    </h2>
-    <div
-      className="cal-event"
-      id="event-2"
-    >
-      <div
-        className="cal-event-indicator"
-      />
-      <div
-        className="cal-event-header"
-        onClick={[Function]}
-      >
-        <p
-          className="cal-event-date"
-        >
-          17:00
-        </p>
-        <h3
-          className="cal-event-title"
-        >
-          Hybel til Hybel
-        </h3>
-      </div>
-      <p
-        className="cal-event-content "
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "<p>Blåmandag er et kjent fenomen for de fleste. Denne mandagen blir alt annet enn blå, for i dag er det duket for Hybel-Hybel!</p>
-          ",
-          }
+    />
+    <Day
+        active={1}
+        eventClickHandler={[Function]}
+        events={
+            Array [
+                Object {
+                  "content": "Blåmandag er et kjent fenomen for de fleste. Denne mandagen blir alt annet enn blå, for i dag er det duket for Hybel-Hybel!",
+                  "end_time": "2017-08-21T21:00:00Z",
+                  "id": 74,
+                  "index": 2,
+                  "start_time": "2017-08-21T15:00:00Z",
+                  "title": "Hybel til Hybel",
+                },
+                Object {
+                  "content": "Etter konkurranserunden, er det etterfest på Cafè 3b.",
+                  "end_time": "2017-08-21T21:59:00Z",
+                  "id": 75,
+                  "index": 3,
+                  "start_time": "2017-08-21T21:00:00Z",
+                  "title": "Etterfest",
+                },
+              ]
         }
-      />
-      <p
-        className="cal-event-content  cal-event-endtime"
-      >
-        Antatt sluttidspunkt: 
-        23:00
-      </p>
-    </div>
-    <div
-      className="cal-event"
-      id="event-3"
-    >
-      <div
-        className="cal-event-indicator"
-      />
-      <div
-        className="cal-event-header"
-        onClick={[Function]}
-      >
-        <p
-          className="cal-event-date"
-        >
-          23:00
-        </p>
-        <h3
-          className="cal-event-title"
-        >
-          Etterfest
-        </h3>
-      </div>
-      <p
-        className="cal-event-content "
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "<p>Etter konkurranserunden, er det etterfest på Cafè 3b.</p>
-          ",
-          }
+    />
+    <Day
+        active={1}
+        eventClickHandler={[Function]}
+        events={
+            Array [
+                Object {
+                  "content": "I dag er det duket for den legendariske Facebook-Festen! Faddergruppene står for faddervors før alle møtes på Nattergalen.",
+                  "end_time": "2017-08-22T21:59:00Z",
+                  "id": 72,
+                  "index": 4,
+                  "start_time": "2017-08-22T15:00:00Z",
+                  "title": "Facebook-Fest",
+                },
+                Object {
+                  "content": "Alternativet til kveldens fest er en tur på kino, etterfulgt av felles middag. Perfekt mulighet for å bli kjent med medstudentene dine.",
+                  "end_time": "2017-08-22T21:30:00Z",
+                  "id": 73,
+                  "index": 5,
+                  "start_time": "2017-08-22T16:00:00Z",
+                  "title": "Kino og Middag",
+                },
+              ]
         }
-      />
-      <p
-        className="cal-event-content  cal-event-endtime"
-      >
-        Antatt sluttidspunkt: 
-        23:59
-      </p>
-    </div>
-    <br />
-  </div>
-  <div
-    className="cal-day"
-  >
-    <h2
-      className="cal-day--string"
-    >
-      Tuesday 22. August
-    </h2>
-    <div
-      className="cal-event"
-      id="event-4"
-    >
-      <div
-        className="cal-event-indicator"
-      />
-      <div
-        className="cal-event-header"
-        onClick={[Function]}
-      >
-        <p
-          className="cal-event-date"
-        >
-          17:00
-        </p>
-        <h3
-          className="cal-event-title"
-        >
-          Facebook-Fest
-        </h3>
-      </div>
-      <p
-        className="cal-event-content "
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "<p>I dag er det duket for den legendariske Facebook-Festen! Faddergruppene står for faddervors før alle møtes på Nattergalen.</p>
-          ",
-          }
+    />
+    <Day
+        active={1}
+        eventClickHandler={[Function]}
+        events={
+            Array [
+                Object {
+                  "content": "I dag tar vi det rolig, og griller i høyskoleparken. Gratis mat = Studentens beste venn.",
+                  "end_time": "2017-08-23T15:00:00Z",
+                  "id": 69,
+                  "index": 6,
+                  "start_time": "2017-08-23T12:00:00Z",
+                  "title": "Grilling",
+                },
+              ]
         }
-      />
-      <p
-        className="cal-event-content  cal-event-endtime"
-      >
-        Antatt sluttidspunkt: 
-        23:59
-      </p>
-    </div>
-    <div
-      className="cal-event"
-      id="event-5"
-    >
-      <div
-        className="cal-event-indicator"
-      />
-      <div
-        className="cal-event-header"
-        onClick={[Function]}
-      >
-        <p
-          className="cal-event-date"
-        >
-          18:00
-        </p>
-        <h3
-          className="cal-event-title"
-        >
-          Kino og Middag
-        </h3>
-      </div>
-      <p
-        className="cal-event-content "
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "<p>Alternativet til kveldens fest er en tur på kino, etterfulgt av felles middag. Perfekt mulighet for å bli kjent med medstudentene dine.</p>
-          ",
-          }
-        }
-      />
-      <p
-        className="cal-event-content  cal-event-endtime"
-      >
-        Antatt sluttidspunkt: 
-        23:30
-      </p>
-    </div>
-    <br />
-  </div>
-  <div
-    className="cal-day"
-  >
-    <h2
-      className="cal-day--string"
-    >
-      Wednesday 23. August
-    </h2>
-    <div
-      className="cal-event"
-      id="event-6"
-    >
-      <div
-        className="cal-event-indicator"
-      />
-      <div
-        className="cal-event-header"
-        onClick={[Function]}
-      >
-        <p
-          className="cal-event-date"
-        >
-          14:00
-        </p>
-        <h3
-          className="cal-event-title"
-        >
-          Grilling
-        </h3>
-      </div>
-      <p
-        className="cal-event-content "
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "<p>I dag tar vi det rolig, og griller i høyskoleparken. Gratis mat = Studentens beste venn.</p>
-          ",
-          }
-        }
-      />
-      <p
-        className="cal-event-content  cal-event-endtime"
-      >
-        Antatt sluttidspunkt: 
-        17:00
-      </p>
-    </div>
-    <br />
-  </div>
-</div>
+    />
+</div>,
+]
 `;
 
 exports[`renders error 1`] = `
-<p
-  className="component"
+Array [
+  <p
+    className="component"
 >
-  En uventet feil har oppstått ved henting av program. Vennligst prøv igjen senere.
-</p>
+    En uventet feil har oppstått ved henting av program. Vennligst prøv igjen senere.
+</p>,
+]
 `;
 
 exports[`renders loading message 1`] = `
-<h2
-  className="component"
+Array [
+  <h2
+    className="component"
 >
-  Laster inn kalender
-</h2>
+    Laster inn kalender
+</h2>,
+]
+`;
+
+exports[`renders past events after click 1`] = `
+Array [
+  <div>
+    <div
+        className="cal-timeline"
+    />
+    <div
+        className="cal-section--preDays"
+    >
+        <Day
+            active={-1}
+            eventClickHandler={[Function]}
+            events={
+                Array [
+                    Object {
+                      "content": "Velkommen til Trondheim, informatikk og Online
+                
+                Lurer du på hvordan du skal komme deg rundt på Gløshaugen? Hvor de viktigste stedene i Trondheim er? Er det første gang du flytter hjemme fra og du lurer på hvordan i all verden du skal klare deg på bare lånet? Hva er det med de mattefagene alle snakker om? Og trenger man egentlig kjøpe pensum-bøker, det er jo så dyrt! Da er ny-på-informatikk-kurset noe for deg! En kjapp gjennomgang av det viktigste du trenger å vite som ny student på informatikk, hvordan du gjør deg klar til studiestart, fadderukene og alle mulighetene Trondheim har å by på.
+                
+                Sted: Kommer",
+                      "end_time": "2017-08-14T14:00:00Z",
+                      "id": 77,
+                      "index": 0,
+                      "start_time": "2017-08-14T13:00:00Z",
+                      "title": "Ny-på-informatikk",
+                    },
+                  ]
+            }
+        />
+    </div>
+    <button
+        className="cal-button--preDays"
+        onClick={[Function]}
+    >
+        Skjul tidligere arrangementer
+    </button>
+    <Day
+        active={1}
+        eventClickHandler={[Function]}
+        events={
+            Array [
+                Object {
+                  "content": "Nå er det på tide å finne frem sin indre skatteplyndrer, for i dag er det skattejakt! Møt opp til anvist tid utenfor P15.",
+                  "end_time": "2017-08-20T15:00:00Z",
+                  "id": 76,
+                  "index": 1,
+                  "start_time": "2017-08-20T12:00:00Z",
+                  "title": "Skattejakt",
+                },
+              ]
+        }
+    />
+    <Day
+        active={1}
+        eventClickHandler={[Function]}
+        events={
+            Array [
+                Object {
+                  "content": "Blåmandag er et kjent fenomen for de fleste. Denne mandagen blir alt annet enn blå, for i dag er det duket for Hybel-Hybel!",
+                  "end_time": "2017-08-21T21:00:00Z",
+                  "id": 74,
+                  "index": 2,
+                  "start_time": "2017-08-21T15:00:00Z",
+                  "title": "Hybel til Hybel",
+                },
+                Object {
+                  "content": "Etter konkurranserunden, er det etterfest på Cafè 3b.",
+                  "end_time": "2017-08-21T21:59:00Z",
+                  "id": 75,
+                  "index": 3,
+                  "start_time": "2017-08-21T21:00:00Z",
+                  "title": "Etterfest",
+                },
+              ]
+        }
+    />
+    <Day
+        active={1}
+        eventClickHandler={[Function]}
+        events={
+            Array [
+                Object {
+                  "content": "I dag er det duket for den legendariske Facebook-Festen! Faddergruppene står for faddervors før alle møtes på Nattergalen.",
+                  "end_time": "2017-08-22T21:59:00Z",
+                  "id": 72,
+                  "index": 4,
+                  "start_time": "2017-08-22T15:00:00Z",
+                  "title": "Facebook-Fest",
+                },
+                Object {
+                  "content": "Alternativet til kveldens fest er en tur på kino, etterfulgt av felles middag. Perfekt mulighet for å bli kjent med medstudentene dine.",
+                  "end_time": "2017-08-22T21:30:00Z",
+                  "id": 73,
+                  "index": 5,
+                  "start_time": "2017-08-22T16:00:00Z",
+                  "title": "Kino og Middag",
+                },
+              ]
+        }
+    />
+    <Day
+        active={1}
+        eventClickHandler={[Function]}
+        events={
+            Array [
+                Object {
+                  "content": "I dag tar vi det rolig, og griller i høyskoleparken. Gratis mat = Studentens beste venn.",
+                  "end_time": "2017-08-23T15:00:00Z",
+                  "id": 69,
+                  "index": 6,
+                  "start_time": "2017-08-23T12:00:00Z",
+                  "title": "Grilling",
+                },
+              ]
+        }
+    />
+</div>,
+]
 `;
