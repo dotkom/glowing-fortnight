@@ -1,0 +1,51 @@
+[
+  {
+      "id": 77,
+      "title": "Ny-på-informatikk",
+      "content": "Velkommen til Trondheim, informatikk og Online\r\n\r\nLurer du på hvordan du skal komme deg rundt på Gløshaugen? Hvor de viktigste stedene i Trondheim er? Er det første gang du flytter hjemme fra og du lurer på hvordan i all verden du skal klare deg på bare lånet? Hva er det med de mattefagene alle snakker om? Og trenger man egentlig kjøpe pensum-bøker, det er jo så dyrt! Da er ny-på-informatikk-kurset noe for deg! En kjapp gjennomgang av det viktigste du trenger å vite som ny student på informatikk, hvordan du gjør deg klar til studiestart, fadderukene og alle mulighetene Trondheim har å by på.\r\n\r\nSted: Kommer",
+      "start_time": "2017-08-14T13:00:00Z",
+      "end_time": "2017-08-14T14:00:00Z"
+  },
+  {
+      "id": 76,
+      "title": "Skattejakt",
+      "content": "Nå er det på tide å finne frem sin indre skatteplyndrer, for i dag er det skattejakt! Møt opp til anvist tid utenfor P15.",
+      "start_time": "2017-08-20T12:00:00Z",
+      "end_time": "2017-08-20T15:00:00Z"
+  },
+  {
+      "id": 74,
+      "title": "Hybel til Hybel",
+      "content": "Blåmandag er et kjent fenomen for de fleste. Denne mandagen blir alt annet enn blå, for i dag er det duket for Hybel-Hybel!",
+      "start_time": "2017-08-21T15:00:00Z",
+      "end_time": "2017-08-21T21:00:00Z"
+  },
+  {
+      "id": 75,
+      "title": "Etterfest",
+      "content": "Etter konkurranserunden, er det etterfest på Cafè 3b.",
+      "start_time": "2017-08-21T21:00:00Z",
+      "end_time": "2017-08-21T21:59:00Z"
+  },
+  {
+      "id": 72,
+      "title": "Facebook-Fest",
+      "content": "I dag er det duket for den legendariske Facebook-Festen! Faddergruppene står for faddervors før alle møtes på Nattergalen.",
+      "start_time": "2017-08-22T15:00:00Z",
+      "end_time": "2017-08-22T21:59:00Z"
+  },
+  {
+      "id": 73,
+      "title": "Kino og Middag",
+      "content": "Alternativet til kveldens fest er en tur på kino, etterfulgt av felles middag. Perfekt mulighet for å bli kjent med medstudentene dine.",
+      "start_time": "2017-08-22T16:00:00Z",
+      "end_time": "2017-08-22T21:30:00Z"
+  },
+  {
+      "id": 69,
+      "title": "Grilling",
+      "content": "I dag tar vi det rolig, og griller i høyskoleparken. Gratis mat = Studentens beste venn.",
+      "start_time": "2017-08-23T12:00:00Z",
+      "end_time": "2017-08-23T15:00:00Z"
+  }
+]
