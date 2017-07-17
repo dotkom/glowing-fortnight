@@ -16,4 +16,8 @@ dev:
 	@echo Starting dev server
 	@npm run dev
 
-.PHONY: default install build watch dev
+test:
+	@echo Running tests
+	@npm run test
+
+.PHONY: default install build watch dev test

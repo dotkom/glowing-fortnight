@@ -19,6 +19,13 @@ For [hot module replacement](https://github.com/webpack/docs/wiki/hot-module-rep
 
 `npm run dev` or `make dev`
 
+Runs tests ...
+
+`npm run test` or `make test`
+
+Watch files for changes and rerun tests related to changed files ...
+
+`npm run test:watch`
 
 ## Releasing
 
