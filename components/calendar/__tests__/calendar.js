@@ -6,7 +6,7 @@ import { shallow, mount } from 'enzyme';
 import moment from 'moment';
 
 const beforeDate = new Date('2017-08-01T00:00:00Z').valueOf();
-const duringDate = new Date('2017-08-20T00:00:00Z').valueOf();
+const duringDate = new Date('2017-08-20T14:00:00Z').valueOf();
 const afterDate = new Date('2017-09-01T00:00:00Z').valueOf();
 
 it('renders correctly before fadderuker', () => {
