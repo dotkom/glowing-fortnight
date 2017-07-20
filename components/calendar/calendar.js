@@ -63,9 +63,10 @@ class Calendar extends Component {
 
     events.forEach((event, index) => {
       event.index = index;
-      const currentEventDate = moment(event.end_time);
+      const currentEventStartDate = moment(event.start_time);
+      const currentEventEndDate = moment(event.end_time);
 
-      if (currentEventDate.isAfter(previousEventDate, 'day')) {
+      if (currentEventStartDate.isAfter(previousEventDate, 'day')) {
         const active = getActiveEvent(postDays, futureEvents, this.state.active);
         const { preDay, postDay } = this.partitionEvents(pastEvents, futureEvents, active);
 
@@ -79,14 +80,14 @@ class Calendar extends Component {
         pastEvents = [];
         futureEvents = [];
       }
-      if (currentEventDate.isAfter(NOW)) {
+      if (currentEventEndDate.isAfter(NOW)) {
         futureEvents.push(event);
       }
       else {
         pastEvents.push(event);
       }
 
-      previousEventDate = currentEventDate;
+      previousEventDate = currentEventStartDate;
     });
 
     const active = getActiveEvent(postDays, futureEvents, this.state.active);
