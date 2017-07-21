@@ -3,8 +3,6 @@
   text-align: center;
   padding-top: 65px;
   padding-bottom: 65px;
-
-
 }
 
 .partner {
@@ -22,22 +20,14 @@
   }
 }
 
-/* Specific rules
-------------------------------------------------------------------------------*/
-#sopraSteria {
-  margin: 0 auto;
-}
-
-#computas {
+#goldPartners img {
   max-height: 50px;
 }
 
-#bouvet {
-
-}
-
-#knowit {
-
+/* Specific rules
+------------------------------------------------------------------------------*/
+#computas {
+  max-height: 50px;
 }
 
 @media screen and (max-width: 425px) {
@@ -45,5 +35,9 @@
     display: block;
     margin: 35px auto;
     max-height: 30px;
+  }
+
+  #goldPartners img {
+    max-height: 40px;
   }
 }
