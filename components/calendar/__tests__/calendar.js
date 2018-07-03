@@ -14,7 +14,7 @@ it('renders correctly before fadderuker', () => {
   const wrapper = shallow(
     <Calendar events={calendarData} error={null} />
   );
-  expect(wrapper.getNodes()).toMatchSnapshot();
+  expect(wrapper.getElements()).toMatchSnapshot();
 });
 
 it('renders correctly during fadderuker', () => {
@@ -22,7 +22,7 @@ it('renders correctly during fadderuker', () => {
   const wrapper = shallow(
     <Calendar events={calendarData} error={null} />
   );
-  expect(wrapper.getNodes()).toMatchSnapshot();
+  expect(wrapper.getElements()).toMatchSnapshot();
 });
 
 it('renders correctly after fadderuker', () => {
@@ -30,7 +30,7 @@ it('renders correctly after fadderuker', () => {
   const wrapper = shallow(
     <Calendar events={calendarData} error={null} />
   );
-  expect(wrapper.getNodes()).toMatchSnapshot();
+  expect(wrapper.getElements()).toMatchSnapshot();
 });
 
 it('renders past events after click', () => {
@@ -39,7 +39,7 @@ it('renders past events after click', () => {
     <Calendar events={calendarData} error={null} />
   );
   wrapper.find('.cal-button--preDays').simulate('click');
-  expect(wrapper.getNodes()).toMatchSnapshot();
+  expect(wrapper.getElements()).toMatchSnapshot();
 });
 
 
@@ -47,7 +47,7 @@ it('renders error', () => {
   const wrapper = shallow(
     <Calendar events={[]} error="Error message" />
   );
-  expect(wrapper.getNodes()).toMatchSnapshot();
+  expect(wrapper.getElements()).toMatchSnapshot();
 });
 
 
@@ -55,7 +55,7 @@ it('renders loading message', () => {
   const wrapper = shallow(
     <Calendar events={[]} error={null} />
   );
-  expect(wrapper.getNodes()).toMatchSnapshot();
+  expect(wrapper.getElements()).toMatchSnapshot();
 });
 
 it('sets event to active after click', () => {

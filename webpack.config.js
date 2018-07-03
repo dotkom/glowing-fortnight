@@ -1,8 +1,10 @@
 var path = require('path');
 var webpack = require('webpack');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-module.exports = {
+const devMode = process.env.NODE_ENV !== 'production';
+
+module.exports = (env, argv) => ({
   entry: [
     'babel-polyfill',
     './index.js'
@@ -13,32 +15,31 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: {
-    loaders: [
+    rules: [
       {
-	test: /\.js$/,
-	exclude: /node_modules/,
-	loader: "babel-loader"
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
       },
       {
-	test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style', 'css!sass'),
+        test: /\.scss$/,
+        use: [
+          argv.mode === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              includePaths: [path.resolve(__dirname, './styles')]
+            }
+          },
+        ],
       }
     ]
   },
-  sassLoader: {
-    includePath: [path.resolve(__dirname, './styles')]
-  },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-	'NODE_ENV': JSON.stringify('production')
-      }
+    new MiniCssExtractPlugin({
+      filename: 'styles.css'
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    }),
-    new ExtractTextPlugin("styles.css")
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
   ]
-};
+});
