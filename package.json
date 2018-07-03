@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/dotKom/glowing-fortnight#readme",
   "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>/components/__tests__/index.js"
+    "setupTestFrameworkScriptFile": "<rootDir>/components/testSetup.js"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
