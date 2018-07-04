@@ -4,31 +4,31 @@ import { API_SLACK_URL } from '../../common/constants';
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
-const Slack = React.createClass({
-  getInitialState: function () {
-    return {
+class Slack extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
       triggered: false,
       error: null,
       success: null,
       email: ''
-    }
-  },
+    };
+  }
 
-  requestInvitationEmail: function () {
-    var self = this;
-
-    if (self.state.email.length < 5 || self.state.email.indexOf('@') < 0) {
+  requestInvitationEmail() {
+    if (this.state.email.length < 5 || this.state.email.indexOf('@') < 0) {
       this.setState(Object.assign({}, this.state, { error: 'Du må skrive inn en gyldig epostaddresse!' }));
       return false;
     }
 
-    if (self.state.triggered) {
+    if (this.state.triggered) {
       this.setState(Object.assign({}, this.state, { error: 'Du har allerede forespurt en invitasjon!' }));
       return false;
     }
 
     fetch(API_SLACK_URL, {
-      body: JSON.stringify({ email: self.state.email }),
+      body: JSON.stringify({ email: this.state.email }),
       headers: new Headers({
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -43,7 +43,7 @@ const Slack = React.createClass({
 
         this.setState(Object.assign({}, this.state, {
           triggered: true,
-          success: `En invitasjon ble sendt til ${self.state.email}!`,
+          success: `En invitasjon ble sendt til ${this.state.email}!`,
           error: null
         }));
       })
@@ -60,18 +60,17 @@ const Slack = React.createClass({
         console.error(error);
         this.setState(Object.assign({}, this.state, { error: error.message, success: null }));
       })
-  },
+  }
 
-  handleChange: function (event) {
+  handleChange(event) {
     this.setState(Object.assign({}, this.state, { email: event.target.value }));
-  },
+  }
 
-  handleKeyPress: function (event) {
+  handleKeyPress(event) {
     if (event.key === 'Enter' && !this.state.triggered) this.requestInvitationEmail();
-  },
+  }
 
-  render: function () {
-    var self = this;
+  render() {
 
     return (
       <div id="slack" className="component">
@@ -88,19 +87,19 @@ const Slack = React.createClass({
         <div id="slack-inputgroup">
           <input type="text"
                  id="slack-email-inputfield"
-                 value={self.state.email}
+                 value={this.state.email}
                  placeholder="Skriv inn din e-postadresse..."
-                 onChange={self.handleChange}
-                 onKeyPress={self.handleKeyPress} />
+                 onChange={(e) => this.handleChange(e)}
+                 onKeyPress={(e) => this.handleKeyPress(e)} />
           <button id="slack-submit-button"
-                  onClick={self.requestInvitationEmail}
-                  disabled={self.state.triggered}>
+                  onClick={() => this.requestInvitationEmail()}
+                  disabled={this.state.triggered}>
             Send
           </button>
         </div>
 
-        <p id="slack-success">{self.state.success}</p>
-        <p id="slack-error">{self.state.error}</p>
+        <p id="slack-success">{this.state.success}</p>
+        <p id="slack-error">{this.state.error}</p>
 
         <p>
           Har du allerede en stud.ntnu.no-epost kan du registrere deg direkte på
@@ -109,6 +108,6 @@ const Slack = React.createClass({
       </div>
     )
   }
-});
+}
 
 export default Slack;

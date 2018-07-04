@@ -1,6 +1,7 @@
 import React from 'react';
 import D from 'react-dom';
 import moment from 'moment';
+import 'moment/locale/nb';
 
 moment.locale('nb');
 
