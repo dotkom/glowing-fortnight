@@ -3,7 +3,8 @@ const Fadder = () => {
     <div id="fadder">
       <div className="component fadder-content">
 	<div className="fadder-imageColumn">
-		<img className="fadder-image" src="assets/images/temp_theme_image.svg" alt="" />
+        <iframe src="https://giphy.com/embed/3og0IC6Hag4c6sSE4o"  frameBorder="0"
+                className="fadder-image" allowFullScreen></iframe>
 	</div>
 	<div className="fadder-description">
 	  <h1>Fadderukene.</h1>
