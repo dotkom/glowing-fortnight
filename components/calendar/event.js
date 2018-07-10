@@ -20,9 +20,6 @@ const Event = ({ title, start_time, end_time, content, eventClickHandler, index,
         <p className="cal-event-date">{moment(start_time).format('HH:mm')}</p>
         <h3 className="cal-event-title">{title}</h3>
       </div>
-        <iframe width="600" height="450" frameBorder="0" style="border:0"
-                src="https://www.google.com/maps/embed/v1/place?q=gamle%20bygdevei%20119&key=..."
-                allowFullScreen></iframe>
 
       <p className={`cal-event-content ${ classes }`} dangerouslySetInnerHTML={markdown(content)}/>
       <p className={`cal-event-content ${ classes } cal-event-endtime`}>Antatt sluttidspunkt: {moment(end_time).format('HH:mm')}</p>
