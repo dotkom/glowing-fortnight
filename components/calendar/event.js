@@ -17,7 +17,7 @@ const Event = ({ title, start_time, end_time, content, eventClickHandler, index,
       <div className="cal-event-indicator"></div>
 
       <div onClick={ () => { eventClickHandler(index); } } className="cal-event-header">
-        <p className="cal-event-date">{moment(start_time).format('HH:mm')}</p>º
+        <p className="cal-event-date">{moment(start_time).format('HH:mm')}</p>
         <h3 className="cal-event-title">{title}</h3>
       </div>
 
