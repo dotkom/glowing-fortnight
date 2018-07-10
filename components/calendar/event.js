@@ -21,7 +21,6 @@ const Event = ({ title, start_time, end_time, content, eventClickHandler, index,
         <h3 className="cal-event-title">{title}</h3>
       </div>
 
-
       <p className={`cal-event-content ${ classes }`} dangerouslySetInnerHTML={markdown(content)}/>
       <p className={`cal-event-content ${ classes } cal-event-endtime`}>Antatt sluttidspunkt: {moment(end_time).format('HH:mm')}</p>
     </div>
