@@ -5,6 +5,7 @@ const Fadder = () => {
                 <div className="fadder-imageColumn">
                     <img className="fadder-image" src="assets/images/snapcode.svg" alt=""/>
                 </div>
+
                 <div className="fadder-description">
                     <h1>Fadderukene.</h1>
                     <p>I fadderukene skal du få bli kjent med både linjeforeningen, NTNU og mange medstudenter. Dette er
