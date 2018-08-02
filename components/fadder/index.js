@@ -5,14 +5,13 @@ const Fadder = () => {
                 <div className="fadder-imageColumn">
                     <img className="fadder-image" src="assets/images/snapcode.svg" alt=""/>
                 </div>
+
                 <div className="fadder-description">
                     <h1>Fadderukene.</h1>
                     <p>I fadderukene skal du få bli kjent med både linjeforeningen, NTNU og mange medstudenter. Dette er
                         den viktigste portalen for å stifte bekjentskaper som varer studietiden ut. Vi i Online
                         anbefaler alle å ta del i det supre fadderopplegget vårt!</p>
-                    <p>Fadderukene starter den 14. august for bachelor. 
-                        For master starter fadderukene etter informasjonsmøtet til instituttet, som nevnt i velkomstbrevet. 
-                        Mer informasjon om dette kommer fra instituttet.</p>
+                    <p>Fadderukene starter den 14. august etter immatrikuleringen for både bachelor og master.</p>
                 </div>
             </div>
         </div>
