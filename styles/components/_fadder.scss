@@ -21,17 +21,19 @@
   width: 70%;
 }
 
+
 .fadder-imageColumn {
   width: 30%;
-  display: relative;
+  padding:30px;
+  display: flex;
+  align-items: center;
+  justify-content: center
 }
 
 .fadder-image {
-  height: 250px;
-  left:-5px;
+  height: 70%;
+  max-height: 250px;
   position: absolute;
-  top: 12px;
-
 }
 
 
