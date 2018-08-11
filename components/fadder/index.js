@@ -3,7 +3,7 @@ const Fadder = () => {
         <div id="fadder">
             <div className="component fadder-content">
                 <div className="fadder-imageColumn">
-                    <img className="fadder-image" src="assets/images/snapcode.svg" alt=""/>
+                    <img className="fadder-image" src="assets/images/snapcode.png" alt=""/>
                 </div>
 
                 <div className="fadder-description">
