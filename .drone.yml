@@ -1,5 +1,8 @@
-pipeline:
-  restore-cache:
+kind: pipeline
+name: default
+
+steps:
+  - name: restore-cache
     image: drillster/drone-volume-cache
     pull: true
     when:
@@ -10,14 +13,14 @@ pipeline:
     volumes:
       - /tmp/cache:/cache
 
-  setup:
+  - name: setup
     image: node:6
     when:
       event: [push, pull_request, tag, deployment]
     commands:
       - npm install
 
-  test:
+  - name: test
     image: node:6
     group: testing
     when:
@@ -25,7 +28,7 @@ pipeline:
     commands:
       - npm test
 
-  build:
+  - name: build
     image: node:6
     group: testing
     when:
@@ -33,7 +36,7 @@ pipeline:
     commands:
       - npm run build:prod
 
-  rebuild-cache:
+  - name: rebuild-cache
     image: drillster/drone-volume-cache
     pull: true
     when:
@@ -44,18 +47,20 @@ pipeline:
     volumes:
       - /tmp/cache:/cache
 
-  deploy:
+  - name: deploy
     image: appleboy/drone-ssh
     pull: true
     secrets: [ssh_key]
-    host: nansen.online.ntnu.no
-    port: 22
-    username: root
-    key: ${SSH_KEY}
-    command_timeout: 600s
     when:
       event: push
       branch: master
       status: success
-    script:
-      - /srv/www/splash/deploy.sh
+    settings:
+      host: nansen.online.ntnu.no
+      port: 22
+      username: root
+      key:
+        from_secret: ssh_key
+      command_timeout: 600s
+      script:
+        - /srv/www/splash/deploy.sh
