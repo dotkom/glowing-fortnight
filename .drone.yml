@@ -8,7 +8,8 @@ steps:
     when:
       event: [push, pull_request, tag, deployment]
     volumes:
-      - /tmp/cache:/cache
+      - name: cache
+        path: /cache
     settings:
       restore: true
       mount:
@@ -43,7 +44,8 @@ steps:
     when:
       event: [push, pull_request, tag, deployment]
     volumes:
-      - /tmp/cache:/cache
+      - name: cache
+        path: /cache
     settings:
       rebuild: true
       mount:
