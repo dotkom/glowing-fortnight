@@ -7,11 +7,12 @@ steps:
     pull: true
     when:
       event: [push, pull_request, tag, deployment]
-    restore: true
-    mount:
-      - ./node_modules
     volumes:
       - /tmp/cache:/cache
+    settings:
+      restore: true
+      mount:
+        - ./node_modules
 
   - name: setup
     image: node:6
@@ -41,11 +42,12 @@ steps:
     pull: true
     when:
       event: [push, pull_request, tag, deployment]
-    rebuild: true
-    mount:
-      - ./node_modules
     volumes:
       - /tmp/cache:/cache
+    settings:
+      rebuild: true
+      mount:
+        - ./node_modules
 
   - name: deploy
     image: appleboy/drone-ssh
