@@ -1,9 +1,7 @@
 import React from 'react';
 import Calendar from '../calendar';
 import calendarData from './calendarData.json';
-import renderer from 'react-test-renderer';
 import { shallow, mount } from 'enzyme';
-import moment from 'moment';
 
 const beforeDate = new Date('2017-08-01T00:00:00Z').valueOf();
 const duringDate = new Date('2017-08-20T14:00:00Z').valueOf();

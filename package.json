@@ -12,23 +12,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dotKom/glowing-fortnight.git"
+    "url": "git+https://github.com/dotkom/glowing-fortnight.git"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dotKom/glowing-fortnight/issues"
+    "url": "https://github.com/dotkom/glowing-fortnight/issues"
   },
-  "homepage": "https://github.com/dotKom/glowing-fortnight#readme",
+  "homepage": "https://github.com/dotkom/glowing-fortnight#readme",
   "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>/components/testSetup.js"
+    "setupFilesAfterEnv": ["<rootDir>/components/testSetup.js"]
   },
   "devDependencies": {
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "jest": "^23.2.0",
-    "react-test-renderer": "^16.4.1"
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "jest": "^25.1.0"
   },
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
