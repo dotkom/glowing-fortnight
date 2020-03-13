@@ -16,14 +16,14 @@ steps:
         - ./node_modules
 
   - name: setup
-    image: node:6
+    image: node:13
     when:
       event: [push, pull_request, tag, deployment]
     commands:
       - yarn
 
   - name: test
-    image: node:6
+    image: node:13
     group: testing
     when:
       event: [push, pull_request, tag, deployment]
@@ -31,7 +31,7 @@ steps:
       - yarn test
 
   - name: build
-    image: node:6
+    image: node:13
     group: testing
     when:
       event: [push, pull_request, tag, deployment]

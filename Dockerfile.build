@@ -1,4 +1,4 @@
-FROM node:6-slim
+FROM node:13-slim
 MAINTAINER sklirg
 
 ENV APP_DIR /srv/app
