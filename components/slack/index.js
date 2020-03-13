@@ -1,9 +1,6 @@
 import React from 'react';
 import { API_SLACK_URL } from '../../common/constants';
 
-require('es6-promise').polyfill();
-require('isomorphic-fetch');
-
 class Slack extends React.Component {
   constructor(props) {
     super(props);

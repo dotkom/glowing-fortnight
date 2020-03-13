@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import Calendar from './calendar';
-import moment from 'moment';
 
 import { API_EVENTS_URL } from '../../common/constants';
-
-require('es6-promise').polyfill();
-require('isomorphic-fetch');
 
 class CalendarContainer extends Component {
   constructor(props) {

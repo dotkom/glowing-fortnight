@@ -5,27 +5,23 @@ Splash-side for fadderuker.
 
 Install dependencies ...
 
-`npm install` or `make install`
+`yarn` or `make install`
 
 Build the project ...
 
-`npm run build` or `make`
+`yarn build` or `make`
 
 Build the project and watch for changes, re-building on changes ...
 
-`npm run watch` or `make watch`
-
-For [hot module replacement](https://github.com/webpack/docs/wiki/hot-module-replacement-with-webpack) run webpack dev server ...
-
-`npm run dev` or `make dev`
+`yarn dev` or `make dev`
 
 Runs tests ...
 
-`npm run test` or `make test`
+`yarn test` or `make test`
 
 Watch files for changes and rerun tests related to changed files ...
 
-`npm run test:watch`
+`yarn test:watch`
 
 ## Releasing
 

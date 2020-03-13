@@ -1,23 +1,19 @@
 default: install build
 
 install:
-	@echo Installing npm packages...
-	@npm install
+	@echo Installing npm packages with yarn...
+	@yarn
 
 build:
 	@echo Building project...
-	@npm run build
-
-watch:
-	@echo Starting file watcher...
-	@npm run watch
+	@yarn build
 
 dev:
 	@echo Starting dev server
-	@npm run dev
+	@yarn dev
 
 test:
 	@echo Running tests
-	@npm run test
+	@yarn test
 
-.PHONY: default install build watch dev test
+.PHONY: default install build dev test
