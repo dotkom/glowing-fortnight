@@ -20,7 +20,7 @@ steps:
     when:
       event: [push, pull_request, tag, deployment]
     commands:
-      - npm install
+      - yarn
 
   - name: test
     image: node:6
@@ -28,7 +28,7 @@ steps:
     when:
       event: [push, pull_request, tag, deployment]
     commands:
-      - npm test
+      - yarn test
 
   - name: build
     image: node:6
@@ -36,7 +36,7 @@ steps:
     when:
       event: [push, pull_request, tag, deployment]
     commands:
-      - npm run build:prod
+      - yarn build
 
   - name: rebuild-cache
     image: drillster/drone-volume-cache
