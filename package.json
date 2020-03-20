@@ -8,7 +8,11 @@
     "build": "next build",
     "start": "next start",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,scss}'",
+    "format-check": "prettier --check './**/*.{js,jsx,ts,tsx,scss}'",
+    "lint-check": "eslint './**/*.{js,jsx,ts,tsx}'",
+    "lint": "eslint './**/*.{js,jsx,ts,tsx}' --fix"
   },
   "repository": {
     "type": "git",
@@ -27,9 +31,17 @@
     ]
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.24.0",
+    "@typescript-eslint/parser": "^2.24.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
-    "jest": "^25.1.0"
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.19.0",
+    "jest": "^25.1.0",
+    "prettier": "^1.19.1",
+    "typescript": "^3.8.3"
   },
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
