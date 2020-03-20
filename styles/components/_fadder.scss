@@ -22,13 +22,12 @@
   width: 70%;
 }
 
-
 .fadder-imageColumn {
   width: 30%;
-  padding:30px;
+  padding: 30px;
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 }
 
 .fadder-image {
@@ -37,16 +36,14 @@
   position: absolute;
 }
 
-
 @media screen and (max-width: 970px) {
   .fadder-imageColumn {
     width: 40%;
   }
-  
+
   .fadder-description {
     width: 50%;
   }
-  
 }
 
 @media screen and (max-width: 720px) {
@@ -57,5 +54,4 @@
   .fadder-description {
     width: 100%;
   }
-  
 }

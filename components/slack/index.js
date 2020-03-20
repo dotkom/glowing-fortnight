@@ -9,7 +9,7 @@ class Slack extends React.Component {
       triggered: false,
       error: null,
       success: null,
-      email: ''
+      email: '',
     };
   }
 
@@ -27,26 +27,28 @@ class Slack extends React.Component {
     fetch(API_SLACK_URL, {
       body: JSON.stringify({ email: this.state.email }),
       headers: new Headers({
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       }),
       method: 'POST',
-      mode: 'cors'
+      mode: 'cors',
     })
       .then((response) => {
         if (!response.ok) {
           return response.json();
         }
 
-        this.setState(Object.assign({}, this.state, {
-          triggered: true,
-          success: `En invitasjon ble sendt til ${this.state.email}!`,
-          error: null
-        }));
+        this.setState(
+          Object.assign({}, this.state, {
+            triggered: true,
+            success: `En invitasjon ble sendt til ${this.state.email}!`,
+            error: null,
+          })
+        );
       })
       .then((response) => {
         if (response === undefined) return;
-        var errorMsg = 'Det oppstod en uventet feil.';
+        let errorMsg = 'Det oppstod en uventet feil.';
 
         if (response.detail !== undefined) errorMsg = response.detail;
         else if (response.email !== undefined) errorMsg = response.email;
@@ -56,7 +58,7 @@ class Slack extends React.Component {
       .catch((error) => {
         console.error(error);
         this.setState(Object.assign({}, this.state, { error: error.message, success: null }));
-      })
+      });
   }
 
   handleChange(event) {
@@ -68,29 +70,34 @@ class Slack extends React.Component {
   }
 
   render() {
-
     return (
       <div id="slack" className="component">
         <h1>Chat med oss på Slack!</h1>
 
         <p>
-          Linjeforeningens uformelle chatteplattform er <a href="https://slack.com" target="_blank">Slack</a>.
-          Dersom du ikke har fått stud.ntnu.no-eposten din
-          enda kan du be om en invitasjon til din private e-postadresse.
-          Du vil da motta en link for å koble til slack-teamet vårt.
+          Linjeforeningens uformelle chatteplattform er{' '}
+          <a href="https://slack.com" target="_blank" rel="noopener noreferrer">
+            Slack
+          </a>
+          . Dersom du ikke har fått stud.ntnu.no-eposten din enda kan du be om en invitasjon til din private
+          e-postadresse. Du vil da motta en link for å koble til slack-teamet vårt.
         </p>
 
         <label id="slack-email-label">E-post</label>
         <div id="slack-inputgroup">
-          <input type="text"
-                 id="slack-email-inputfield"
-                 value={this.state.email}
-                 placeholder="Skriv inn din e-postadresse..."
-                 onChange={(e) => this.handleChange(e)}
-                 onKeyPress={(e) => this.handleKeyPress(e)} />
-          <button id="slack-submit-button"
-                  onClick={() => this.requestInvitationEmail()}
-                  disabled={this.state.triggered}>
+          <input
+            type="text"
+            id="slack-email-inputfield"
+            value={this.state.email}
+            placeholder="Skriv inn din e-postadresse..."
+            onChange={(e) => this.handleChange(e)}
+            onKeyPress={(e) => this.handleKeyPress(e)}
+          />
+          <button
+            id="slack-submit-button"
+            onClick={() => this.requestInvitationEmail()}
+            disabled={this.state.triggered}
+          >
             Send
           </button>
         </div>
@@ -100,10 +107,13 @@ class Slack extends React.Component {
 
         <p>
           Har du allerede en stud.ntnu.no-epost kan du registrere deg direkte på
-          <a href="https://onlinentnu.slack.com" target="_blank"> onlinentnu.slack.com</a>
+          <a href="https://onlinentnu.slack.com" target="_blank" rel="noopener noreferrer">
+            {' '}
+            onlinentnu.slack.com
+          </a>
         </p>
       </div>
-    )
+    );
   }
 }
 

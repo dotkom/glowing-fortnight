@@ -26,7 +26,7 @@
 }
 
 .cal-section--preDays .cal-event-header {
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .cal-button--preDays {
@@ -65,7 +65,7 @@
 
   &:hover {
     color: #fff;
-    
+
     .cal-event-indicator {
       background-color: $orange;
     }
@@ -120,7 +120,7 @@
   top: 110px;
   bottom: 65px;
   left: 290px;
-  
+
   background-color: #fff;
   width: 1px;
 }
@@ -129,7 +129,7 @@
   #calendar h1 a {
     font-size: 12px;
   }
-  
+
   .cal-day {
     padding-top: 75px;
   }
