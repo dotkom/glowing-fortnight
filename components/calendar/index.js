@@ -20,7 +20,7 @@ class CalendarContainer extends Component {
   fetchData() {
     fetch(API_EVENTS_URL, {
       method: 'GET',
-      mode: 'cors'
+      mode: 'cors',
     })
       .then((response) => response.json())
       .then((data) => {
@@ -35,7 +35,9 @@ class CalendarContainer extends Component {
     const { events, error } = this.state;
     return (
       <section id="calendar" className="component">
-        <h1>Program. <a href="https://online.ntnu.no/splash/events.ics">iCalendar</a></h1>
+        <h1>
+          Program. <a href="https://online.ntnu.no/splash/events.ics">iCalendar</a>
+        </h1>
         <Calendar events={events} error={error} />
       </section>
     );

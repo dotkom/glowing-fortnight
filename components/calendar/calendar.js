@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import Day from './day';
 import moment from 'moment';
 
-import { API_EVENTS_URL } from '../../common/constants';
-
 let dayId = 0;
 
-function getActiveEvent (postDays, futureEvents, active) {
+function getActiveEvent(postDays, futureEvents, active) {
   if (active < 0 && postDays.length > 0) {
     return postDays[0].events[0].index;
   } else if (active < 0 && futureEvents[0]) {
@@ -22,7 +20,7 @@ class Calendar extends Component {
 
     this.state = {
       active: -1,
-      preDaysSectionActive: false
+      preDaysSectionActive: false,
     };
   }
 
@@ -56,8 +54,8 @@ class Calendar extends Component {
     let pastEvents = [];
     let futureEvents = [];
 
-    let preDays = [];
-    let postDays = [];
+    const preDays = [];
+    const postDays = [];
 
     const NOW = moment();
 
@@ -82,8 +80,7 @@ class Calendar extends Component {
       }
       if (currentEventEndDate.isAfter(NOW)) {
         futureEvents.push(event);
-      }
-      else {
+      } else {
         pastEvents.push(event);
       }
 
@@ -114,50 +111,44 @@ class Calendar extends Component {
 
     if (error !== null) {
       return (
-        <p className="component">
-          En uventet feil har oppstått ved henting av program. Vennligst prøv igjen senere.
-        </p>
+        <p className="component">En uventet feil har oppstått ved henting av program. Vennligst prøv igjen senere.</p>
       );
     }
 
-    let { postDays, preDays } = this.buildEvents(events);
+    const { postDays, preDays } = this.buildEvents(events);
 
     return (
       <div>
-        <div className="cal-timeline"/>
-        {
-          preDays.length > 0 && this.state.preDaysSectionActive ?
-            <div className="cal-section--preDays">
-              {
-                preDays.map(preDay => (
-                  <Day
-                    key={preDay.id}
-                    events={preDay.events}
-                    active={preDay.active}
-                    eventClickHandler={(id) => this.eventClickHandler(id)}
-                  />
-                ))
-              }
-            </div>
-          : ''
-        }
-        {
-          preDays.length > 0 ?
-            <button className="cal-button--preDays" onClick={() => this.preDaysClickHandler()}>
-              {( this.state.preDaysSectionActive ? 'Skjul' : 'Vis' ) + ' tidligere arrangementer' }
-            </button>
-          : ''
-        }
-        {
-          postDays.map(postDay => (
-            <Day
-              key={postDay.id}
-              events={postDay.events}
-              active={postDay.active}
-              eventClickHandler={(id) => this.eventClickHandler(id)}
-            />
-          ))
-        }
+        <div className="cal-timeline" />
+        {preDays.length > 0 && this.state.preDaysSectionActive ? (
+          <div className="cal-section--preDays">
+            {preDays.map((preDay) => (
+              <Day
+                key={preDay.id}
+                events={preDay.events}
+                active={preDay.active}
+                eventClickHandler={(id) => this.eventClickHandler(id)}
+              />
+            ))}
+          </div>
+        ) : (
+          ''
+        )}
+        {preDays.length > 0 ? (
+          <button className="cal-button--preDays" onClick={() => this.preDaysClickHandler()}>
+            {(this.state.preDaysSectionActive ? 'Skjul' : 'Vis') + ' tidligere arrangementer'}
+          </button>
+        ) : (
+          ''
+        )}
+        {postDays.map((postDay) => (
+          <Day
+            key={postDay.id}
+            events={postDay.events}
+            active={postDay.active}
+            eventClickHandler={(id) => this.eventClickHandler(id)}
+          />
+        ))}
       </div>
     );
   }
