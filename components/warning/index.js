@@ -16,6 +16,7 @@ const Warning = () => {
       <a
         href="mailto:thea.karin.fladby@online.ntnu.no,sindre.langaard@online.ntnu.no?subject=[Varslingssak]"
         target="_blank"
+        rel="noopener noreferrer"
         className="mailToWarning"
       >
         Send varsling
