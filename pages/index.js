@@ -9,6 +9,7 @@ import Join from '../components/join';
 import Contact from '../components/contact';
 import Slack from '../components/slack';
 import Social from '../components/social';
+import Warning from '../components/warning';
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
         <Calendar />
         <Join />
         <Slack />
+        <Warning />
         <Social />
         <Contact />
         <Partners />
