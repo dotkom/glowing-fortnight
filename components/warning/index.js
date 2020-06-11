@@ -11,7 +11,7 @@ const Warning = () => {
       </p>
       <p>
         Om situasjonen tilsier at du trenger å snakke med noen umiddelbart kan du alltid ringe leder Mathias Fossum på
-        XX XX XX XX eller faddersjef Robin Lund Sadun på YY YY YY YY.
+        958 29 020 eller faddersjef Robin Lund Sadun på 90 77 55 81.
       </p>
       <a
         href="mailto:thea.karin.fladby@online.ntnu.no,sindre.langaard@online.ntnu.no?subject=[Varslingssak]"
