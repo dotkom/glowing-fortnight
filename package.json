@@ -47,7 +47,7 @@
     "@zeit/next-sass": "^1.0.1",
     "isomorphic-fetch": "^2.2.1",
     "moment": "^2.24.0",
-    "next": "^9.3.2",
+    "next": "^9.4",
     "node-sass": "^4.13.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",

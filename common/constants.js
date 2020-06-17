@@ -1,4 +1,5 @@
-const API_EVENTS_URL = '/api/v1/splash-events/?start_time__gte=2019-08-01';
-const API_SLACK_URL = '/api/v1/slack/';
+export const API_BASE_URL = process.env.SPLASH_API_BASE_URL || 'https://online.ntnu.no';
 
-export { API_EVENTS_URL, API_SLACK_URL };
+export const API_EVENTS_URL = `${API_BASE_URL}/api/v1/splash-events/?start_time__gte=2019-08-01`;
+export const API_APPLICATION_PERIODS_URL = `${API_BASE_URL}/api/v1/committee-application-periods/`;
+export const API_SLACK_URL = `${API_BASE_URL}/api/v1/slack/`;
