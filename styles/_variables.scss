@@ -1,4 +1,58 @@
-// colors
-$orange: #f9a11b;
-$blue: #0060a3;
-$dark-blue: #001932;
+:root {
+  /* Font */
+
+  --orange: #f9a11b;
+
+  /* Design System colors */
+  /* https://design.online.ntnu.no/?path=/docs/global-colors--primary */
+
+  --primaryLighten45: #7aa1b3;
+  --primaryLighten30: #56879e;
+  --primaryLighten15: #316e89;
+  --primary: #0d5474;
+  --primaryDarken15: #0b4763;
+  --primaryDarken30: #093b51;
+  --primaryDarken45: #072e40;
+
+  --secondaryLighten45: #fcd7a4;
+  --secondaryLighten30: #fbcd8b;
+  --secondaryLighten15: #fac272;
+  --secondary: #f9b759;
+  --secondaryDarken15: #d49c4c;
+  --secondaryDarken30: #ae803e;
+  --secondaryDarken45: #896531;
+
+  --white: #ffffff;
+  --grayLighten90: #f2f2f2;
+  --grayLighten60: #cccccc;
+  --grayLighten30: #a6a6a6;
+  --gray: #808080;
+  --grayDarken30: #5a5a5a;
+  --grayDarken60: #333333;
+  --grayDarken90: #0d0d0d;
+  --black: #000000;
+
+  --infoLighten90: #e7f4f9;
+  --infoLighten45: #78c4dd;
+  --info: #0a94c2;
+  --infoDarken35: #07607e;
+  --infoDarken70: #032c3a;
+
+  --successLighten90: #e6f7e6;
+  --successLighten45: #78d078;
+  --success: #09aa09;
+  --successDarken35: #066f06;
+  --successDarken70: #033303;
+
+  --warningLighten90: #fff9e6;
+  --warningLighten45: #ffdc73;
+  --warning: #ffc000;
+  --warningDarken35: #a67d00;
+  --warningDarken70: #4d3a00;
+
+  --errorLighten90: #fce9e9;
+  --errorLighten45: #ed8484;
+  --error: #df2020;
+  --errorDarken35: #911515;
+  --errorDarken70: #430a0a;
+}
