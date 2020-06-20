@@ -22,7 +22,7 @@ const About = () => {
         <a href="https://online.ntnu.no/wiki/online/ny-paa-informatikk/">wikien</a> for å sjekke den ut!
       </p>
       <p>
-        Ny på master? Se <a href="https://online.ntnu.no/events/708/it-ekskursjonen-2019/">her</a> for viktig info om
+        Ny på master? Se <a href="https://online.ntnu.no/events/861/it-ekskursjonen-2020/">her</a> for viktig info om
         IT-ekskursjonen, OBS kort frist!{' '}
       </p>
 
