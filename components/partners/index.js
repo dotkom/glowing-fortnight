@@ -12,10 +12,10 @@ const Partners = () => {
         </a>
       </div>
       <a href="https://www.soprasteria.no/">
-        <img className="partner" src="/splash/images/partners/soprasteria_white.png" alt="" />
+        <img className="partner" id="wide_logo" src="/splash/images/partners/soprasteria_white.png" alt="" />
       </a>
       <a href="https://www.netlight.com/">
-        <img className="partner" id="equinor" src="/splash/images/partners/netlight_hvit.png" alt="" />
+        <img className="partner" src="/splash/images/partners/netlight_hvit.png" alt="" />
       </a>
     </footer>
   );

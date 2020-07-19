@@ -21,7 +21,7 @@
 }
 
 #generalPartners img {
-  max-height: 50px;
+  max-height: 60px;
 }
 
 /* Specific rules
@@ -35,9 +35,10 @@
   margin: 35px 25px 0px;
 }
 
-#equinor {
-  max-height: 80px;
-  margin-bottom: 24px;
+#wide_logo {
+  max-height: 30px;
+  margin-left: -50px;
+  margin-bottom: 5px;
 }
 
 @media screen and (max-width: 425px) {
