@@ -2,6 +2,7 @@
 const withSass = require('@zeit/next-sass');
 
 module.exports = withSass({
+  basePath: '/splash',
   cssModules: false,
   cssLoaderOptions: {
     importLoaders: 1,
