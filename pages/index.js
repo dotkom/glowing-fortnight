@@ -11,6 +11,7 @@ import Join from '../components/join';
 import Contact from '../components/contact';
 import Slack from '../components/slack';
 import Social from '../components/social';
+import Warning from '../components/warning';
 import { getAvailableApplicationPeriod } from '../common/api/committeeApplications';
 
 export const getStaticProps = async () => {
@@ -38,6 +39,7 @@ const App = ({ events, applicationPeriod }) => {
         <Calendar events={events} />
         <Join applicationDeadline={applicationPeriod.deadline} />
         <Slack />
+        <Warning />
         <Social />
         <Contact />
         <Partners />

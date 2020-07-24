@@ -1,0 +1,25 @@
+#warning {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.mailToWarning {
+  color: var(--white);
+  font-size: 14px;
+  display: block;
+  width: 200px;
+
+  margin: 10px auto 0 auto;
+  padding-top: 12px;
+  padding-bottom: 12px;
+
+  border: 1px solid var(--white);
+  border-radius: 5px;
+
+  text-align: center;
+
+  &:hover {
+    border-color: var(--orange);
+    color: var(--orange);
+  }
+}
