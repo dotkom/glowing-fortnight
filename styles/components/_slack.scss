@@ -26,8 +26,8 @@
   line-height: 32px;
   height: 32px;
 
-  color: #333;
-  background: #efefef;
+  color: var(--grayDarken60);
+  background: var(--grayLighten90);
   outline: none;
   width: 220px;
 }
@@ -39,9 +39,9 @@
   line-height: 34px;
   height: 34px;
 
-  color: #fff;
+  color: var(--white);
   cursor: pointer;
-  background: darken($blue, 10%);
+  background: var(--primaryLighten15);
   margin-left: -1px;
 
   &:focus {
@@ -49,26 +49,26 @@
   }
 
   &:hover {
-    background: darken($blue, 5%);
+    background: var(--primary);
   }
 
   &:active {
-    background: $blue;
+    background: var(--primary);
   }
 
   &:disabled {
-    background: #ddd;
+    background: var(--grayLighten60);
     cursor: not-allowed;
   }
 }
 
 #slack-error {
-  color: #d60f07;
+  color: var(--error);
   font-weight: 500;
 }
 
 #slack-success {
-  color: green;
+  color: var(--success);
   font-weight: 500;
 }
 

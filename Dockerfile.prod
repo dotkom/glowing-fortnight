@@ -1,4 +1,4 @@
-FROM node:13.10.1-alpine3.11 AS builder
+FROM node:14-slim AS builder
 
 ENV WORKDIR=/srv/app
 ENV NEXT_TELEMETRY_DISABLED=1
@@ -15,7 +15,7 @@ RUN yarn build
 RUN yarn --production
 
 # Copy only necessay files from the builder image to the production image
-FROM node:13.10.1-alpine3.11
+FROM node:14-slim
 
 LABEL maintainer="utvikling@online.ntnu.no"
 

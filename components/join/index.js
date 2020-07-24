@@ -1,6 +1,8 @@
+import moment from 'moment';
 import React from 'react';
 
-const Join = () => {
+const Join = ({ applicationDeadline }) => {
+  const applicationDeadlineDisplay = moment(applicationDeadline).format('LLLL');
   return (
     <div id="join" className="component">
       <h1>Bli aktiv i linjeforeningen!</h1>
@@ -25,7 +27,7 @@ const Join = () => {
         familie du aldri vil glemme. Vi tilbyr utfordrende og spennende verv i et meget sosialt miljø med stor takhøyde.
       </p>
       <p>
-        Søknadsfrist for komiteopptak er søndag 25. august kl. 23:59. Les mer om de ulike komiteene og send inn din
+        Søknadsfrist for komiteopptak er {applicationDeadlineDisplay}. Les mer om de ulike komiteene og send inn din
         søknad på opptakssiden vår i lenken under.
       </p>
       <a href="https://opptak.online.ntnu.no/" target="_blank" rel="noopener noreferrer" className="goToGuac">

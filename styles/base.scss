@@ -6,12 +6,12 @@
 
 body {
   font-size: 16px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Source Sans Pro', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-weight: 300;
   line-height: 1.625;
 
-  background-color: $dark-blue;
-  color: #fff;
+  background-color: var(--primaryDarken45);
+  color: var(--white);
 }
 
 h1 {
@@ -21,11 +21,11 @@ h1 {
 }
 
 a {
-  color: #72afec;
+  color: var(--infoLighten45);
   text-decoration: none;
 
   &:hover {
-    color: #2f6397;
+    color: var(--info);
   }
 }
 
