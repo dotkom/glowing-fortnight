@@ -14,7 +14,7 @@ const Warning = () => {
       </p>
       <p>
         Om situasjonen tilsier at du trenger å snakke med noen umiddelbart kan du alltid ringe leder Mathias Fossum på
-        958 29 020 eller faddersjef Robin Lund Sadun på 90 77 55 81.
+        958 29 020 eller faddersjef Robin Lund Sadun på 90 77 55 81. Du kan også nå Thea på 976 82 139 og Sindre på 411 64 609
       </p>
       <a
         href="mailto:siifra@online.ntnu.no?subject=[Varslingssak]"
