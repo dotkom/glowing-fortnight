@@ -18,7 +18,7 @@ export const getStaticProps = async () => {
   const events = await getEvents();
   const applicationPeriod = await getAvailableApplicationPeriod();
   return {
-    unstable_revalidate: 60 * 60,
+    unstable_revalidate: 60 * 10,
     props: {
       events,
       applicationPeriod,
