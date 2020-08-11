@@ -22,7 +22,7 @@ const Warning = () => {
         rel="noopener noreferrer"
         className="mailToWarning"
       >
-        Send varsling
+        Ta kontakt her
       </a>
     </div>
   );

@@ -60,6 +60,10 @@
   }
 }
 
+.skipToWarning {
+  @extend .skipToCalendar;
+}
+
 @media screen and (max-width: 425px) {
   #about {
     padding-top: 135px;
