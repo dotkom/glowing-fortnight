@@ -35,6 +35,14 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           registry: registry.online.ntnu.no
           tag_names: true
+      - name: Execute deploy.sh script remotely
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: bash /srv/www/splash/deploy.sh
 #
 #      - name: Configure AWS Credentials
 #        uses: aws-actions/configure-aws-credentials@v1
