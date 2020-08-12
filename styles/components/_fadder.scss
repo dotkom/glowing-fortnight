@@ -55,3 +55,26 @@
     width: 100%;
   }
 }
+
+.skipToWarning {
+  color: var(--white);
+  font-size: 14px;
+  display: block;
+  width: 200px;
+
+  margin: 25px auto 0 auto;
+  padding-top: 12px;
+  padding-bottom: 12px;
+
+  border: 1px solid var(--primaryDarken45);
+  border-radius: 5px;
+
+  text-align: center;
+  font-weight: 400;
+  background-color: var(--primary);
+
+  &:hover {
+    border-color: var(--orange);
+    color: var(--orange);
+  }
+}
