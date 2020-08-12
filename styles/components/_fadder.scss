@@ -55,3 +55,22 @@
     width: 100%;
   }
 }
+
+.skipToCalendar {
+  color: var(--primary);
+  font-size: 14px;
+  display: block;
+  width: 200px;
+
+  margin: 25px auto 0 auto;
+  padding-top: 12px;
+  padding-bottom: 12px;
+
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+
+  &:hover {
+    border-color: var(--orange);
+    color: var(--orange);
+  }
+}

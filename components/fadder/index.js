@@ -16,6 +16,9 @@ const Fadder = () => {
             For praktisk info rundt fadderukene se{' '}
             <a href="https://online.ntnu.no/wiki/online/fadderukene/2020-/">her</a>
           </p>
+          <a href="#warning" className="skipToWarning">
+            Opplevd noe ugreit? Ta kontakt
+          </a>
         </div>
       </div>
     </div>

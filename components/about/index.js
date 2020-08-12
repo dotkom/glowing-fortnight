@@ -29,10 +29,6 @@ const About = () => {
       <a href="#calendar" className="skipToCalendar">
         Hopp til program
       </a>
-
-      <a href="#warning" className="skipToWarning">
-        Opplevd noe ugreit? Ta kontakt
-      </a>
     </header>
   );
 };
