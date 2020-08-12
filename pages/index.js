@@ -31,7 +31,7 @@ const App = ({ events, applicationPeriod }) => {
     <>
       <Head>
         <title>Fadderukene | Linjeforeningen Online</title>
-        <link rel="icon" href="/public/icons/favicon.ico" />
+        <link rel="icon" href="/icons/favicon.ico" />
       </Head>
       <div>
         <About />
