@@ -4,7 +4,7 @@
 }
 
 .mailToWarning {
-  color: var(--white);
+  color: var(--primary);
   font-size: 14px;
   display: block;
   width: 200px;
@@ -13,12 +13,12 @@
   padding-top: 12px;
   padding-bottom: 12px;
 
-  border: 1px solid black;
+  border: 3px solid var(--primaryDarken15);
   border-radius: 5px;
 
   text-align: center;
-  background-color: var(--primary);
-  font-weight: 400;
+  background-color: var(--white);
+  font-weight: 650;
 
   &:hover {
     border-color: var(--orange);
