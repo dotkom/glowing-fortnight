@@ -43,7 +43,7 @@ jobs:
           push: true
           tags: registry.online.ntnu.no:latest
           context: .
-          path: Dockerfile.prod
+          path: ./Dockerfile.prod
           
       - name: Execute deploy.sh script remotely
         uses: appleboy/ssh-action@master
