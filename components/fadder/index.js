@@ -14,7 +14,7 @@ const Fadder = () => {
           <p>Fadderukene starter den 10. august etter immatrikuleringen for både bachelor og master.</p>
           <p>
             For praktisk info rundt fadderukene se{' '}
-            <a href="https://online.ntnu.no/wiki/online/fadderukene/2020-/">her</a>
+            <a href="https://online.ntnu.no/wiki/online/fadderukene/2021-/">her</a>
           </p>
           <a href="#warning" className="skipToWarning">
             Opplevd noe ugreit? Ta kontakt
