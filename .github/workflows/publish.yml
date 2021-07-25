@@ -41,9 +41,8 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: registry.online.ntnu.no:latest
+          tags: registry.online.ntnu.no/splash:latest
           context: .
-          path: ./Dockerfile.prod
           
       - name: Execute deploy.sh script remotely
         uses: appleboy/ssh-action@master
