@@ -29,7 +29,7 @@ COPY --from=builder $WORKDIR/public ./public
 COPY --from=builder --chown=nextjs:nodejs $WORKDIR/.next ./.next
 COPY --from=builder $WORKDIR/node_modules ./node_modules
 COPY --from=builder $WORKDIR/package.json ./package.json
-
+USER nextjs
 EXPOSE 3000
 ENV NEXT_TELEMETRY_DISABLED=1
 
