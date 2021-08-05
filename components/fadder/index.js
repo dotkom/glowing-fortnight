@@ -9,7 +9,9 @@ const Fadder = () => {
           <p>
             I fadderukene skal du få bli kjent med både linjeforeningen, NTNU og mange medstudenter. Dette er den
             viktigste portalen for å stifte bekjentskaper som varer studietiden ut. Vi i Online anbefaler alle å ta del
-            i det supre fadderopplegget vårt!
+            i det supre fadderopplegget vårt! Du trenger ikke å melde deg på fadderukene, så lenge du kommer på
+            immatrikuleringen. Dersom du ikke har mulighet til å møte opp, kan du sende oss en mail så fikser vi deg en
+            faddergruppe.
           </p>
           <p>Fadderukene starter den 16. august etter immatrikuleringen for både bachelor og master.</p>
           <p>
