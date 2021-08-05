@@ -39,7 +39,7 @@ const App = ({ events, applicationPeriod }) => {
         <Calendar events={events} />
         <Join applicationDeadline={applicationPeriod.deadline} />
         <Slack />
-        {/*<Warning />*/}
+        <Warning />
         <Social />
         <Contact />
         <Partners />
