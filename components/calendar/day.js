@@ -1,9 +1,8 @@
 import React from 'react';
 import Event from './event';
-import moment from 'moment';
 
 const Day = ({ events, eventClickHandler, active }) => {
-  const DAY = moment(events[0].start_time).format('dddd DD. MMMM');
+  const DAY = Date.parse(events[0].start_time).toLocaleString("nb-no");
 
   return (
     <div className="cal-day">
