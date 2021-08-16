@@ -1,21 +1,26 @@
 import React from 'react';
+import Image from 'next/image';
+import bekk from 'public/images/partners/bekk_hvit.png';
+import accenture from 'public/images/partners/accenture_white.png';
+import twoS from 'public/images/partners/soprasteria_white.png';
+import netlight from 'public/images/partners/netlight_hvit.png';
 
 const Partners = () => {
   return (
     <footer id="partners">
       <div id="generalPartners">
         <a href="https://bekk.no/">
-          <img className="partner" src="/splash/images/partners/bekk_hvit.png" alt="" />
+          <Image className="partner" src={bekk} alt="" />
         </a>
         <a href="https://www.accenture.com/">
-          <img className="partner" src="/splash/images/partners/accenture_white.png" alt="" />
+          <Image className="partner" src={accenture} alt="" />
         </a>
       </div>
       <a href="https://www.soprasteria.no/">
-        <img className="partner" id="wide_logo" src="/splash/images/partners/soprasteria_white.png" alt="" />
+        <Image className="partner" id="wide_logo" src={twoS} alt="" />
       </a>
       <a href="https://www.netlight.com/">
-        <img className="partner" src="/splash/images/partners/netlight_hvit.png" alt="" />
+        <Image className="partner" src={netlight} alt="" />
       </a>
     </footer>
   );

@@ -1,154 +1,130 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Day from './day';
+import { useRouter } from 'next/router';
 
 let dayId = 0;
 
-function getActiveEvent(postDays, futureEvents, active) {
-  if (active < 0 && postDays.length > 0) {
-    return postDays[0].events[0].index;
-  } else if (active < 0 && futureEvents[0]) {
+function buildEvents(events, highlightIndex) {
+  const now = Date.now('nb-no');
+  const nextOrActiveEventIndex = events.findIndex((e) => new Date(e.end_time) > now);
+  if (nextOrActiveEventIndex === -1) {
+    return { pastDaysDisplay: [], futureDaysDisplay: []}
+  }
+  const pastEvents = events;
+  const futureEvents = pastEvents.splice(0, nextOrActiveEventIndex);
+  const uniqueDaysReducer = (days, nextEvent) => {
+    const nextEventStart = new Date(nextEvent.start_time);
+    const daysSoFar = Object.keys(days);
+    daysSoFar.sort((a, b) => a - b);
+    const latestDay = new Date(daysSoFar[daysSoFar.length]);
+    if (
+      days.length === 0 ||
+      !(
+        nextEventStart.getFullYear() === latestDay.getFullYear() &&
+        nextEventStart.getMonth() === latestDay.getMonth() &&
+        nextEventStart.getDate() === latestDay.getDate()
+      )
+    ) {
+      return { ...days, nextEventStart: [nextEvent] };
+    } else {
+      return { ...days, latestDay: [...days[latestDay], nextEvent] };
+    }
+  };
+  const pastDays = pastEvents.reduce(uniqueDaysReducer, {});
+  const futureDays = futureEvents.reduce(uniqueDaysReducer, {});
+
+  const pastDaysDisplay = Object.values(pastDays).map((events) => {
+    return {
+      active: highlightIndex,
+      events: events,
+      id: dayId++,
+    };
+  });
+  const futureDaysDisplay = Object.values(futureDays).map((events) => {
+    return {
+      active: highlightIndex,
+      events: events,
+      id: dayId++,
+    };
+  });
+
+  return {
+    pastDaysDisplay,
+    futureDaysDisplay,
+  };
+}
+function getHighlightedEvent(futureDays, futureEvents, hightlightIndex) {
+  if (hightlightIndex < 0 && futureDays.length > 0) {
+    return futureDays[0].events[0].index;
+  } else if (hightlightIndex < 0 && futureEvents[0]) {
     return futureEvents[0].index;
   }
 
-  return active;
+  return hightlightIndex;
 }
 
-class Calendar extends Component {
-  constructor(props) {
-    super(props);
+const Calendar = ({ events, error }) => {
+  const [preDaysSectionActive, setPreDaysSectionActive] = useState(false);
+  const [highlightedEventIdx, setHightlightedEvent] = useState(-1);
+  const router = useRouter();
 
-    this.state = {
-      active: -1,
-      preDaysSectionActive: false,
-    };
+  if (events.length === 0 && error === null) {
+    return <h2 className="component">Laster inn kalender</h2>;
   }
 
-  eventClickHandler(id) {
-    this.setState(Object.assign({}, this.state, { active: id }));
-    setTimeout(() => {
-      window.location = `#event-${id}`;
-    }, 0);
-  }
-
-  preDaysClickHandler() {
-    this.setState(Object.assign({}, this.state, { preDaysSectionActive: !this.state.preDaysSectionActive }));
-  }
-
-  partitionEvents(pastEvents, futureEvents, active) {
-    let preDay, postDay;
-
-    if (pastEvents.length) {
-      preDay = { events: pastEvents, active, id: dayId++ };
-    }
-    if (futureEvents.length) {
-      postDay = { events: futureEvents, active, id: dayId++ };
-    }
-
-    return { preDay, postDay };
-  }
-
-  buildEvents(events) {
-    let previousEventDate;
-
-    let pastEvents = [];
-    let futureEvents = [];
-
-    const preDays = [];
-    const postDays = [];
-
-    events.forEach((event, index) => {
-      event.index = index;
-      const currentEventStartDate = Date.parse(event.start_time);
-      const currentEventEndDate = Date.parse(event.end_time);
-
-      if (currentEventStartDate.isAfter(previousEventDate, 'day')) {
-        const active = getActiveEvent(postDays, futureEvents, this.state.active);
-        const { preDay, postDay } = this.partitionEvents(pastEvents, futureEvents, active);
-
-        if (preDay) {
-          preDays.push(preDay);
-        }
-        if (postDay) {
-          postDays.push(postDay);
-        }
-
-        pastEvents = [];
-        futureEvents = [];
-      }
-      if (currentEventEndDate.isAfter(Date.now())) {
-        futureEvents.push(event);
-      } else {
-        pastEvents.push(event);
-      }
-
-      previousEventDate = currentEventStartDate;
-    });
-
-    const active = getActiveEvent(postDays, futureEvents, this.state.active);
-    const { preDay, postDay } = this.partitionEvents(pastEvents, futureEvents, active);
-    if (preDay) {
-      preDays.push(preDay);
-    }
-    if (postDay) {
-      postDays.push(postDay);
-    }
-
-    return {
-      postDays,
-      preDays,
-    };
-  }
-
-  render() {
-    const { events, error } = this.props;
-
-    if (events.length === 0 && error === null) {
-      return <h2 className="component">Laster inn kalender</h2>;
-    }
-
-    if (error !== null) {
-      return (
-        <p className="component">En uventet feil har oppstått ved henting av program. Vennligst prøv igjen senere.</p>
-      );
-    }
-
-    const { postDays, preDays } = this.buildEvents(events);
-
+  if (error !== null) {
     return (
-      <div>
-        <div className="cal-timeline" />
-        {preDays.length > 0 && this.state.preDaysSectionActive ? (
-          <div className="cal-section--preDays">
-            {preDays.map((preDay) => (
-              <Day
-                key={preDay.id}
-                events={preDay.events}
-                active={preDay.active}
-                eventClickHandler={(id) => this.eventClickHandler(id)}
-              />
-            ))}
-          </div>
-        ) : (
-          ''
-        )}
-        {preDays.length > 0 ? (
-          <button className="cal-button--preDays" onClick={() => this.preDaysClickHandler()}>
-            {(this.state.preDaysSectionActive ? 'Skjul' : 'Vis') + ' tidligere arrangementer'}
-          </button>
-        ) : (
-          ''
-        )}
-        {postDays.map((postDay) => (
-          <Day
-            key={postDay.id}
-            events={postDay.events}
-            active={postDay.active}
-            eventClickHandler={(id) => this.eventClickHandler(id)}
-          />
-        ))}
-      </div>
+      <p className="component">En uventet feil har oppstått ved henting av program. Vennligst prøv igjen senere.</p>
     );
   }
-}
+
+  const { futureDaysDisplay: futureDays, pastDaysDisplay: pastDays } = buildEvents(events, highlightedEventIdx);
+
+  const newIdx = getHighlightedEvent(futureDays, futureDays.reduce((events, day) => events.concat(day.events), []), highlightedEventIdx);
+  if (newIdx !== highlightedEventIdx) {
+    setHightlightedEvent(newIdx)
+  }
+
+  return (
+    <div>
+      <div className="cal-timeline" />
+      {pastDays.length > 0 && preDaysSectionActive ? (
+        <div className="cal-section--preDays">
+          {pastDays.map((preDay) => (
+            <Day
+              key={preDay.id}
+              events={preDay.events}
+              active={preDay.active}
+              eventClickHandler={(id) => {
+                setHightlightedEvent(id);
+                router.push(`#event-${id}`);
+              }}
+            />
+          ))}
+        </div>
+      ) : (
+        ''
+      )}
+      {pastDays.length > 0 ? (
+        <button className="cal-button--preDays" onClick={() => setPreDaysSectionActive(!preDaysSectionActive)}>
+          {(preDaysSectionActive ? 'Skjul' : 'Vis') + ' tidligere arrangementer'}
+        </button>
+      ) : (
+        ''
+      )}
+      {futureDays.map((postDay) => (
+        <Day
+          key={postDay.id}
+          events={postDay.events}
+          active={postDay.active}
+          eventClickHandler={(id) => {
+            setHightlightedEvent(id);
+            router.push(`#event-${id}`);
+          }}
+        />
+      ))}
+    </div>
+  );
+};
 
 export default Calendar;
