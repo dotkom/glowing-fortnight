@@ -31,27 +31,29 @@
     ]
   },
   "devDependencies": {
-    "@babel/helper-call-delegate": "^7.10.1",
-    "@typescript-eslint/eslint-plugin": "^3.0.0",
-    "@typescript-eslint/parser": "^3.0.0",
+    "@babel/helper-call-delegate": "^7.12.13",
+    "@babel/runtime": "^7.15.3",
+    "@next/eslint-plugin-next": "^11.1.0",
+    "@typescript-eslint/eslint-plugin": "^3.10.1",
+    "@typescript-eslint/parser": "^3.10.1",
     "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2",
-    "eslint": "^7.0.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-prettier": "^3.1.3",
-    "eslint-plugin-react": "^7.20.0",
-    "jest": "^26.0.1",
-    "prettier": "^2.0.5",
-    "typescript": "^3.9.3"
+    "enzyme-adapter-react-16": "^1.15.6",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "jest": "^27.0.6",
+    "prettier": "^2.3.2",
+    "typescript": "^3.9.10"
   },
   "dependencies": {
-    "@dotkomonline/design-system": "^0.14.0",
+    "@dotkomonline/design-system": "^0.22.0",
     "isomorphic-fetch": "^2.2.1",
     "next": "11.1.0",
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "remarkable": "^2.0.1",
     "sass": "^1.37.5",
-    "styled-components": "^5.1.0"
+    "styled-components": "^5.3.0"
   }
 }

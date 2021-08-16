@@ -2,7 +2,9 @@ import React from 'react';
 import Event from './event';
 
 const Day = ({ events, eventClickHandler, active }) => {
-  const DAY = Date.parse(events[0].start_time).toLocaleString("nb-no");
+  const DAY = new Intl.DateTimeFormat('nb-no', { weekday: 'long', month: 'long', day: '2-digit' }).format(
+    new Date(events[0].start_time)
+  );
 
   return (
     <div className="cal-day">

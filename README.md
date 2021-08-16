@@ -1,23 +1,24 @@
 # "Glowing Fortnight"
+
 Splash-side for fadderuker.
 
-### Getting started
+## Getting started
 
 Install dependencies ...
 
-`yarn` or `make install`
+`yarn`
 
 Build the project ...
 
-`yarn build` or `make`
+`yarn build`
 
 Build the project and watch for changes, re-building on changes ...
 
-`yarn dev` or `make dev`
+`yarn dev`
 
 Runs tests ...
 
-`yarn test` or `make test`
+`yarn test`
 
 Watch files for changes and rerun tests related to changed files ...
 

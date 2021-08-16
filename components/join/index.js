@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Join = ({ applicationDeadline }) => {
-  const applicationDeadlineDisplay = Date.parse(applicationDeadline).toLocaleString("nb-no");
+  const applicationDeadlineDisplay = new Date(applicationDeadline).toLocaleString('nb-no');
   return (
     <div id="join" className="component">
       <h1>Bli aktiv i linjeforeningen!</h1>
