@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Day from './day';
-import moment from 'moment';
 
 let dayId = 0;
 
@@ -57,12 +56,10 @@ class Calendar extends Component {
     const preDays = [];
     const postDays = [];
 
-    const NOW = moment();
-
     events.forEach((event, index) => {
       event.index = index;
-      const currentEventStartDate = moment(event.start_time);
-      const currentEventEndDate = moment(event.end_time);
+      const currentEventStartDate = Date.parse(event.start_time);
+      const currentEventEndDate = Date.parse(event.end_time);
 
       if (currentEventStartDate.isAfter(previousEventDate, 'day')) {
         const active = getActiveEvent(postDays, futureEvents, this.state.active);
@@ -78,7 +75,7 @@ class Calendar extends Component {
         pastEvents = [];
         futureEvents = [];
       }
-      if (currentEventEndDate.isAfter(NOW)) {
+      if (currentEventEndDate.isAfter(Date.now())) {
         futureEvents.push(event);
       } else {
         pastEvents.push(event);

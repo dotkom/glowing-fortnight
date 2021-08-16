@@ -46,14 +46,12 @@
   },
   "dependencies": {
     "@dotkomonline/design-system": "^0.14.0",
-    "@zeit/next-sass": "^1.0.1",
     "isomorphic-fetch": "^2.2.1",
-    "moment": "^2.26.0",
-    "next": "v9.4.5-canary.38",
-    "node-sass": "^4.14.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "next": "11.1.0",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
     "remarkable": "^2.0.1",
+    "sass": "^1.37.5",
     "styled-components": "^5.1.0"
   }
 }

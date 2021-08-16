@@ -1,6 +1,5 @@
 import React from 'react';
 import { Remarkable } from 'remarkable';
-import moment from 'moment';
 
 const markdown = (text) => {
   const md = new Remarkable();
@@ -22,13 +21,13 @@ const Event = ({ title, start_time, end_time, content, eventClickHandler, index,
         }}
         className="cal-event-header"
       >
-        <p className="cal-event-date">{moment(start_time).format('HH:mm')}</p>
+        <p className="cal-event-date">{Date.parse(start_time).toLocaleString('no-nb')}</p>
         <h3 className="cal-event-title">{title}</h3>
       </div>
 
       <div className={`cal-event-content ${classes}`} dangerouslySetInnerHTML={markdown(content)} />
       <p className={`cal-event-content ${classes} cal-event-endtime`}>
-        Antatt sluttidspunkt: {moment(end_time).format('HH:mm')}
+        Antatt sluttidspunkt: {Date.parse(end_time).toLocaleString('no-nb')}
       </p>
     </div>
   );

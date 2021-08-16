@@ -1,8 +1,7 @@
-import moment from 'moment';
 import React from 'react';
 
 const Join = ({ applicationDeadline }) => {
-  const applicationDeadlineDisplay = moment(applicationDeadline).format('LLLL');
+  const applicationDeadlineDisplay = Date.parse(applicationDeadline).toLocaleString("nb-no");
   return (
     <div id="join" className="component">
       <h1>Bli aktiv i linjeforeningen!</h1>

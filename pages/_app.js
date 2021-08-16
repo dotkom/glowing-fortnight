@@ -1,12 +1,8 @@
 import '../styles/base.scss';
-import moment from 'moment';
-import 'moment/locale/nb';
 import 'isomorphic-fetch';
 
 import Head from 'next/head';
 import React from 'react';
-
-moment.locale('nb');
 
 const App = ({ Component, pageProps }) => {
   return (
