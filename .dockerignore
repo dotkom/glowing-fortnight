@@ -1,3 +1,17 @@
 .next/
 node_modules/
 Dockerfile.prod
+# exclude dot-files (.env, .git, ...)
+.*
+!.pnp.js
+!.yarnrc.yml
+!.yarn/plugins
+!.yarn/cache
+!.yarn/releases
+
+# logs
+logs
+*.log
+
+# build directory
+packages/app/build
