@@ -1,28 +1,30 @@
 #!/usr/bin/env node
 
-const {existsSync} = require(`fs`);
-const {createRequire, createRequireFromPath} = require(`module`);
-const {resolve} = require(`path`);
+const { existsSync } = require(`fs`);
+const { createRequire, createRequireFromPath } = require(`module`);
+const { resolve } = require(`path`);
 
-const relPnpApiPath = "../../../../.pnp.cjs";
+const relPnpApiPath = '../../../../.pnp.cjs';
 
 const absPnpApiPath = resolve(__dirname, relPnpApiPath);
 const absRequire = (createRequire || createRequireFromPath)(absPnpApiPath);
 
-const moduleWrapper = tsserver => {
+const moduleWrapper = (tsserver) => {
   if (!process.versions.pnp) {
     return tsserver;
   }
 
-  const {isAbsolute} = require(`path`);
+  const { isAbsolute } = require(`path`);
   const pnpApi = require(`pnpapi`);
 
-  const isVirtual = str => str.match(/\/(\$\$virtual|__virtual__)\//);
-  const normalize = str => str.replace(/\\/g, `/`).replace(/^\/?/, `/`);
+  const isVirtual = (str) => str.match(/\/(\$\$virtual|__virtual__)\//);
+  const normalize = (str) => str.replace(/\\/g, `/`).replace(/^\/?/, `/`);
 
-  const dependencyTreeRoots = new Set(pnpApi.getDependencyTreeRoots().map(locator => {
-    return `${locator.name}@${locator.reference}`;
-  }));
+  const dependencyTreeRoots = new Set(
+    pnpApi.getDependencyTreeRoots().map((locator) => {
+      return `${locator.name}@${locator.reference}`;
+    })
+  );
 
   // VSCode sends the zip paths to TS using the "zip://" prefix, that TS
   // doesn't understand. This layer makes sure to remove the protocol
@@ -60,29 +62,37 @@ const moduleWrapper = tsserver => {
           //
           // Ref: https://github.com/microsoft/vscode/issues/105014#issuecomment-686760910
           //
-          case `vscode`: {
-            str = `^zip:${str}`;
-          } break;
+          case `vscode`:
+            {
+              str = `^zip:${str}`;
+            }
+            break;
 
           // To make "go to definition" work,
           // We have to resolve the actual file system path from virtual path
           // and convert scheme to supported by [vim-rzip](https://github.com/lbrayner/vim-rzip)
-          case `coc-nvim`: {
-            str = normalize(resolved).replace(/\.zip\//, `.zip::`);
-            str = resolve(`zipfile:${str}`);
-          } break;
+          case `coc-nvim`:
+            {
+              str = normalize(resolved).replace(/\.zip\//, `.zip::`);
+              str = resolve(`zipfile:${str}`);
+            }
+            break;
 
           // Support neovim native LSP and [typescript-language-server](https://github.com/theia-ide/typescript-language-server)
           // We have to resolve the actual file system path from virtual path,
           // everything else is up to neovim
-          case `neovim`: {
-            str = normalize(resolved).replace(/\.zip\//, `.zip::`);
-            str = `zipfile:${str}`;
-          } break;
+          case `neovim`:
+            {
+              str = normalize(resolved).replace(/\.zip\//, `.zip::`);
+              str = `zipfile:${str}`;
+            }
+            break;
 
-          default: {
-            str = `zip:${str}`;
-          } break;
+          default:
+            {
+              str = `zip:${str}`;
+            }
+            break;
         }
       }
     }
@@ -91,9 +101,7 @@ const moduleWrapper = tsserver => {
   }
 
   function fromEditorPath(str) {
-    return process.platform === `win32`
-      ? str.replace(/^\^?zip:\//, ``)
-      : str.replace(/^\^?zip:/, ``);
+    return process.platform === `win32` ? str.replace(/^\^?zip:\//, ``) : str.replace(/^\^?zip:/, ``);
   }
 
   // Force enable 'allowLocalPluginLoads'
@@ -104,8 +112,8 @@ const moduleWrapper = tsserver => {
   // TypeScript already does local loads and if this code is running the user trusts the workspace
   // https://github.com/microsoft/vscode/issues/45856
   const ConfiguredProject = tsserver.server.ConfiguredProject;
-  const {enablePluginsWithOptions: originalEnablePluginsWithOptions} = ConfiguredProject.prototype;
-  ConfiguredProject.prototype.enablePluginsWithOptions = function() {
+  const { enablePluginsWithOptions: originalEnablePluginsWithOptions } = ConfiguredProject.prototype;
+  ConfiguredProject.prototype.enablePluginsWithOptions = function () {
     this.projectService.allowLocalPluginLoads = true;
     return originalEnablePluginsWithOptions.apply(this, arguments);
   };
@@ -115,12 +123,12 @@ const moduleWrapper = tsserver => {
   // like an absolute path of ours and normalize it.
 
   const Session = tsserver.server.Session;
-  const {onMessage: originalOnMessage, send: originalSend} = Session.prototype;
+  const { onMessage: originalOnMessage, send: originalSend } = Session.prototype;
   let hostInfo = `unknown`;
 
   Object.assign(Session.prototype, {
     onMessage(/** @type {string} */ message) {
-      const parsedMessage = JSON.parse(message)
+      const parsedMessage = JSON.parse(message);
 
       if (
         parsedMessage != null &&
@@ -131,16 +139,24 @@ const moduleWrapper = tsserver => {
         hostInfo = parsedMessage.arguments.hostInfo;
       }
 
-      return originalOnMessage.call(this, JSON.stringify(parsedMessage, (key, value) => {
-        return typeof value === `string` ? fromEditorPath(value) : value;
-      }));
+      return originalOnMessage.call(
+        this,
+        JSON.stringify(parsedMessage, (key, value) => {
+          return typeof value === `string` ? fromEditorPath(value) : value;
+        })
+      );
     },
 
     send(/** @type {any} */ msg) {
-      return originalSend.call(this, JSON.parse(JSON.stringify(msg, (key, value) => {
-        return typeof value === `string` ? toEditorPath(value) : value;
-      })));
-    }
+      return originalSend.call(
+        this,
+        JSON.parse(
+          JSON.stringify(msg, (key, value) => {
+            return typeof value === `string` ? toEditorPath(value) : value;
+          })
+        )
+      );
+    },
   });
 
   return tsserver;

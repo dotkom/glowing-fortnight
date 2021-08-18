@@ -1,6 +1,5 @@
 // @ts-check
 
-
 const isProd = process.env.NODE_ENV === 'production';
 
 /**
@@ -13,4 +12,4 @@ const nextConfig = {
   cssModules: false,
 };
 
-module.exports = nextConfig
+module.exports = nextConfig;
