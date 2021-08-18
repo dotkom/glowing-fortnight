@@ -80,6 +80,10 @@
   display: flex;
   cursor: pointer;
   color: var(--white);
+
+  &:hover {
+    color: var(--orange)
+  }
 }
 
 .cal-event-indicator {
