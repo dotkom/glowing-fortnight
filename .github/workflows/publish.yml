@@ -16,8 +16,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-        yarn set version berry
-        yarn install --immutable --immutable-cache --check-cache
+          yarn set version berry
+          yarn install --immutable --immutable-cache --check-cache
 
       - name: Check format (prettier)
         run: yarn format-check
