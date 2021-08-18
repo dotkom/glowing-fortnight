@@ -26,7 +26,6 @@ Array [
     
     
     <Day
-      active={0}
       eventClickHandler={[Function]}
       events={
         Array [
@@ -44,9 +43,9 @@ Sted: Kommer",
           },
         ]
       }
+      highlightIndex={0}
     />
     <Day
-      active={0}
       eventClickHandler={[Function]}
       events={
         Array [
@@ -60,9 +59,9 @@ Sted: Kommer",
           },
         ]
       }
+      highlightIndex={0}
     />
     <Day
-      active={0}
       eventClickHandler={[Function]}
       events={
         Array [
@@ -84,9 +83,9 @@ Sted: Kommer",
           },
         ]
       }
+      highlightIndex={0}
     />
     <Day
-      active={0}
       eventClickHandler={[Function]}
       events={
         Array [
@@ -108,9 +107,9 @@ Sted: Kommer",
           },
         ]
       }
+      highlightIndex={0}
     />
     <Day
-      active={0}
       eventClickHandler={[Function]}
       events={
         Array [
@@ -124,6 +123,7 @@ Sted: Kommer",
           },
         ]
       }
+      highlightIndex={0}
     />
   </div>,
 ]
@@ -143,23 +143,6 @@ Array [
       Vis tidligere arrangementer
     </button>
     <Day
-      active={1}
-      eventClickHandler={[Function]}
-      events={
-        Array [
-          Object {
-            "content": "Nå er det på tide å finne frem sin indre skatteplyndrer, for i dag er det skattejakt! Møt opp til anvist tid utenfor P15.",
-            "end_time": "2017-08-20T15:00:00Z",
-            "id": 76,
-            "index": 1,
-            "start_time": "2017-08-20T12:00:00Z",
-            "title": "Skattejakt",
-          },
-        ]
-      }
-    />
-    <Day
-      active={1}
       eventClickHandler={[Function]}
       events={
         Array [
@@ -167,7 +150,7 @@ Array [
             "content": "Blåmandag er et kjent fenomen for de fleste. Denne mandagen blir alt annet enn blå, for i dag er det duket for Hybel-Hybel!",
             "end_time": "2017-08-21T21:00:00Z",
             "id": 74,
-            "index": 2,
+            "index": 0,
             "start_time": "2017-08-21T15:00:00Z",
             "title": "Hybel til Hybel",
           },
@@ -175,15 +158,15 @@ Array [
             "content": "Etter konkurranserunden, er det etterfest på Cafè 3b.",
             "end_time": "2017-08-22T01:59:00Z",
             "id": 75,
-            "index": 3,
+            "index": 1,
             "start_time": "2017-08-21T21:00:00Z",
             "title": "Etterfest",
           },
         ]
       }
+      highlightIndex={0}
     />
     <Day
-      active={1}
       eventClickHandler={[Function]}
       events={
         Array [
@@ -191,7 +174,7 @@ Array [
             "content": "I dag er det duket for den legendariske Facebook-Festen! Faddergruppene står for faddervors før alle møtes på Nattergalen.",
             "end_time": "2017-08-22T21:59:00Z",
             "id": 72,
-            "index": 4,
+            "index": 2,
             "start_time": "2017-08-22T15:00:00Z",
             "title": "Facebook-Fest",
           },
@@ -199,15 +182,15 @@ Array [
             "content": "Alternativet til kveldens fest er en tur på kino, etterfulgt av felles middag. Perfekt mulighet for å bli kjent med medstudentene dine.",
             "end_time": "2017-08-22T21:30:00Z",
             "id": 73,
-            "index": 5,
+            "index": 3,
             "start_time": "2017-08-22T16:00:00Z",
             "title": "Kino og Middag",
           },
         ]
       }
+      highlightIndex={0}
     />
     <Day
-      active={1}
       eventClickHandler={[Function]}
       events={
         Array [
@@ -215,12 +198,13 @@ Array [
             "content": "I dag tar vi det rolig, og griller i høyskoleparken. Gratis mat = Studentens beste venn.",
             "end_time": "2017-08-23T15:00:00Z",
             "id": 69,
-            "index": 6,
+            "index": 4,
             "start_time": "2017-08-23T12:00:00Z",
             "title": "Grilling",
           },
         ]
       }
+      highlightIndex={0}
     />
   </div>,
 ]
@@ -256,7 +240,6 @@ Array [
       className="cal-section--preDays"
     >
       <Day
-        active={-1}
         eventClickHandler={[Function]}
         events={
           Array [
@@ -274,6 +257,23 @@ Sted: Kommer",
             },
           ]
         }
+        highlightIndex={0}
+      />
+      <Day
+        eventClickHandler={[Function]}
+        events={
+          Array [
+            Object {
+              "content": "Nå er det på tide å finne frem sin indre skatteplyndrer, for i dag er det skattejakt! Møt opp til anvist tid utenfor P15.",
+              "end_time": "2017-08-20T15:00:00Z",
+              "id": 76,
+              "index": 1,
+              "start_time": "2017-08-20T12:00:00Z",
+              "title": "Skattejakt",
+            },
+          ]
+        }
+        highlightIndex={0}
       />
     </div>
     <button
@@ -283,23 +283,6 @@ Sted: Kommer",
       Skjul tidligere arrangementer
     </button>
     <Day
-      active={1}
-      eventClickHandler={[Function]}
-      events={
-        Array [
-          Object {
-            "content": "Nå er det på tide å finne frem sin indre skatteplyndrer, for i dag er det skattejakt! Møt opp til anvist tid utenfor P15.",
-            "end_time": "2017-08-20T15:00:00Z",
-            "id": 76,
-            "index": 1,
-            "start_time": "2017-08-20T12:00:00Z",
-            "title": "Skattejakt",
-          },
-        ]
-      }
-    />
-    <Day
-      active={1}
       eventClickHandler={[Function]}
       events={
         Array [
@@ -307,7 +290,7 @@ Sted: Kommer",
             "content": "Blåmandag er et kjent fenomen for de fleste. Denne mandagen blir alt annet enn blå, for i dag er det duket for Hybel-Hybel!",
             "end_time": "2017-08-21T21:00:00Z",
             "id": 74,
-            "index": 2,
+            "index": 0,
             "start_time": "2017-08-21T15:00:00Z",
             "title": "Hybel til Hybel",
           },
@@ -315,15 +298,15 @@ Sted: Kommer",
             "content": "Etter konkurranserunden, er det etterfest på Cafè 3b.",
             "end_time": "2017-08-22T01:59:00Z",
             "id": 75,
-            "index": 3,
+            "index": 1,
             "start_time": "2017-08-21T21:00:00Z",
             "title": "Etterfest",
           },
         ]
       }
+      highlightIndex={0}
     />
     <Day
-      active={1}
       eventClickHandler={[Function]}
       events={
         Array [
@@ -331,7 +314,7 @@ Sted: Kommer",
             "content": "I dag er det duket for den legendariske Facebook-Festen! Faddergruppene står for faddervors før alle møtes på Nattergalen.",
             "end_time": "2017-08-22T21:59:00Z",
             "id": 72,
-            "index": 4,
+            "index": 2,
             "start_time": "2017-08-22T15:00:00Z",
             "title": "Facebook-Fest",
           },
@@ -339,15 +322,15 @@ Sted: Kommer",
             "content": "Alternativet til kveldens fest er en tur på kino, etterfulgt av felles middag. Perfekt mulighet for å bli kjent med medstudentene dine.",
             "end_time": "2017-08-22T21:30:00Z",
             "id": 73,
-            "index": 5,
+            "index": 3,
             "start_time": "2017-08-22T16:00:00Z",
             "title": "Kino og Middag",
           },
         ]
       }
+      highlightIndex={0}
     />
     <Day
-      active={1}
       eventClickHandler={[Function]}
       events={
         Array [
@@ -355,12 +338,13 @@ Sted: Kommer",
             "content": "I dag tar vi det rolig, og griller i høyskoleparken. Gratis mat = Studentens beste venn.",
             "end_time": "2017-08-23T15:00:00Z",
             "id": 69,
-            "index": 6,
+            "index": 4,
             "start_time": "2017-08-23T12:00:00Z",
             "title": "Grilling",
           },
         ]
       }
+      highlightIndex={0}
     />
   </div>,
 ]
