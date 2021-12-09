@@ -57,7 +57,7 @@
   "dependencies": {
     "@dotkomonline/design-system": "^0.22.0",
     "isomorphic-fetch": "^3.0.0",
-    "next": "11.1.0",
+    "next": "11.1.3",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "remarkable": "^2.0.1",
