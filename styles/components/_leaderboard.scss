@@ -1,0 +1,63 @@
+.podium {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+@mixin flex-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+@mixin pole {
+  display: flex;
+  background: var(--primaryLighten45);
+  position: relative;
+  top: 3px;
+  width: 80px;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: #ffffffad;
+}
+
+.bronze {
+  @include flex-display;
+
+  &::after {
+    @include pole;
+    content: '🥉';
+    height: 80px;
+  }
+}
+
+.silver {
+  @include flex-display;
+
+  &::after {
+    @include pole;
+    content: '🥈';
+    height: 100px;
+  }
+}
+
+.gold {
+  &::after {
+    @include pole;
+    content: '🥇';
+    height: 120px;
+  }
+}
+
+.runner-ups {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+
+  & p {
+    font-size: 20px;
+  }
+}

@@ -70,7 +70,7 @@ dist/
 .idea/
 
 ci/*-credentials.yml
-.yarn/*
+.yarn
 !.yarn/cache
 !.yarn/patches
 !.yarn/plugins
