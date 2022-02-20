@@ -2,7 +2,6 @@ import { google } from 'googleapis';
 
 async function handler(req, res) {
   const { name, message } = req.body;
-  console.log(name, message);
 
   const auth = new google.auth.GoogleAuth({
     credentials: {
