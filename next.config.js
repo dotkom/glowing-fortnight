@@ -6,9 +6,9 @@ const isProd = process.env.NODE_ENV === 'production';
  * @type {import('next').NextConfig}
  **/
 const nextConfig = {
-  assetPrefix: isProd ? '/splash' : '',
+  assetPrefix: isProd ? '' : '',
   trailingSlash: true,
-  basePath: '/splash',
+  basePath: '',
   cssModules: false,
 };
 
