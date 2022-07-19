@@ -3,7 +3,7 @@ import React from 'react';
 const About = () => {
   return (
     <header id="about" className="component">
-      <a href="/" id="about-mainPageButton">
+      <a href="https://online.ntnu.no/" id="about-mainPageButton">
         Gå til hovedsiden
       </a>
 
