@@ -13,10 +13,12 @@ const Fadder = () => {
             immatrikuleringen. Dersom du ikke har mulighet til å møte opp, kan du sende oss en mail så fikser vi deg en
             faddergruppe.
           </p>
-          <p>Fadderukene starter den 16. august etter immatrikuleringen for både bachelor og master.</p>
+          <p>Fadderukene starter den 15. august etter immatrikuleringen for både bachelor og master.</p>
           <p>
             For praktisk info rundt fadderukene se{' '}
-            <a href="https://online.ntnu.no/wiki/online/fadderukene/2021-/">her</a>
+            <a href="https://old.online.ntnu.no/wiki/online/fadderukene/2022-/" target="_blank" rel="noreferrer">
+              her
+            </a>
           </p>
           <a href="#warning" className="skipToWarning">
             Opplevd noe ugreit? Ta kontakt
