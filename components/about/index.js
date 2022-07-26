@@ -22,7 +22,7 @@ const About = () => {
       </p>
 
       <p>
-        Vi har samlet litt info for nye informatikere med spørsmål, ta en titt på{' '}
+        Vi har samlet litt info for nye informatikere. Ta en titt på{' '}
         <a href="https://online.ntnu.no/wiki/online/ny-paa-informatikk/" target="_blank" rel="noreferrer">
           wikien
         </a>{' '}
@@ -33,7 +33,7 @@ const About = () => {
         <a href="https://online.ntnu.no/events/1802" target="_blank" rel="noreferrer">
           her
         </a>{' '}
-        for viktig info om IT-ekskursjonen, OBS kort frist!{' '}
+        for viktig info om IT-ekskursjonen. OBS - kort frist!{' '}
       </p>
 
       <a href="#calendar" className="skipToCalendar">
