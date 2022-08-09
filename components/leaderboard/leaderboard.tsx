@@ -6,7 +6,6 @@ interface leaderboardProps {
 }
 
 const leaderboard: React.FC<leaderboardProps> = ({ showGroupNames, scores }) => {
-  console.log(scores[0]);
   const goldScore = showGroupNames ? scores[0][0] : scores[0] || 0;
   const silverScore = showGroupNames ? scores[1][0] : scores[1] || 0;
   const bronzeScore = showGroupNames ? scores[2][0] : scores[2] || 0;

@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { getEvents } from 'common/api/events';
 import { getLeaderboard } from 'common/api/leaderboard';
@@ -16,13 +16,12 @@ import Warning from '../components/warning';
 import { getAvailableApplicationPeriod } from '../common/api/committeeApplications';
 import Leaderboard from '../components/leaderboard';
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const events = await getEvents();
   const leaderboard = await getLeaderboard();
   const applicationPeriod = await getAvailableApplicationPeriod();
 
   return {
-    revalidate: 60 * 10,
     props: {
       events,
       applicationPeriod,
@@ -38,7 +37,7 @@ const App = ({ events, applicationPeriod, leaderboard }) => {
     <>
       <Head>
         <title>Fadderukene | Linjeforeningen Online</title>
-        <link rel="icon" href="/splash/icons/favicon.ico" />
+        <link rel="icon" href="/icons/favicon.ico" />
       </Head>
       <div>
         <About />
