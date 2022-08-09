@@ -5,9 +5,10 @@ const LeaderboardContainer = ({ data, groupNames }) => {
   return (
     <section id="leaderboard" className="component">
       <h1>Highscore</h1>
+
       <p>
         De forskjellige faddergruppene kan samle poeng gjennom fadderuken. Under finnes en oversikt over midlertidig
-        rangering:
+        rangering {!groupNames && '(i antall poeng)'}:
       </p>
       <Leaderboard scores={data} showGroupNames={groupNames} />
     </section>

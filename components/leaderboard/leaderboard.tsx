@@ -27,8 +27,8 @@ const leaderboard: React.FC<leaderboardProps> = ({ showGroupNames, scores }) => 
           {runnerUps.map((score, key) => {
             key = key + 3;
             return (
-              <p>
-                #{key}: {showGroupNames ? score[0] : score[1]}
+              <p key={key}>
+                #{key}: {showGroupNames ? score[0] : `${score} poeng`}
               </p>
             );
           })}
