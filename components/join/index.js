@@ -29,7 +29,7 @@ const Join = ({ applicationDeadline }) => {
         Søknadsfrist for komiteopptak er {applicationDeadlineDisplay}. Les mer om de ulike komiteene og send inn din
         søknad på opptakssiden vår i lenken under.
       </p>
-      <a href="https://forms.gle/anRH21N3LYPtqCDUA" target="_blank" rel="noopener noreferrer" className="goToGuac">
+      <a href="https://online.ntnu.no/applications" target="_blank" rel="noopener noreferrer" className="goToGuac">
         Gå til opptakssiden
       </a>
     </div>
