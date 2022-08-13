@@ -11,7 +11,7 @@ const Join = ({ applicationDeadline }) => {
       </p>
       <p>
         Er det noe du lurer på om linjeforeningen Online? En kjapp
-        innføring om dette kan du finne på{' '}
+        innføring i dette kan du finne på{' '}
         <a
           href="https://online.ntnu.no/wiki/online/info/sosialt-og-okonomisk/ditt-liv-som-onliner/"
           target="_blank"

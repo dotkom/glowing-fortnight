@@ -12,7 +12,7 @@ const Fadder = () => {
             i det supre fadderopplegget vårt! Du trenger ikke å melde deg på fadderukene, så lenge du kommer på
             immatrikuleringen. Dersom du ikke har mulighet til å møte opp, kan du sende oss en <a href="mailto: velkom@online.ntnu.no">mail</a> så ordner vi det for deg.
           </p>
-          <p>Fadderukene starter den 15. august både bachelor og master.</p>
+          <p>Fadderukene starter den 15. august for både bachelor og master.</p>
           <p>
             For praktisk info rundt fadderukene se{' '}
             <a href="https://old.online.ntnu.no/wiki/online/fadderukene/2022-/" target="_blank" rel="noreferrer">

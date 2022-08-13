@@ -5,7 +5,7 @@ const Warning = () => {
     <div id="warning" className="component">
       <h1>Har du opplevd noe ugreit?</h1>
       <p>
-        Online har et eget uavhengig organ for varslinssaker som kan hjelpe med alt. Vi ønsker at alle skal ha
+        Online har et eget uavhengig organ for varslingssaker som kan hjelpe med alt. Vi ønsker at alle skal ha
         det bra og føle seg trygge. Derfor håper vi at du tar kontakt dersom du har opplevd noe
         ubehagelig under fadderukene. Ser du at noen andre opplever noe ubehagelig er det viktig å huske på at du også har et ansvar for å
         si ifra. Vi tar imot alt, og om du er i tvil er det bare å sende oss en melding. Tar du kontakt med oss vil all
