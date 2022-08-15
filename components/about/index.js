@@ -7,7 +7,7 @@ const About = () => {
         Gå til hovedsiden
       </a>
 
-      <img className="about-header-logo" src="/splash/images/online_logo.svg" alt="" />
+      <img className="about-header-logo" src="/images/online_logo.svg" alt="" />
 
       <h1>
         Velkommen til Online, linjeforeningen for informatikkstudenter ved{' '}

@@ -2,6 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 
 import { getEvents } from 'common/api/events';
+import { getLeaderboard } from 'common/api/leaderboard';
 
 import About from '../components/about';
 import Fadder from '../components/fadder';
@@ -13,30 +14,36 @@ import Slack from '../components/slack';
 import Social from '../components/social';
 import Warning from '../components/warning';
 import { getAvailableApplicationPeriod } from '../common/api/committeeApplications';
+import Leaderboard from '../components/leaderboard';
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const events = await getEvents();
+  const leaderboard = await getLeaderboard();
   const applicationPeriod = await getAvailableApplicationPeriod();
+
   return {
-    revalidate: 60 * 10,
     props: {
       events,
       applicationPeriod,
+      leaderboard,
     },
   };
 };
 
-const App = ({ events, applicationPeriod }) => {
+const App = ({ events, applicationPeriod, leaderboard }) => {
+  const { active, groupNames, data } = leaderboard;
+
   return (
     <>
       <Head>
         <title>Fadderukene | Linjeforeningen Online</title>
-        <link rel="icon" href="/splash/icons/favicon.ico" />
+        <link rel="icon" href="/icons/favicon.ico" />
       </Head>
       <div>
         <About />
         <Fadder />
         <Calendar events={events} />
+        {active && <Leaderboard data={data} groupNames={groupNames} />}
         <Join applicationDeadline={applicationPeriod.deadline} />
         <Slack />
         <Warning />
