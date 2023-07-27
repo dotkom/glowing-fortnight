@@ -7,16 +7,16 @@ const Partners = () => {
         <a href="https://bekk.no/" target="_blank" rel="noreferrer">
           <img className="partner" src="/images/partners/bekk_hvit.png" alt="" />
         </a>
-        <a href="https://www.accenture.com/" target="_blank" rel="noreferrer">
-          <img className="partner" src="/images/partners/accenture_white.png" alt="" />
+        <a href="https://twoday.no/" target="_blank" rel="noreferrer">
+          <img className="partner" src="/images/partners/twoday_white.png" alt="" />
         </a>
       </div>
       <a href="https://www.soprasteria.no/" target="_blank" rel="noreferrer">
         <img className="partner" id="wide_logo" src="/images/partners/soprasteria_white.png" alt="" />
       </a>
-      {/* <a href="https://www.knowit.no/" target="_blank" rel="noreferrer">
+      <a href="https://www.knowit.no/" target="_blank" rel="noreferrer">
         <img className="partner" src="/images/partners/knowit_white.png" alt="" />
-      </a> */}
+      </a>
     </footer>
   );
 };
