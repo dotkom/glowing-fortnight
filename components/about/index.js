@@ -30,7 +30,7 @@ const About = () => {
       </p>
       <p>
         Ny på master? Se{' '}
-        <a href="https://online.ntnu.no/events/1802" target="_blank" rel="noreferrer">
+        <a href="https://online.ntnu.no/events/2089" target="_blank" rel="noreferrer">
           her
         </a>{' '}
         for viktig info om IT-ekskursjonen. OBS - kort frist!{' '}
