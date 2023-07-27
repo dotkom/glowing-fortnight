@@ -18,21 +18,19 @@ import Leaderboard from '../components/leaderboard';
 
 export const getServerSideProps = async () => {
   const events = await getEvents();
-  // const leaderboard = await getLeaderboard();
+  const leaderboard = await getLeaderboard();
   const applicationPeriod = await getAvailableApplicationPeriod();
 
   return {
     props: {
       events,
       applicationPeriod,
-      // leaderboard,
+      leaderboard,
     },
   };
 };
 
-const App = ({ events, applicationPeriod }) => {
-  // const { active, groupNames, data } = leaderboard;
-
+const App = ({ events, applicationPeriod, leaderboard }) => {
   return (
     <>
       <Head>
@@ -43,7 +41,9 @@ const App = ({ events, applicationPeriod }) => {
         <About />
         <Fadder />
         <Calendar events={events} />
-        {/* {active && <Leaderboard data={data} groupNames={groupNames} />} */}
+        {leaderboard && leaderboard.active && (
+          <Leaderboard data={leaderboard.data} groupNames={leaderboard.groupNames} />
+        )}
         <Join applicationDeadline={applicationPeriod.deadline} />
         <Slack />
         <Warning />
