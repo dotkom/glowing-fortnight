@@ -36,14 +36,12 @@ const About = () => {
         for viktig info om IT-ekskursjonen. OBS - kort frist!{' '}
       </p>
       {/* Temporary message added in relation to the extreme weather during the summer of 2023 */}
-      <p>
-        <h4>
-          NB! Vi er klare over at ekstremværet Hans har gjort det vanskelig for mange å komme seg til Trondheim, men
-          ikke bekymre dere! Det ordner seg uansett, og dere vil ikke miste noen muligheter hos oss. Dersom du har noen
-          spørsmål, ikke nøl med å kontakte oss på <a href="mailto:kontakt@online.ntnu.no">kontakt@online.ntnu.no</a>.
-          Vi ses!
-        </h4>
-      </p>
+      <h3>
+        NB! Vi er klare over at ekstremværet Hans har gjort det vanskelig for mange å komme seg til Trondheim, men ikke
+        bekymre dere! Det ordner seg uansett, og dere vil ikke miste noen muligheter hos oss. Dersom du har noen
+        spørsmål, ikke nøl med å kontakte oss på <a href="mailto:kontakt@online.ntnu.no">kontakt@online.ntnu.no</a>. Vi
+        ses!
+      </h3>
 
       <a href="#calendar" className="skipToCalendar">
         Hopp til program
