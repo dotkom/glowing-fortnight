@@ -37,10 +37,10 @@ const About = () => {
       </p>
       {/* Temporary message added in relation to the extreme weather during the summer of 2023 */}
       <h2>
-        NB! Vi er klare over at ekstremværet Hans har gjort det vanskelig for mange å komme seg til Trondheim, men ikke
-        bekymre dere! Det ordner seg uansett, og dere vil ikke miste noen muligheter hos oss. Dersom du har noen
-        spørsmål, ikke nøl med å kontakte oss på <a href="mailto:kontakt@online.ntnu.no">kontakt@online.ntnu.no</a>. Vi
-        ses!
+        <div style={'font-weight: bold; display: inline'}>NB!</div> Vi er klar over at ekstremværet Hans har gjort det
+        vanskelig for mange å komme seg til Trondheim, men ikke bekymre dere! Det ordner seg uansett, og dere vil ikke
+        miste noen muligheter hos oss. Dersom du har noen spørsmål, ikke nøl med å kontakte oss på{' '}
+        <a href="mailto:kontakt@online.ntnu.no">kontakt@online.ntnu.no</a>. Vi ses!
       </h2>
 
       <a href="#calendar" className="skipToCalendar">
