@@ -12,7 +12,6 @@ const Warning = () => {
         informasjon behandles strengt konfidensielt. Vi kan bistå med alt fra en uformell prat til å hjelpe deg med å
         oppsøke profesjonell hjelp eller rådgivning.
       </p>
-      <p>Om situasjonen tilsier at du trenger å snakke med noen umiddelbart kan du alltid ringe oss på <a href="tel: +4795203046">952 03 046.</a></p>
       <a
         href="https://docs.google.com/forms/d/e/1FAIpQLScvjEqVsiRIYnVqCNqbH_-nmYk3Ux6la8a7KZzsY3sJDbW-iA/viewform?usp=sf_link"
         target="_blank"
