@@ -5,7 +5,7 @@ const Partners = () => {
     <footer id="partners">
       <div id="generalPartners">
         <a href="https://bekk.no/" target="_blank" rel="noreferrer">
-          <img className="partner" src="/images/partners/bekk_hvit.png" alt="" />
+          <img className="partner" src="/images/partners/bekk_hvit.png" alt="" style={{zoom: "150%", margin: 0}} />
         </a>
         <a href="https://twoday.no/" target="_blank" rel="noreferrer">
           <img className="partner" src="/images/partners/twoday_white.png" alt="" />
