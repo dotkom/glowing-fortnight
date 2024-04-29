@@ -1,7 +1,6 @@
 import React from 'react';
 
-const Join = ({ applicationDeadline }) => {
-  const applicationDeadlineDisplay = new Date(applicationDeadline).toLocaleString('nb-no').slice(0, -3);
+const Join = () => {
   return (
     <div id="join" className="component">
       <h1>Bli aktiv i linjeforeningen!</h1>
@@ -26,7 +25,7 @@ const Join = ({ applicationDeadline }) => {
         familie du aldri vil glemme. Vi tilbyr utfordrende og spennende verv i et meget sosialt miljø med stor takhøyde.
       </p>
       <p>
-        Søknadsfrist for komiteopptak er {applicationDeadlineDisplay}. Les mer om de ulike komiteene og send inn din
+      {/*Søknadsfrist for komiteopptak er .... */}Les mer om de ulike komiteene og send inn din
         søknad på opptakssiden vår i lenken under.
       </p>
       <a href="https://online.ntnu.no/applications" target="_blank" rel="noopener noreferrer" className="goToGuac">

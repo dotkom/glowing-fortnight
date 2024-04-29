@@ -13,24 +13,21 @@ import Contact from '../components/contact';
 import Slack from '../components/slack';
 import Social from '../components/social';
 import Warning from '../components/warning';
-import { getAvailableApplicationPeriod } from '../common/api/committeeApplications';
 import Leaderboard from '../components/leaderboard';
 
 export const getServerSideProps = async () => {
   const events = await getEvents();
   const leaderboard = await getLeaderboard();
-  const applicationPeriod = await getAvailableApplicationPeriod();
 
   return {
     props: {
       events,
-      applicationPeriod,
       leaderboard,
     },
   };
 };
 
-const App = ({ events, applicationPeriod, leaderboard }) => {
+const App = ({ events, leaderboard }) => {
   return (
     <>
       <Head>
@@ -44,7 +41,7 @@ const App = ({ events, applicationPeriod, leaderboard }) => {
         {leaderboard && leaderboard.active && (
           <Leaderboard data={leaderboard.data} groupNames={leaderboard.groupNames} />
         )}
-        <Join applicationDeadline={applicationPeriod.deadline} />
+        <Join />
         <Slack />
         <Warning />
         <Social />
