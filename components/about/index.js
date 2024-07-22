@@ -7,14 +7,14 @@ const About = () => {
         Gå til hovedsiden
       </a>
 
-      <img className="about-header-logo" src="/images/online_logo.svg" alt="" />
+      <img className="about-header-logo" src="/images/2024-header.png" width={800} alt="" />
 
       <h1>
         Velkommen til Online, linjeforeningen for informatikkstudenter ved{' '}
         <a href="https://ntnu.no/" target="_blank" rel="noreferrer">
           NTNU
         </a>
-        .
+        !
       </h1>
       <p className="about-description">
         Det er vi som sørger for at studietiden blir den beste tiden i ditt liv! Vi i Online arrangerer utflukter,
@@ -30,10 +30,9 @@ const About = () => {
       </p>
       <p>
         Ny på master? Se{' '}
-        <a href="https://online.ntnu.no/events/2089" target="_blank" rel="noreferrer">
-          her
-        </a>{' '}
-        for viktig info om IT-ekskursjonen. OBS - kort frist!{' '}
+        <a href="https://online.ntnu.no/events/2265" target="_blank" rel="noreferrer">
+          viktig info om IT-ekskursjonen
+        </a>. OBS - kort frist!
       </p>
       {/* Temporary message added in relation to the extreme weather during the summer of 2023 */}
 

@@ -5,18 +5,12 @@ const Partners = () => {
     <footer id="partners">
       <div id="generalPartners">
         <a href="https://bekk.no/" target="_blank" rel="noreferrer">
-          <img className="partner" src="/images/partners/bekk_hvit.png" alt="" style={{zoom: "150%", margin: 0}} />
+          <img className="partner" src="/images/partners/bekk_hvit.png" alt="Bekk logo" style={{zoom: "120%", margin: 0}} />
         </a>
-        <a href="https://twoday.no/" target="_blank" rel="noreferrer">
-          <img className="partner" src="/images/partners/twoday_white.png" alt="" />
+        <a href="https://www.tripletex.no/" target="_blank" rel="noreferrer">
+          <img className="partner" src="/images/partners/tripletex_hvit.png" alt="Tripletex logo" />
         </a>
       </div>
-      <a href="https://www.soprasteria.no/" target="_blank" rel="noreferrer">
-        <img className="partner" id="wide_logo" src="/images/partners/soprasteria_white.png" alt="" />
-      </a>
-      <a href="https://www.knowit.no/" target="_blank" rel="noreferrer">
-        <img className="partner" src="/images/partners/knowit_white.png" alt="" />
-      </a>
     </footer>
   );
 };

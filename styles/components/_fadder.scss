@@ -22,6 +22,10 @@
   width: 70%;
 }
 
+.fadder-description a {
+    color: var(--info)
+}
+
 .fadder-imageColumn {
   width: 30%;
   padding: 30px;
@@ -57,7 +61,7 @@
 }
 
 .skipToWarning {
-  color: var(--white);
+  color: var(--white) !important;
   font-size: 14px;
   display: block;
   width: 200px;
