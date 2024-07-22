@@ -47,7 +47,7 @@ const buildEvents = (
   let futureEvents: Event[];
   let pastEvents: Event[];
 
-  const nextOrActiveEventIdx = events.findIndex((e) => now < new Date(e.end_time));
+  const nextOrActiveEventIdx = events.findIndex((e) => now.toISOString().split("T", 1)[0] <= new Date(e.end_time).toISOString().split("T", 1)[0]);
   if (nextOrActiveEventIdx !== -1) {
     futureEvents = events.slice(nextOrActiveEventIdx);
     pastEvents = events.slice(0, nextOrActiveEventIdx);
