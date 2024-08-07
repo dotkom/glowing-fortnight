@@ -79,34 +79,9 @@ class Slack extends React.Component {
           <a href="https://slack.com" target="_blank" rel="noopener noreferrer">
             Slack
           </a>
-          . Dersom du ikke har fått stud.ntnu.no-eposten din enda kan du be om en invitasjon til din private
-          e-postadresse. Du vil da motta en link for å koble til slack-teamet vårt.
         </p>
-
-        <label id="slack-email-label">E-post</label>
-        <div id="slack-inputgroup">
-          <input
-            type="text"
-            id="slack-email-inputfield"
-            value={this.state.email}
-            placeholder="Skriv inn din e-postadresse..."
-            onChange={(e) => this.handleChange(e)}
-            onKeyPress={(e) => this.handleKeyPress(e)}
-          />
-          <button
-            id="slack-submit-button"
-            onClick={() => this.requestInvitationEmail()}
-            disabled={this.state.triggered}
-          >
-            Send
-          </button>
-        </div>
-
-        <p id="slack-success">{this.state.success}</p>
-        <p id="slack-error">{this.state.error}</p>
-
         <p>
-          Har du allerede en stud.ntnu.no-epost kan du registrere deg direkte på
+          Bruk din stud.ntnu.no-epost og registrer deg på
           <a href="https://onlinentnu.slack.com" target="_blank" rel="noopener noreferrer">
             {' '}
             onlinentnu.slack.com
