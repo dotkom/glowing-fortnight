@@ -28,7 +28,7 @@ const Join = () => {
       {/*Søknadsfrist for komiteopptak er .... */}Les mer om de ulike komiteene og send inn din
         søknad på opptakssiden vår i lenken under.
       </p>
-      <a href="https://online.ntnu.no/applications" target="_blank" rel="noopener noreferrer" className="goToGuac">
+      <a href="https://opptak.online.ntnu.no" target="_blank" rel="noopener noreferrer" className="goToGuac">
         Gå til opptakssiden
       </a>
     </div>

@@ -50,10 +50,10 @@
 .skipToCalendar {
   color: var(--white);
   font-size: 14px;
-  display: block;
+  display: inline-block;
+  margin: 10px;
   width: 200px;
 
-  margin: 20px auto 0 auto;
   padding-top: 12px;
   padding-bottom: 12px;
 

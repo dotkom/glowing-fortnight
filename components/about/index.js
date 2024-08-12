@@ -36,9 +36,14 @@ const About = () => {
       </p>
       {/* Temporary message added in relation to the extreme weather during the summer of 2023 */}
 
-      <a href="#calendar" className="skipToCalendar">
-        Hopp til program
-      </a>
+      <div>
+        <a href="#calendar" className="skipToCalendar">
+            Hopp til program
+        </a>
+        <a href="https://opptak.online.ntnu.no" target="_blank" rel="noopener noreferrer" className="goToGuac">
+            Bli aktiv
+        </a>
+    </div>
     </header>
   );
 };
