@@ -41,7 +41,7 @@ const About = () => {
             Hopp til program
         </a>
         <a href="https://opptak.online.ntnu.no" target="_blank" rel="noopener noreferrer" className="goToGuac">
-            Bli aktiv
+            Søk komité
         </a>
     </div>
     </header>
